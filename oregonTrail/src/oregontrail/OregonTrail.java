@@ -10,7 +10,7 @@ import byui.cit260.oregonTrail.model.Player;
 
 /**
  *
- * @author BradS
+ * @author J.R. Basham, Jason Quibilan, Brett Starks
  */
 public class OregonTrail {
 
@@ -19,6 +19,8 @@ public class OregonTrail {
      */
     public static void main(String[] args) {
        
+        
+//        Testing our Player class
         Player playerOne = new Player();
         
         playerOne.setName("Jason");
@@ -31,6 +33,8 @@ public class OregonTrail {
         
         System.out.println(playerOne.toString());
         
+        
+//        Testing our Enum Item
         String ammoName = Item.Ammo.getName();
         String ammoDescription = Item.Ammo.getDescription();
         int ammoWeight = Item.Ammo.getWeight();

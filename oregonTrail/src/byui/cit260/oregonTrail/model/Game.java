@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author jgqui
+ * @author J.R. Basham, Jason Quibilan, Brett Starks
  */
 public class Game implements Serializable {
     

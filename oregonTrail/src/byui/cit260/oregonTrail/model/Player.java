@@ -10,7 +10,7 @@ import java.util.Objects;
 import java.util.ArrayList;
 /**
  *
- * @author jgqui
+ * @author J.R. Basham, Jason Quibilan, Brett Starks
  */
 public class Player implements Serializable{
     
