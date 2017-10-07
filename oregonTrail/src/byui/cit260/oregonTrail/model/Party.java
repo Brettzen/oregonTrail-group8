@@ -44,16 +44,16 @@ public class Party implements Serializable{
         return charactersInParty;
     }
 
-    public void setCharactersInParty(ArrayList<Character> charactersInParty) {
-        this.charactersInParty = charactersInParty;
+    public void addCharacter(Character newCharacter) {
+        charactersInParty.add(newCharacter);
     }
 
     public ArrayList<Item> getPartyInventory() {
         return partyInventory;
     }
 
-    public void setPartyInventory(ArrayList<Item> partyInventory) {
-        this.partyInventory = partyInventory;
+    public void addItem(Item newItem) {
+        partyInventory.add(newItem);
     }
 
     public String getCurrentPace() {
@@ -88,32 +88,15 @@ public class Party implements Serializable{
         this.holdableAmount = holdableAmount;
     }
 
-    public Player getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
-    public Array[][] getCurrentLocation() {
-        return currentLocation;
-    }
-
-    public void setCurrentLocation(Array[][] currentLocation) {
-        this.currentLocation = currentLocation;
-    }
-
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 47 * hash + Objects.hashCode(this.charactersInParty);
-        hash = 47 * hash + Objects.hashCode(this.partyInventory);
-        hash = 47 * hash + Objects.hashCode(this.currentPace);
-        hash = 47 * hash + this.currentMoney;
-        hash = 47 * hash + (this.brokenWagon ? 1 : 0);
-        hash = 47 * hash + this.holdableAmount;
-        hash = 47 * hash + Objects.hashCode(this.player);
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.charactersInParty);
+        hash = 79 * hash + Objects.hashCode(this.partyInventory);
+        hash = 79 * hash + Objects.hashCode(this.currentPace);
+        hash = 79 * hash + this.currentMoney;
+        hash = 79 * hash + (this.brokenWagon ? 1 : 0);
+        hash = 79 * hash + this.holdableAmount;
         return hash;
     }
 
@@ -147,17 +130,15 @@ public class Party implements Serializable{
         if (!Objects.equals(this.partyInventory, other.partyInventory)) {
             return false;
         }
-        if (!Objects.equals(this.player, other.player)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Party{" + "charactersInParty=" + charactersInParty + ", partyInventory=" + partyInventory + ", currentPace=" + currentPace + ", currentMoney=" + currentMoney + ", brokenWagon=" + brokenWagon + ", holdableAmount=" + holdableAmount + ", player=" + player + '}';
+        return "Party{" + "charactersInParty=" + charactersInParty + ", partyInventory=" + partyInventory + ", currentPace=" + currentPace + ", currentMoney=" + currentMoney + ", brokenWagon=" + brokenWagon + ", holdableAmount=" + holdableAmount + '}';
     }
 
+    
     
     
     

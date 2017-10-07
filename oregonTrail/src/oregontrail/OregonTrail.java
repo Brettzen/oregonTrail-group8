@@ -15,6 +15,8 @@ import byui.cit260.oregonTrail.model.HuntingScene;
 import byui.cit260.oregonTrail.model.RiverScene;
 import byui.cit260.oregonTrail.model.StoreScene;
 import byui.cit260.oregonTrail.model.TownScene;
+import byui.cit260.oregonTrail.model.Character;
+import byui.cit260.oregonTrail.model.Party;
 
 
 /**
@@ -51,7 +53,7 @@ public class OregonTrail {
         System.out.println(Item.Ammo.toString());
         
   
-        //        Testing DailyTrailScene
+//                Testing DailyTrailScene
         DailyTrailScene newTrail = new DailyTrailScene ();
         newTrail.setCurrentPlantPresence(true);
         newTrail.setCurrentAnimalPresence(false);
@@ -94,6 +96,51 @@ public class OregonTrail {
         //        Testing GatheringScene
         GatheringScene newGat = new GatheringScene ();
         System.out.println(newGat.toString());
+        
+        //        Testing Character
+        Character charOne = new Character();
+        Character charTwo = new Character();
+        
+        charOne.setName("Montie");
+        charOne.setDescription("A burly mountain man who has been hunting since the day he grew his first moustache: his third birthday.");
+        charOne.setCurrentHealth(100);
+        charOne.setMaxHealth(100);
+        charOne.setStamina(8);
+        charOne.setStatus("Healthy");
+        charOne.setSkill("Hunter");
+        charOne.setStartingCurrency(100);
+        
+        charTwo.setName("Lucas");
+        charTwo.setDescription("A happy accountant with a mild stutter");
+        charTwo.setCurrentHealth(100);
+        charTwo.setMaxHealth(100);
+        charTwo.setStamina(5);
+        charTwo.setStatus("Healthy");
+        charTwo.setSkill("Accountant");
+        charTwo.setStartingCurrency(10000);
+        
+        System.out.println(charOne.toString());
+        
+        
+        
+        
+        //        Testing Party
+        Party party = new Party();
+        
+        party.addCharacter(charOne);
+        party.addCharacter(charTwo);
+        
+        party.addItem(Item.Ammo);
+        party.addItem(Item.WagonSmall);
+        party.addItem(Item.Ammo);
+        
+        party.setCurrentMoney(
+                playerOne.getStartingCurrency() +
+                charOne.getStartingCurrency() + 
+                charTwo.getStartingCurrency()
+        );
+        
+        System.out.println(party.toString());
     }
     
 }

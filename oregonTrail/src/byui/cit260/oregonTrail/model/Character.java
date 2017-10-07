@@ -107,35 +107,17 @@ public class Character implements Serializable {
         this.startingCurrency = startingCurrency;
     }
 
-    public Party getParty() {
-        return party;
-    }
-
-    public void setParty(Party party) {
-        this.party = party;
-    }
-
-    public ArrayList<Player> getPlayers() {
-        return players;
-    }
-
-    public void setPlayers(ArrayList<Player> players) {
-        this.players = players;
-    }
-
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 71 * hash + Objects.hashCode(this.name);
-        hash = 71 * hash + Objects.hashCode(this.description);
-        hash = 71 * hash + Objects.hashCode(this.skill);
-        hash = 71 * hash + Objects.hashCode(this.status);
-        hash = 71 * hash + this.currentHealth;
-        hash = 71 * hash + this.maxHealth;
-        hash = 71 * hash + this.stamina;
-        hash = 71 * hash + this.startingCurrency;
-        hash = 71 * hash + Objects.hashCode(this.party);
-        hash = 71 * hash + Objects.hashCode(this.players);
+        hash = 89 * hash + Objects.hashCode(this.name);
+        hash = 89 * hash + Objects.hashCode(this.description);
+        hash = 89 * hash + Objects.hashCode(this.skill);
+        hash = 89 * hash + Objects.hashCode(this.status);
+        hash = 89 * hash + this.currentHealth;
+        hash = 89 * hash + this.maxHealth;
+        hash = 89 * hash + this.stamina;
+        hash = 89 * hash + this.startingCurrency;
         return hash;
     }
 
@@ -175,21 +157,13 @@ public class Character implements Serializable {
         if (!Objects.equals(this.status, other.status)) {
             return false;
         }
-        if (!Objects.equals(this.party, other.party)) {
-            return false;
-        }
-        if (!Objects.equals(this.players, other.players)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Character{" + "name=" + name + ", description=" + description + ", skill=" + skill + ", status=" + status + ", currentHealth=" + currentHealth + ", maxHealth=" + maxHealth + ", stamina=" + stamina + ", startingCurrency=" + startingCurrency + ", party=" + party + ", players=" + players + '}';
+        return "Character{" + "name=" + name + ", description=" + description + ", skill=" + skill + ", status=" + status + ", currentHealth=" + currentHealth + ", maxHealth=" + maxHealth + ", stamina=" + stamina + ", startingCurrency=" + startingCurrency + '}';
     }
-    
-    
     
     
 }
