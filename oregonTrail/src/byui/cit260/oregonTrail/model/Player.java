@@ -19,6 +19,7 @@ public class Player implements Serializable{
     private String skill;
     private int startingCurrency = 0;
     private ArrayList<Game> games = new ArrayList<Game>();
+    private Party party;
 
     public Player() {
     }
@@ -57,6 +58,16 @@ public class Player implements Serializable{
     public void setGames(ArrayList<Game> games) {
         this.games = games;
     }
+
+    public Party getParty() {
+        return party;
+    }
+
+    public void setParty(Party party) {
+        this.party = party;
+    }
+    
+    
 
     @Override
     public int hashCode() {
