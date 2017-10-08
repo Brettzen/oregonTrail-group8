@@ -22,41 +22,42 @@ import java.util.Objects;
  *
  * @author jgqui
  */
-public class Location implements Serializable {
-    private int row;
-    private int column;
-    private int distanceToOregon;                
+public class Map implements Serializable {
+    
+    private String description;
+    private int currentRow;
+    private int currentColumn;
 
-    public int getRow() {
-        return row;
+    public String getDescription() {
+        return description;
     }
 
-    public void setRow(int row) {
-        this.row = row;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public int getColumn() {
-        return column;
+    public int getCurrentRow() {
+        return currentRow;
     }
 
-    public void setColumn(int column) {
-        this.column = column;
+    public void setCurrentRow(int currentRow) {
+        this.currentRow = currentRow;
     }
 
-    public int getDistanceToOregon() {
-        return distanceToOregon;
+    public int getCurrentColumn() {
+        return currentColumn;
     }
 
-    public void setDistanceToOregon(int distanceToOregon) {
-        this.distanceToOregon = distanceToOregon;
+    public void setCurrentColumn(int currentColumn) {
+        this.currentColumn = currentColumn;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 61 * hash + this.row;
-        hash = 61 * hash + this.column;
-        hash = 61 * hash + this.distanceToOregon;
+        int hash = 3;
+        hash = 61 * hash + Objects.hashCode(this.description);
+        hash = 61 * hash + this.currentRow;
+        hash = 61 * hash + this.currentColumn;
         return hash;
     }
 
@@ -71,21 +72,17 @@ public class Location implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Location other = (Location) obj;
-        if (this.row != other.row) {
+        final Map other = (Map) obj;
+        if (this.currentRow != other.currentRow) {
             return false;
         }
-        if (this.column != other.column) {
+        if (this.currentColumn != other.currentColumn) {
             return false;
         }
-        if (this.distanceToOregon != other.distanceToOregon) {
+        if (!Objects.equals(this.description, other.description)) {
             return false;
         }
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", distanceToOregon=" + distanceToOregon + '}';
-    }
 }
