@@ -36,6 +36,7 @@ public class Party implements Serializable{
     private int holdableAmount;
     private Player player;
     private Array currentLocation[][];
+    private Location location;
 
     public Party() {
     }

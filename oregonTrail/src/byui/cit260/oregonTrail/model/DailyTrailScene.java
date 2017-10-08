@@ -16,7 +16,7 @@ public class DailyTrailScene implements Serializable {
     private Boolean currentHazards;
     private String currentDate;
     private String currentWeather; 
-//    private Location currentLocation;
+    private Location currentLocation;
     
     public DailyTrailScene() {
     
@@ -62,13 +62,13 @@ public class DailyTrailScene implements Serializable {
         this.currentWeather = currentWeather;
     }
 
-//    public Location getCurrentLocation() {
-//        return currentLocation;
-//    }
-//
-//    public void setCurrentLocation(Location currentLocation) {
-//        this.currentLocation = currentLocation;
-//    }
+    public Location getCurrentLocation() {
+        return currentLocation;
+    }
+
+    public void setCurrentLocation(Location currentLocation) {
+        this.currentLocation = currentLocation;
+    }
 
     @Override
     public int hashCode() {
@@ -78,7 +78,7 @@ public class DailyTrailScene implements Serializable {
         hash = 97 * hash + Objects.hashCode(this.currentHazards);
         hash = 97 * hash + Objects.hashCode(this.currentDate);
         hash = 97 * hash + Objects.hashCode(this.currentWeather);
-//        hash = 97 * hash + Objects.hashCode(this.currentLocation);
+        hash = 97 * hash + Objects.hashCode(this.currentLocation);
         return hash;
     }
 
@@ -109,9 +109,9 @@ public class DailyTrailScene implements Serializable {
         if (!Objects.equals(this.currentHazards, other.currentHazards)) {
             return false;
         }
-//        if (!Objects.equals(this.currentLocation, other.currentLocation)) {
-//            return false;
-//        }
+        if (!Objects.equals(this.currentLocation, other.currentLocation)) {
+            return false;
+        }
         return true;
     }
 
