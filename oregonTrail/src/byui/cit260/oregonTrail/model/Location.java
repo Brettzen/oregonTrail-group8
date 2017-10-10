@@ -27,6 +27,12 @@ public class Location implements Serializable {
     private int column;
     private int distanceToOregon;                
 
+    public Location(int row, int column, int distanceToOregon) {
+        this.row = row;
+        this.column = column;
+        this.distanceToOregon = distanceToOregon;
+    }
+
     public int getRow() {
         return row;
     }

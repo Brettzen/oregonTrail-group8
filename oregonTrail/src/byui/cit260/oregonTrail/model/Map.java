@@ -28,6 +28,12 @@ public class Map implements Serializable {
     private int currentRow;
     private int currentColumn;
 
+    public Map(String description, int currentRow, int currentColumn) {
+        this.description = description;
+        this.currentRow = currentRow;
+        this.currentColumn = currentColumn;
+    }
+
     public String getDescription() {
         return description;
     }
