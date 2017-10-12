@@ -17,6 +17,8 @@ import byui.cit260.oregonTrail.model.StoreScene;
 import byui.cit260.oregonTrail.model.TownScene;
 import byui.cit260.oregonTrail.model.Character;
 import byui.cit260.oregonTrail.model.Party;
+import byui.cit260.oregonTrail.model.Map;
+import byui.cit260.oregonTrail.model.Location;
 
 
 /**
@@ -120,10 +122,8 @@ public class OregonTrail {
         charTwo.setStartingCurrency(10000);
         
         System.out.println(charOne.toString());
-        
-        
-        
-        
+                
+                
         //        Testing Party
         Party party = new Party();
         
@@ -141,6 +141,17 @@ public class OregonTrail {
         );
         
         System.out.println(party.toString());
+        
+        // testing Map
+        
+        Map map = new Map();
+        System.out.println(map.toString());
+        
+        // testing Location
+        
+        Location location = new Location();
+        System.out.println(location.toString());
+        
     }
     
 }

@@ -17,7 +17,7 @@
 package byui.cit260.oregonTrail.model;
 
 import java.io.Serializable;
-import java.util.Objects;
+
 /**
  *
  * @author jgqui
@@ -31,6 +31,10 @@ public class Location implements Serializable {
         this.row = row;
         this.column = column;
         this.distanceToOregon = distanceToOregon;
+    }
+
+    public Location() {
+        //???
     }
 
     public int getRow() {

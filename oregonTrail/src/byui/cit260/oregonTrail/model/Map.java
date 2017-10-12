@@ -17,6 +17,7 @@
 package byui.cit260.oregonTrail.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 /**
  *
@@ -24,14 +25,24 @@ import java.util.Objects;
  */
 public class Map implements Serializable {
     
+    private ArrayList<Location> currentLocation = new ArrayList<>();
     private String description;
     private int currentRow;
     private int currentColumn;
 
+   
     public Map(String description, int currentRow, int currentColumn) {
         this.description = description;
         this.currentRow = currentRow;
         this.currentColumn = currentColumn;
+    }
+
+    public Map() {
+        //???
+    }
+  
+    public ArrayList<Location> getCurrentLocation() {
+        return currentLocation;
     }
 
     public String getDescription() {
@@ -90,5 +101,11 @@ public class Map implements Serializable {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Map{" + "currentLocation=" + currentLocation + ", description=" + description + ", currentRow=" + currentRow + ", currentColumn=" + currentColumn + '}';
+    }
+   
 
 }
