@@ -140,22 +140,9 @@ public class MapControlTest {
         result = instance.calculateDailyMiles(avgCharHealth, avgOxHealth, currentWeight, maxWeight, pace);
         assertEquals(expResult, result);
         System.out.println("\t\tResult of Case #8: " + result);
-        
+                
 //        TEST CASE #9
         System.out.println("\tTest Case #9");
-        
-        avgCharHealth = 50;
-        avgOxHealth = 100;
-        currentWeight = 50;
-        maxWeight = 1000;
-        pace = null;
-        expResult = -1;
-        result = instance.calculateDailyMiles(avgCharHealth, avgOxHealth, currentWeight, maxWeight, pace);
-        assertEquals(expResult, result);
-        System.out.println("\t\tResult of Case #9: " + result);
-                
-//        TEST CASE #10
-        System.out.println("\tTest Case #10");
         
         avgCharHealth = 1;
         avgOxHealth = 30;
@@ -165,10 +152,10 @@ public class MapControlTest {
         expResult = 11;
         result = instance.calculateDailyMiles(avgCharHealth, avgOxHealth, currentWeight, maxWeight, pace);
         assertEquals(expResult, result);
-        System.out.println("\t\tResult of Case #10: " + result);
+        System.out.println("\t\tResult of Case #9: " + result);
         
-//        TEST CASE #11
-        System.out.println("\tTest Case #11");
+//        TEST CASE #10
+        System.out.println("\tTest Case #10");
         
         avgCharHealth = 50;
         avgOxHealth = 1;
@@ -178,10 +165,10 @@ public class MapControlTest {
         expResult = 8;
         result = instance.calculateDailyMiles(avgCharHealth, avgOxHealth, currentWeight, maxWeight, pace);
         assertEquals(expResult, result);
-        System.out.println("\t\tResult of Case #11: " + result);
+        System.out.println("\t\tResult of Case #10: " + result);
         
-//        TEST CASE #12
-        System.out.println("\tTest Case #12");
+//        TEST CASE #11
+        System.out.println("\tTest Case #11");
         
         avgCharHealth = 1;
         avgOxHealth = 1;
@@ -191,10 +178,10 @@ public class MapControlTest {
         expResult = 10;
         result = instance.calculateDailyMiles(avgCharHealth, avgOxHealth, currentWeight, maxWeight, pace);
         assertEquals(expResult, result);
-        System.out.println("\t\tResult of Case #12: " + result);
+        System.out.println("\t\tResult of Case #11: " + result);
         
-//        TEST CASE #13
-        System.out.println("\tTest Case #13");
+//        TEST CASE #12
+        System.out.println("\tTest Case #12");
         
         avgCharHealth = 100;
         avgOxHealth = 70;
@@ -204,10 +191,10 @@ public class MapControlTest {
         expResult = 17;
         result = instance.calculateDailyMiles(avgCharHealth, avgOxHealth, currentWeight, maxWeight, pace);
         assertEquals(expResult, result);
-        System.out.println("\t\tResult of Case #13: " + result);
+        System.out.println("\t\tResult of Case #12: " + result);
         
-//        TEST CASE #14
-        System.out.println("\tTest Case #14");
+//        TEST CASE #13
+        System.out.println("\tTest Case #13");
         
         avgCharHealth = 90;
         avgOxHealth = 100;
@@ -217,10 +204,10 @@ public class MapControlTest {
         expResult = 16;
         result = instance.calculateDailyMiles(avgCharHealth, avgOxHealth, currentWeight, maxWeight, pace);
         assertEquals(expResult, result);
-        System.out.println("\t\tResult of Case #14: " + result);
+        System.out.println("\t\tResult of Case #13: " + result);
         
-//        TEST CASE #15
-        System.out.println("\tTest Case #15");
+//        TEST CASE #14
+        System.out.println("\tTest Case #14");
         
         avgCharHealth = 100;
         avgOxHealth = 100;
@@ -230,10 +217,10 @@ public class MapControlTest {
         expResult = 10;
         result = instance.calculateDailyMiles(avgCharHealth, avgOxHealth, currentWeight, maxWeight, pace);
         assertEquals(expResult, result);
-        System.out.println("\t\tResult of Case #15: " + result);
+        System.out.println("\t\tResult of Case #14: " + result);
         
-//        TEST CASE #16
-        System.out.println("\tTest Case #16");
+//        TEST CASE #15
+        System.out.println("\tTest Case #15");
         
         avgCharHealth = 1;
         avgOxHealth = 1;
@@ -243,10 +230,10 @@ public class MapControlTest {
         expResult = 0;
         result = instance.calculateDailyMiles(avgCharHealth, avgOxHealth, currentWeight, maxWeight, pace);
         assertEquals(expResult, result);
-        System.out.println("\t\tResult of Case #16: " + result);
+        System.out.println("\t\tResult of Case #15: " + result);
         
-//        TEST CASE #17
-        System.out.println("\tTest Case #17");
+//        TEST CASE #16
+        System.out.println("\tTest Case #176");
         
         avgCharHealth = 100;
         avgOxHealth = 100;
@@ -256,7 +243,7 @@ public class MapControlTest {
         expResult = 30;
         result = instance.calculateDailyMiles(avgCharHealth, avgOxHealth, currentWeight, maxWeight, pace);
         assertEquals(expResult, result);
-        System.out.println("\t\tResult of Case #17: " + result);
+        System.out.println("\t\tResult of Case #16: " + result);
                                                                                      
         // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
