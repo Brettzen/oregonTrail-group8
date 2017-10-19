@@ -18,6 +18,7 @@ public class RiverScene implements Serializable{
         
     }
 
+  
     public DailyTrailScene getDailyTrailScene() {
         return dailyTrailScene;
     }

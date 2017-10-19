@@ -17,9 +17,18 @@ public class DailyTrailScene implements Serializable {
     private String currentDate;
     private String currentWeather; 
     private Location currentLocation;
+    private Scene scene;
     
     public DailyTrailScene() {
     
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
     }
 
     public Boolean getCurrentPlantPresence() {
@@ -73,12 +82,13 @@ public class DailyTrailScene implements Serializable {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.currentPlantPresence);
-        hash = 97 * hash + Objects.hashCode(this.currentAnimalPresence);
-        hash = 97 * hash + Objects.hashCode(this.currentHazards);
-        hash = 97 * hash + Objects.hashCode(this.currentDate);
-        hash = 97 * hash + Objects.hashCode(this.currentWeather);
-        hash = 97 * hash + Objects.hashCode(this.currentLocation);
+        hash = 67 * hash + Objects.hashCode(this.currentPlantPresence);
+        hash = 67 * hash + Objects.hashCode(this.currentAnimalPresence);
+        hash = 67 * hash + Objects.hashCode(this.currentHazards);
+        hash = 67 * hash + Objects.hashCode(this.currentDate);
+        hash = 67 * hash + Objects.hashCode(this.currentWeather);
+        hash = 67 * hash + Objects.hashCode(this.currentLocation);
+        hash = 67 * hash + Objects.hashCode(this.scene);
         return hash;
     }
 
@@ -112,15 +122,18 @@ public class DailyTrailScene implements Serializable {
         if (!Objects.equals(this.currentLocation, other.currentLocation)) {
             return false;
         }
+        if (!Objects.equals(this.scene, other.scene)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "DailyTrailScene{" + "currentPlantPresence=" + currentPlantPresence + ", currentAnimalPresence=" + currentAnimalPresence + ", currentHazards=" + currentHazards + ", currentDate=" + currentDate + ", currentWeather=" + currentWeather + ", currentLocation=" + '}';
+        return "DailyTrailScene{" + "currentPlantPresence=" + currentPlantPresence + ", currentAnimalPresence=" + currentAnimalPresence + ", currentHazards=" + currentHazards + ", currentDate=" + currentDate + ", currentWeather=" + currentWeather + ", currentLocation=" + currentLocation + ", scene=" + scene + '}';
     }
 
-
+    
 
     
     

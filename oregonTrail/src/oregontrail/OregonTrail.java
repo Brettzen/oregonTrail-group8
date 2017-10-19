@@ -19,6 +19,8 @@ import byui.cit260.oregonTrail.model.Character;
 import byui.cit260.oregonTrail.model.Party;
 import byui.cit260.oregonTrail.model.Map;
 import byui.cit260.oregonTrail.model.Location;
+import byui.cit260.oregonTrail.model.Scene;
+
 
 
 /**
