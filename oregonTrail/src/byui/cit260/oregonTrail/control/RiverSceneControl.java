@@ -29,8 +29,7 @@ public class RiverSceneControl {
         if((riverDepth < 3) || (currentWeight < 0) || (currentWeight > maxWeight)) {
             return -1;
         }
-        
-//        probability  = (100 - (riverDepth - minDepth) / ((maxWeight / currentWeight) / 25));
+//        Breaking up equation for readability and testing
         double riverCheck = riverDepth - minDepth;
         double weightCheck = maxWeight / currentWeight;
         weightCheck /= 25;

@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Brett Starks
+ * @author Brett Starks, Jason Quibilan, J.R. Basham
  */
 public class RiverSceneControlTest {
     
