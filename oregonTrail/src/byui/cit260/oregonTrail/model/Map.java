@@ -39,6 +39,7 @@ public class Map implements Serializable {
 
     public Map() {
         //???
+//        Looks like a proper constructor!
     }
   
     public ArrayList<Location> getCurrentLocation() {

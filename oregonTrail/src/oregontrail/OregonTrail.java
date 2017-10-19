@@ -142,6 +142,10 @@ public class OregonTrail {
         
         System.out.println(party.toString());
         
+//        charOne.setCurrentHealth(80);
+//        
+//        party.checkCharacters();
+        
         // testing Map
         
         Map map = new Map();

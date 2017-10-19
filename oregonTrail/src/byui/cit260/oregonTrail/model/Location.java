@@ -35,6 +35,7 @@ public class Location implements Serializable {
 
     public Location() {
         //???
+//        Brett: Looks right!
     }
 
     public int getRow() {

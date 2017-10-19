@@ -30,6 +30,7 @@ public class Party implements Serializable{
     
     private ArrayList<Character> charactersInParty = new ArrayList<>();
     private ArrayList<Item> partyInventory = new ArrayList<>();
+    private ArrayList<Ox> oxInParty = new ArrayList<>();
     private String currentPace = "Slow";
     private int currentMoney;
     private boolean brokenWagon = false;
@@ -37,6 +38,8 @@ public class Party implements Serializable{
     private Player player;
     private Array currentLocation[][];
     private Location location;
+    private int currentWeight;
+    private int maxWeight;
 
     public Party() {
     }
@@ -48,6 +51,10 @@ public class Party implements Serializable{
     public void addCharacter(Character newCharacter) {
         charactersInParty.add(newCharacter);
     }
+    
+    public void removeCharacter(Character deadCharacter) {
+        charactersInParty.remove(deadCharacter);
+    }
 
     public ArrayList<Item> getPartyInventory() {
         return partyInventory;
@@ -55,6 +62,22 @@ public class Party implements Serializable{
 
     public void addItem(Item newItem) {
         partyInventory.add(newItem);
+    }
+    
+    public void removeItem(Item usedItem) {
+        partyInventory.remove(usedItem);
+    }
+
+    public ArrayList<Ox> getOxInParty() {
+        return oxInParty;
+    }
+    
+    public void addOx(Ox newOx) {
+        oxInParty.add(newOx);
+    }
+    
+    public void removeOx(Ox deadOx) {
+        oxInParty.remove(deadOx);
     }
 
     public String getCurrentPace() {
@@ -138,6 +161,14 @@ public class Party implements Serializable{
     public String toString() {
         return "Party{" + "charactersInParty=" + charactersInParty + ", partyInventory=" + partyInventory + ", currentPace=" + currentPace + ", currentMoney=" + currentMoney + ", brokenWagon=" + brokenWagon + ", holdableAmount=" + holdableAmount + '}';
     }
+    
+//    Testing the getting of info from charactersInParty
+//    public void checkCharacters() {
+//        for(int i=0; i < charactersInParty.size(); i++) {
+//            System.out.print("Character Name: " + charactersInParty.get(i).getName());
+//            System.out.println("Character Health: " + charactersInParty.get(i).getCurrentHealth() + " / " + charactersInParty.get(i).getMaxHealth());
+//        }
+//    }
 
     
     
