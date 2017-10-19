@@ -18,8 +18,41 @@ package byui.cit260.oregonTrail.control;
 
 /**
  *
- * @author Brett Starks
+ * @author Brett Starks, Jason Quibilan, J.R. Basham
  */
 public class RiverSceneControl {
+  
+    public int calculateRiverCrossingProbability(int riverDepth, double currentWeight, double maxWeight) {
+        double probability;
+        int minDepth = 3;
+        
+        if((riverDepth < 3) || (currentWeight < 0) || (currentWeight > maxWeight)) {
+            return -1;
+        }
+        
+//        probability  = (100 - (riverDepth - minDepth) / ((maxWeight / currentWeight) / 25));
+        double riverCheck = riverDepth - minDepth;
+        double weightCheck = maxWeight / currentWeight;
+        weightCheck /= 25;
+        probability = 100 - (riverCheck / weightCheck);
+        
+        if(probability < 0) {
+            probability = 0;
+        }
+        
+        return (int) probability;
+    }
+    
+    
+//    Pseudo Function
+//    minDepth = 3, maxWeight = 1000;
+//calculateRiverCrossingProbability(int riverDepth, int currentWeight, int maxWeight) return int probability
+//  if (riverDepth < 3) || (currentWeight < 0) || (currentWeight > maxWeight): return -1 and exit
+//  else 
+//        probability = (100 - (riverDepth – minDepth) / ((maxWeight / currentWeight) / 25))
+//        if probability < 0 then set probability = 0
+//        return probability 
+//end
+
     
 }
