@@ -25,10 +25,16 @@ import byui.cit260.oregonTrail.model.Pace;
 public class MapControl {
     
     public int calculateDailyMiles(int avgCharHealth, int avgOxHealth, int currentWeight, int maxWeight, Pace pace) {
-            double miles = 20;
-        double currentPace = pace.getValue();
+        double miles = 20;
+        double currentPace;
+            
+        if(pace == null) {
+            currentPace = 0;
+        } else {
+            currentPace = pace.getValue();
+        }
         
-        if((avgCharHealth <= 0) || (avgCharHealth > 100) || (avgOxHealth <= 0) || (avgOxHealth > 100) || (currentWeight < 0) || (currentWeight > maxWeight)) {
+        if((avgCharHealth <= 0) || (avgCharHealth > 100) || (avgOxHealth <= 0) || (avgOxHealth > 100) || (currentWeight < 0) || (currentWeight > maxWeight) || ((currentPace != 0.5) && (currentPace != 1.0) && (currentPace != 1.5))) {
             return -1;
         } else {
             miles *= currentPace;
