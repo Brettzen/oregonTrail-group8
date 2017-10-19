@@ -19,10 +19,10 @@ public enum Item {
     Ammo("Ammo", "Bullets for hunting or protection. Comes in boxes of 20 bullets.", 5, 2),
     Wheel("Wheel", "Spare wheels, just in case.", 40, 10);
    
-    private String name;
-    private String description;
-    private int weight;
-    private int cost;
+    private final String name;
+    private final String description;
+    private final int weight;
+    private final int cost;
 
     Item(String name, String description, int weight, int cost) {
         this.name = name;
