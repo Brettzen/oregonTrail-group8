@@ -10,28 +10,19 @@ import java.util.Objects;
  * @author J.R. Basham
  */
 public class HotelScene implements Serializable{
-    private DailyTrailScene dailyTrailScene;
-    private String description = "This is the HotelScene.";
+    private Scene scene;
     private ArrayList<Character> character;
-
+    private TownScene townScene;
     public HotelScene () {
     
     }
 
-    public DailyTrailScene getDailyTrailScene() {
-        return dailyTrailScene;
+    public Scene getScene() {
+        return scene;
     }
 
-    public void setDailyTrailScene(DailyTrailScene dailyTrailScene) {
-        this.dailyTrailScene = dailyTrailScene;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setScene(Scene scene) {
+        this.scene = scene;
     }
 
     public ArrayList<Character> getCharacter() {
@@ -42,12 +33,20 @@ public class HotelScene implements Serializable{
         this.character = character;
     }
 
+    public TownScene getTownScene() {
+        return townScene;
+    }
+
+    public void setTownScene(TownScene townScene) {
+        this.townScene = townScene;
+    }
+
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 43 * hash + Objects.hashCode(this.dailyTrailScene);
-        hash = 43 * hash + Objects.hashCode(this.description);
-        hash = 43 * hash + Objects.hashCode(this.character);
+        hash = 47 * hash + Objects.hashCode(this.scene);
+        hash = 47 * hash + Objects.hashCode(this.character);
+        hash = 47 * hash + Objects.hashCode(this.townScene);
         return hash;
     }
 
@@ -63,13 +62,13 @@ public class HotelScene implements Serializable{
             return false;
         }
         final HotelScene other = (HotelScene) obj;
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (!Objects.equals(this.dailyTrailScene, other.dailyTrailScene)) {
+        if (!Objects.equals(this.scene, other.scene)) {
             return false;
         }
         if (!Objects.equals(this.character, other.character)) {
+            return false;
+        }
+        if (!Objects.equals(this.townScene, other.townScene)) {
             return false;
         }
         return true;
@@ -77,8 +76,8 @@ public class HotelScene implements Serializable{
 
     @Override
     public String toString() {
-        return "HotelScene{" + "dailyTrailScene=" + dailyTrailScene + ", description=" + description + ", character=" + character + '}';
+        return "HotelScene{" + "scene=" + scene + ", character=" + character + ", townScene=" + townScene + '}';
     }
-    
+
     
 }
