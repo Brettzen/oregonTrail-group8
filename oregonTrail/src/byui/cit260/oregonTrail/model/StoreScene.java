@@ -10,20 +10,38 @@ import java.util.Objects;
  * @author J.R. Basham
  */
 public class StoreScene implements Serializable {
-    private DailyTrailScene dailyTrailScene;
+    private Scene scene;
+    private FortScene fortScene;
+    private TownScene townScene;
     private ArrayList<Item> itemList;
-    private String description = "This is the Store Scene.";
+    
     
     public StoreScene() {
        
     }
 
-    public DailyTrailScene getDailyTrailScene() {
-        return dailyTrailScene;
+    public Scene getScene() {
+        return scene;
     }
 
-    public void setDailyTrailScene(DailyTrailScene dailyTrailScene) {
-        this.dailyTrailScene = dailyTrailScene;
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public FortScene getFortScene() {
+        return fortScene;
+    }
+
+    public void setFortScene(FortScene fortScene) {
+        this.fortScene = fortScene;
+    }
+
+    public TownScene getTownScene() {
+        return townScene;
+    }
+
+    public void setTownScene(TownScene townScene) {
+        this.townScene = townScene;
     }
 
     public ArrayList<Item> getItemList() {
@@ -34,20 +52,13 @@ public class StoreScene implements Serializable {
         this.itemList = itemList;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.dailyTrailScene);
-        hash = 97 * hash + Objects.hashCode(this.itemList);
-        hash = 97 * hash + Objects.hashCode(this.description);
+        hash = 37 * hash + Objects.hashCode(this.scene);
+        hash = 37 * hash + Objects.hashCode(this.fortScene);
+        hash = 37 * hash + Objects.hashCode(this.townScene);
+        hash = 37 * hash + Objects.hashCode(this.itemList);
         return hash;
     }
 
@@ -63,10 +74,13 @@ public class StoreScene implements Serializable {
             return false;
         }
         final StoreScene other = (StoreScene) obj;
-        if (!Objects.equals(this.description, other.description)) {
+        if (!Objects.equals(this.scene, other.scene)) {
             return false;
         }
-        if (!Objects.equals(this.dailyTrailScene, other.dailyTrailScene)) {
+        if (!Objects.equals(this.fortScene, other.fortScene)) {
+            return false;
+        }
+        if (!Objects.equals(this.townScene, other.townScene)) {
             return false;
         }
         if (!Objects.equals(this.itemList, other.itemList)) {
@@ -77,8 +91,7 @@ public class StoreScene implements Serializable {
 
     @Override
     public String toString() {
-        return "StoreScene{" + "dailyTrailScene=" + dailyTrailScene + ", itemList=" + itemList + ", description=" + description + '}';
+        return "StoreScene{" + "scene=" + scene + ", fortScene=" + fortScene + ", townScene=" + townScene + ", itemList=" + itemList + '}';
     }
 
-    
 }
