@@ -11,21 +11,20 @@ import java.util.ArrayList;
  * @author J.R. Basham
  */
 public class HuntingScene implements Serializable{
-    private DailyTrailScene dailyTrailScene;
+    private Scene scene;
     private int wildLifeAmount;
-    private String description = "This is the Hunting Scene.";
     private ArrayList<Item> item;
     
     public HuntingScene () {
     
     }
 
-    public DailyTrailScene getDailyTrailScene() {
-        return dailyTrailScene;
+    public Scene getScene() {
+        return scene;
     }
 
-    public void setDailyTrailScene(DailyTrailScene dailyTrailScene) {
-        this.dailyTrailScene = dailyTrailScene;
+    public void setScene(Scene scene) {
+        this.scene = scene;
     }
 
     public int getWildLifeAmount() {
@@ -34,14 +33,6 @@ public class HuntingScene implements Serializable{
 
     public void setWildLifeAmount(int wildLifeAmount) {
         this.wildLifeAmount = wildLifeAmount;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public ArrayList<Item> getItem() {
@@ -54,11 +45,10 @@ public class HuntingScene implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.dailyTrailScene);
-        hash = 29 * hash + this.wildLifeAmount;
-        hash = 29 * hash + Objects.hashCode(this.description);
-        hash = 29 * hash + Objects.hashCode(this.item);
+        int hash = 5;
+        hash = 17 * hash + Objects.hashCode(this.scene);
+        hash = 17 * hash + this.wildLifeAmount;
+        hash = 17 * hash + Objects.hashCode(this.item);
         return hash;
     }
 
@@ -77,10 +67,7 @@ public class HuntingScene implements Serializable{
         if (this.wildLifeAmount != other.wildLifeAmount) {
             return false;
         }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (!Objects.equals(this.dailyTrailScene, other.dailyTrailScene)) {
+        if (!Objects.equals(this.scene, other.scene)) {
             return false;
         }
         if (!Objects.equals(this.item, other.item)) {
@@ -91,9 +78,8 @@ public class HuntingScene implements Serializable{
 
     @Override
     public String toString() {
-        return "HuntingScene{" + "dailyTrailScene=" + dailyTrailScene + ", wildLifeAmount=" + wildLifeAmount + ", description=" + description + ", item=" + item + '}';
+        return "HuntingScene{" + "scene=" + scene + ", wildLifeAmount=" + wildLifeAmount + ", item=" + item + '}';
     }
-    
-    
+
     
 }
