@@ -101,6 +101,10 @@ public class OregonTrail {
         GatheringScene newGat = new GatheringScene ();
         System.out.println(newGat.toString());
         
+                //        Testing Scene
+        Scene newScene = new Scene ();
+        System.out.println(newScene.toString());
+        
         //        Testing Character
         Character charOne = new Character();
         Character charTwo = new Character();
