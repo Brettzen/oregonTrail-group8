@@ -9,20 +9,19 @@ import java.util.Objects;
  * @author J.R. Basham
  */
 public class GatheringScene implements Serializable{
-    private DailyTrailScene dailyTrailScene;
+    private Scene scene;
     private int plantLifeAmount;
-    private String description = "This is the Gathering Scene.";
 
     public GatheringScene() {
         
     }
 
-    public DailyTrailScene getDailyTrailScene() {
-        return dailyTrailScene;
+    public Scene getScene() {
+        return scene;
     }
 
-    public void setDailyTrailScene(DailyTrailScene dailyTrailScene) {
-        this.dailyTrailScene = dailyTrailScene;
+    public void setScene(Scene scene) {
+        this.scene = scene;
     }
 
     public int getPlantLifeAmount() {
@@ -33,20 +32,11 @@ public class GatheringScene implements Serializable{
         this.plantLifeAmount = plantLifeAmount;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 47 * hash + Objects.hashCode(this.dailyTrailScene);
-        hash = 47 * hash + this.plantLifeAmount;
-        hash = 47 * hash + Objects.hashCode(this.description);
+        int hash = 7;
+        hash = 17 * hash + Objects.hashCode(this.scene);
+        hash = 17 * hash + this.plantLifeAmount;
         return hash;
     }
 
@@ -65,10 +55,7 @@ public class GatheringScene implements Serializable{
         if (this.plantLifeAmount != other.plantLifeAmount) {
             return false;
         }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (!Objects.equals(this.dailyTrailScene, other.dailyTrailScene)) {
+        if (!Objects.equals(this.scene, other.scene)) {
             return false;
         }
         return true;
@@ -76,8 +63,9 @@ public class GatheringScene implements Serializable{
 
     @Override
     public String toString() {
-        return "GatheringScene{" + "dailyTrailScene=" + dailyTrailScene + ", plantLifeAmount=" + plantLifeAmount + ", description=" + description + '}';
+        return "GatheringScene{" + "scene=" + scene + ", plantLifeAmount=" + plantLifeAmount + '}';
     }
 
+   
    
 }
