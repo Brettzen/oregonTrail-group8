@@ -22,4 +22,54 @@ package byui.cit260.oregonTrail.control;
  */
 public class CharacterControl {
     
-}
+    public int calcHealthDraw(int currentHealth, int stamina, int amountOfFood, int weather, int pace) {
+        
+        int dailyHealthDraw = 0;
+        int x = 0;
+        int y = 0;
+        int healthDraw = 0;
+        int extraHealthDraw = 0;
+        
+        if ((currentHealth < 0) || (stamina < 0) || (amountOfFood < 0) || (weather < 0 || weather > 2) || (pace < 0 || pace > 2)) {
+            return -1;
+        }
+        
+         x = (currentHealth + stamina + amountOfFood);
+         y = (weather + pace);
+        
+        if ((x <= 300) && (x >= 280)) {
+            healthDraw = 5;
+        }  else if ((x <= 279) && (x >= 250)) {
+            healthDraw = 10;
+        }  else if ((x <= 249) && (x >= 210)) {
+            healthDraw = 15;
+        }  else if ((x <= 209) && (x >= 150)) {
+            healthDraw = 20;
+        }  else if ((x <= 149) && (x >= 0)) {
+            healthDraw = 25;
+        }        
+        
+        if (y == 0) {
+            extraHealthDraw = 0;
+        }  else if (y == 1) {
+            extraHealthDraw = 2;
+        }  else if (y == 2) {
+            extraHealthDraw = 5;
+        }  else if (y == 3) {
+            extraHealthDraw = 8;
+        }  else if (y == 4) {
+            extraHealthDraw = 10;
+        }     
+        
+           dailyHealthDraw = (healthDraw + extraHealthDraw);        
+            return dailyHealthDraw;
+    }    
+}        
+            
+            
+        
+    
+             
+       
+        
+            
