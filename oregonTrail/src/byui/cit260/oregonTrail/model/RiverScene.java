@@ -10,29 +10,19 @@ import java.util.Objects;
  * @author J.R. Basham
  */
 public class RiverScene implements Serializable{
-    private DailyTrailScene dailyTrailScene;
-    private String description = "This is the River Scene.";
+    private Scene scene;
     private int riverDepth;
 
     public RiverScene() {
         
     }
 
-  
-    public DailyTrailScene getDailyTrailScene() {
-        return dailyTrailScene;
+    public Scene getScene() {
+        return scene;
     }
 
-    public void setDailyTrailScene(DailyTrailScene dailyTrailScene) {
-        this.dailyTrailScene = dailyTrailScene;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setScene(Scene scene) {
+        this.scene = scene;
     }
 
     public int getRiverDepth() {
@@ -45,10 +35,9 @@ public class RiverScene implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 67 * hash + Objects.hashCode(this.dailyTrailScene);
-        hash = 67 * hash + Objects.hashCode(this.description);
-        hash = 67 * hash + this.riverDepth;
+        int hash = 3;
+        hash = 13 * hash + Objects.hashCode(this.scene);
+        hash = 13 * hash + this.riverDepth;
         return hash;
     }
 
@@ -67,10 +56,7 @@ public class RiverScene implements Serializable{
         if (this.riverDepth != other.riverDepth) {
             return false;
         }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (!Objects.equals(this.dailyTrailScene, other.dailyTrailScene)) {
+        if (!Objects.equals(this.scene, other.scene)) {
             return false;
         }
         return true;
@@ -78,8 +64,9 @@ public class RiverScene implements Serializable{
 
     @Override
     public String toString() {
-        return "RiverScene{" + "dailyTrailScene=" + dailyTrailScene + ", description=" + description + ", riverDepth=" + riverDepth + '}';
+        return "RiverScene{" + "scene=" + scene + ", riverDepth=" + riverDepth + '}';
     }
 
-    
+  
+   
 }
