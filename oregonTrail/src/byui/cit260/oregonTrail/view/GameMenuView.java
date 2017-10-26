@@ -14,30 +14,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package byui.cit260.oregonTrail.control;
-
-import byui.cit260.oregonTrail.model.Player;
-import oregontrail.OregonTrail;
+package byui.cit260.oregonTrail.view;
 
 /**
  *
  * @author Brett Starks, Jason Quibilan, JR Basham
  */
-public class GameControl {
+public class GameMenuView {
 
-    public static Player createPlayer(String playersName) {
-        if(playersName == null) return null;
-        
-        Player player = new Player();
-        player.setName(playersName);
-        
-        OregonTrail.setPlayer(player);
-        
-        return player;
-    }
-
-    public static void createNewGame(Player player) {
-        System.out.println("\n*** createNewGame() called ***");
+    public void displayMenu() {
+        System.out.println("\n*** displayMenu() called ***");
     }
     
 }
