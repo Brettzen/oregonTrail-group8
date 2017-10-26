@@ -16,38 +16,10 @@
  */
 package byui.cit260.oregonTrail.control;
 
-import byui.cit260.oregonTrail.model.Player;
-import oregontrail.OregonTrail;
-
 /**
  *
  * @author Brett Starks
  */
 public class GameControl {
-
-    public static Player createPlayer(String playersName) {
-        
-        if(playersName == null) return null;
-        
-        Player player = new Player();
-        player.setName(playersName);
-        
-        OregonTrail.setPlayer(player);
-        
-        return player;
-        
-    }
-
-    public static void createNewGame(Player player) {
-        System.out.println("\n*** createNewGame() called ***");
-    }
-
-    public static void saveGame() {
-        System.out.println("\n*** saveGame() called ***");
-    }
-
-    public static void loadGame() {
-        System.out.println("\n*** loadGame() called ***");
-    }
     
 }
