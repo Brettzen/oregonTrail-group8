@@ -129,51 +129,51 @@ public class GameMenuView {
     }
 
     private void viewDate() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** viewDate() called.");
     }
 
     private void checkDistanceFromMissouri() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** checkDistanceFromMissouri() called.");
     }
 
     private void checkDistanceToOregon() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void displayHelpMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** checkDistanceToOregon() called.");
     }
 
     private void displayMapMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** displayMapMenu() called.");
     }
 
     private void displayGameMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** displayGameMenu() called.");
     }
 
     private void displayPaceMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** displayPaceMenu() called.");
     }
 
     private void displayItemMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** displayItemMenu() called.");
     }
 
     private void viewTeamStatus() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** viewTeamStatus() called.");
     }
 
     private void viewWeather() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** viewWeather() called.");
     }
 
     private void viewEventLog() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** viewEventLog() called.");
     }
 
     private void checkSurroundings() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** checkSurroundings() called.");
+    }
+    
+    private void displayHelpMenu() {
+        System.out.println("\n*** displayHelpMenu() called.");
     }
     
 }
