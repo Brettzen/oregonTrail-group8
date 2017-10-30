@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Brett Starks
+ * Copyright (C) 2017 jgqui
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,45 +16,42 @@
  */
 package byui.cit260.oregonTrail.view;
 
-import byui.cit260.oregonTrail.control.GameControl;
 import java.util.Scanner;
-import oregontrail.OregonTrail;
 
 /**
  *
- * @author Brett Starks, Jason Quibilan, JR Basham
+ * @author Jason Quibialan
  */
-public class MainMenuView {
+public class PaceMenuView {
     
     private String menu;
     
-    public MainMenuView() {
-        this.menu =   "\n"
+    public PaceMenuView() {
+        
+         this.menu =  "\n"
                     + "\n-------------------------------------------------"
-                    + "\n| Main Menu                                     |"
+                    + "\n| Pace Menu                                     |"
                     + "\n-------------------------------------------------"
-                    + "\n|N - New Game                                   |"
-                    + "\n|S - Save Game                                  |"
-                    + "\n|L - Load Game                                  |"
-                    + "\n|H - Help Menu                                  |"
-                    + "\n|P - Pace Menu                                  |"
-                    + "\n|Q - Quit Game                                  |"
-                    + "\n-------------------------------------------------";
+                    + "\n|S - Slow                                       |"
+                    + "\n|A - Average                                    |"
+                    + "\n|F - Fast                                       |"
+                    + "\n|R - Return to previous menu                    |"
+                    + "\n-------------------------------------------------"; 
     }
-
-    public void displayMainMenuView() {
+    
+    public void displayPaceMenu() {
         boolean done = false;
         
         do {
             String menuOption = this.getMenuOption();
-            if(menuOption.toUpperCase().equals("Q")) return;
+            if(menuOption.toUpperCase().equals("R")) return;
             
             done = this.doAction(menuOption);
-            
-            
-        } while(!done);
+        }
+        
+        while(!done);
     }
-
+    
     private String getMenuOption() {
         Scanner keyboard = new Scanner(System.in);
         String value = "";
@@ -72,59 +69,43 @@ public class MainMenuView {
             }
             break;
         }
+        
         return value;
     }
-
+    
     private boolean doAction(String menuOption) {      
         
         menuOption = menuOption.toUpperCase();
         
         switch(menuOption) {
-            case "N":
-                this.startGame();
-                break;
             case "S":
-                this.saveGame();
+                this.slowPace();
                 break;
-            case "L":
-                this.loadSavedGame();
+            case "A":
+                this.averagePace();
                 break;
-            case "H":
-                this.displayHelpMenu();
-                break;
-            case "P":
-                this.displayPaceMenu();
+            case "F":
+                this.fastPace();
                 break;
             default:
                 System.out.println("*** Invalid selection. Try again ***");
                 break;
         }
-        return false;
+        return false;          
     }
-
-    private void startGame() {
-        GameControl.createNewGame(OregonTrail.getPlayer());
+    
+    private void slowPace() {
         
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
-    }
-
-    private void saveGame() {
-        System.out.println("\n*** saveGame() called. ***");
-    }
-
-    private void loadSavedGame() {
-        System.out.println("\n*** loadGame() called. ***");
-    }
-
-    private void displayHelpMenu() {
-       HelpMenuView helpMenu = new HelpMenuView();
-       helpMenu.displayMenu();
+        System.out.println("\n*** slowPace() called. ***");
     }
     
-    private void displayPaceMenu() {
-       PaceMenuView paceMenu = new PaceMenuView();
-       paceMenu.displayPaceMenu();
+    private void averagePace() {
+        
+        System.out.println("\n*** averagePace() called. ***");
     }
     
+    private void fastPace() {
+        
+        System.out.println("\n*** fastPace() called. ***");
+    }
 }
