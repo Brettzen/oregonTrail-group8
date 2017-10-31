@@ -20,7 +20,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Brett Starks, Jason Quibilan, JR Basham
+ * @author Brett Starks
  */
 public class GameMenuView {
     
@@ -113,7 +113,7 @@ public class GameMenuView {
                 this.displayPaceMenu();
                 break;
             case "G":
-                this.displayGameMenu();
+                this.displaySceneMenu();
                 break;
             case "M":
                 this.displayMapMenu();
@@ -143,9 +143,9 @@ public class GameMenuView {
     private void displayMapMenu() {
         System.out.println("\n*** displayMapMenu() called.");
     }
-
-    private void displayGameMenu() {
-        System.out.println("\n*** displayGameMenu() called.");
+    
+    private void viewEventLog() {
+        System.out.println("\n*** viewEventLog() called.");
     }
 
     private void displayPaceMenu() {
@@ -164,16 +164,18 @@ public class GameMenuView {
         System.out.println("\n*** viewWeather() called.");
     }
 
-    private void viewEventLog() {
-        System.out.println("\n*** viewEventLog() called.");
+    private void displaySceneMenu() {
+        SceneMenuView sceneMenu = new SceneMenuView();
+        sceneMenu.displayMenu();
     }
-
+    
     private void checkSurroundings() {
         System.out.println("\n*** checkSurroundings() called.");
     }
     
     private void displayHelpMenu() {
-        System.out.println("\n*** displayHelpMenu() called.");
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.displayMenu();
     }
     
 }

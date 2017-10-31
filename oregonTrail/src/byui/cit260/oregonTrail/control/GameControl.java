@@ -16,6 +16,7 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.model.Party;
 import byui.cit260.oregonTrail.model.Player;
 import oregontrail.OregonTrail;
 
@@ -31,7 +32,14 @@ public class GameControl {
         Player player = new Player();
         player.setName(playersName);
         
+        Party party = new Party();
+        
         OregonTrail.setPlayer(player);
+        player.setParty(party);
+        
+        //Setting current and max weight statically until we implement functionality. --Brett
+        player.getParty().setCurrentWeight(200);
+        player.getParty().setMaxWeight(1000);
         
         return player;
     }

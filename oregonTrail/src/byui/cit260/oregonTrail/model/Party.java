@@ -112,6 +112,24 @@ public class Party implements Serializable{
         this.holdableAmount = holdableAmount;
     }
 
+    public int getCurrentWeight() {
+        return currentWeight;
+    }
+
+    public void setCurrentWeight(int currentWeight) {
+        this.currentWeight = currentWeight;
+    }
+
+    public int getMaxWeight() {
+        return maxWeight;
+    }
+
+    public void setMaxWeight(int maxWeight) {
+        this.maxWeight = maxWeight;
+    }
+    
+    
+
     @Override
     public int hashCode() {
         int hash = 7;

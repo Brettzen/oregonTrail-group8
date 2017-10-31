@@ -34,7 +34,7 @@ public class HelpMenuView {
                     + "\n|G - Game objective                             |"
                     + "\n|H - How to move                                |"
                     + "\n|T - Tips                                       |"
-                    + "\n|R - Return to previous menu                    |"
+                    + "\n|Q - Return to previous menu                    |"
                     + "\n-------------------------------------------------";
     }
 
@@ -43,7 +43,7 @@ public class HelpMenuView {
         
         do {
             String menuOption = this.getMenuOption();
-            if(menuOption.toUpperCase().equals("R")) return;
+            if(menuOption.toUpperCase().equals("Q")) return;
             
             done = this.doAction(menuOption);
             
