@@ -149,7 +149,8 @@ public class GameMenuView {
     }
 
     private void displayPaceMenu() {
-        System.out.println("\n*** displayPaceMenu() called.");
+       PaceMenuView paceMenu = new PaceMenuView();
+       paceMenu.displayPaceMenu();
     }
 
     private void displayItemMenu() {

@@ -37,7 +37,6 @@ public class MainMenuView {
                     + "\n|S - Save Game                                  |"
                     + "\n|L - Load Game                                  |"
                     + "\n|H - Help Menu                                  |"
-                    + "\n|P - Pace Menu                                  |"
                     + "\n|Q - Quit Game                                  |"
                     + "\n-------------------------------------------------";
     }
@@ -92,9 +91,6 @@ public class MainMenuView {
             case "H":
                 this.displayHelpMenu();
                 break;
-            case "P":
-                this.displayPaceMenu();
-                break;
             default:
                 System.out.println("*** Invalid selection. Try again ***");
                 break;
@@ -120,11 +116,6 @@ public class MainMenuView {
     private void displayHelpMenu() {
        HelpMenuView helpMenu = new HelpMenuView();
        helpMenu.displayMenu();
-    }
-    
-    private void displayPaceMenu() {
-       PaceMenuView paceMenu = new PaceMenuView();
-       paceMenu.displayPaceMenu();
     }
     
 }
