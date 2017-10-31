@@ -79,13 +79,13 @@ public class PaceMenuView {
         
         switch(menuOption) {
             case "S":
-                this.slowPace();
+                this.slowPaceView();
                 break;
             case "A":
-                this.averagePace();
+                this.averagePaceView();
                 break;
             case "F":
-                this.fastPace();
+                this.fastPaceView();
                 break;
             default:
                 System.out.println("*** Invalid selection. Try again ***");
@@ -94,17 +94,18 @@ public class PaceMenuView {
         return false;          
     }
     
-    private void slowPace() {
+    private boolean slowPaceView() {
         
-        System.out.println("\n*** slowPace() called. ***");
+        PaceSlowView paceSlow = new PaceSlowView();
+        return paceSlow.displayPaceSlow();
     }
     
-    private void averagePace() {
+    private void averagePaceView() {
         
         System.out.println("\n*** averagePace() called. ***");
     }
     
-    private void fastPace() {
+    private void fastPaceView() {
         
         System.out.println("\n*** fastPace() called. ***");
     }
