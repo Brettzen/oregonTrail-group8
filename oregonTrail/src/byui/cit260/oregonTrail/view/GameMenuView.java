@@ -43,6 +43,7 @@ public class GameMenuView {
                     + "\n|G - Go to Scene Menu                               |"
                     + "\n|M - View the Map                                   |"
                     + "\n|H - Help Menu                                      |"
+                    + "\n|J - Store Menu                                     |"
                     + "\n|Q - Main Menu                                      |"
                     + "\n-----------------------------------------------------";
     }
@@ -121,6 +122,9 @@ public class GameMenuView {
             case "H":
                 this.displayHelpMenu();
                 break;
+            case "J":
+                this.displayStoreMenu();
+                break;
             default:
                 System.out.println("*** Invalid selection. Try again ***");
                 break;
@@ -178,5 +182,8 @@ public class GameMenuView {
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.displayMenu();
     }
-    
+    private void displayStoreMenu() {
+        StoreMenuView storeMenu = new StoreMenuView();
+        storeMenu.displayMenu();
+    }
 }
