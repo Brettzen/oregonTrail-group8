@@ -21,12 +21,12 @@ import java.util.Scanner;
  *
  * @author J.R. Basham
  */
-public class StoreMenuView {
+public class StoreMenuView extends View {
     
-    private String menu;
+    
     
     public StoreMenuView() {
-            this.menu =   "\n"
+                super("\n"
                     + "\n-----------------------------------------------------"
                     + "\n| Store Menu                                         |"
                     + "\n-----------------------------------------------------"
@@ -34,42 +34,12 @@ public class StoreMenuView {
                     + "\n|B - Buy Items                                      |"
                     + "\n|S - Sell Items                                     |"
                     + "\n|Q - Exit the Store                                 |"
-                    + "\n-----------------------------------------------------";
+                    + "\n-----------------------------------------------------");
     }
     
-    public void displayMenu() {
-        boolean done = false;
-        
-        do {
-            String menuOption = this.getMenuOption();
-            if(menuOption.toUpperCase().equals("Q")) return;
-            
-            done = this.doAction(menuOption);
-              
-        } while(!done);
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while(!valid) {
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.length() <1) {
-                System.out.println("\n*** Value cannot be blank ***");
-                continue;
-            }
-            break;
-        }
-        return value;
-    }
-
-    private boolean doAction(String menuOption) {      
+    
+    @Override
+    public boolean doAction(String menuOption) {      
         
         menuOption = menuOption.toUpperCase();
         

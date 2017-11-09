@@ -24,12 +24,12 @@ import oregontrail.OregonTrail;
  *
  * @author Brett Starks, Jason Quibilan, JR Basham
  */
-public class MainMenuView {
+public class MainMenuView extends View {
     
-    private String menu;
+    
     
     public MainMenuView() {
-        this.menu =   "\n"
+              super("\n"
                     + "\n-------------------------------------------------"
                     + "\n| Main Menu                                     |"
                     + "\n-------------------------------------------------"
@@ -38,47 +38,16 @@ public class MainMenuView {
                     + "\n|L - Load Game                                  |"
                     + "\n|H - Help Menu                                  |"
                     + "\n|Q - Quit Game                                  |"
-                    + "\n-------------------------------------------------";
+                    + "\n-------------------------------------------------");
     }
 
-    public void displayMainMenuView() {
-        boolean done = false;
+    
+    @Override
+    public boolean doAction(String value) {      
         
-        do {
-            String menuOption = this.getMenuOption();
-            if(menuOption.toUpperCase().equals("Q")) return;
-            
-            done = this.doAction(menuOption);
-            
-            
-        } while(!done);
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
+        value = value.toUpperCase();
         
-        while(!valid) {
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.length() <1) {
-                System.out.println("\nInvalid value: value cannot be blank.");
-                continue;
-            }
-            break;
-        }
-        return value;
-    }
-
-    private boolean doAction(String menuOption) {      
-        
-        menuOption = menuOption.toUpperCase();
-        
-        switch(menuOption) {
+        switch(value) {
             case "N":
                 this.startGame();
                 break;
@@ -102,7 +71,7 @@ public class MainMenuView {
         GameControl.createNewGame(OregonTrail.getPlayer());
         
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.display();
     }
 
     private void saveGame() {
@@ -115,7 +84,7 @@ public class MainMenuView {
 
     private void displayHelpMenu() {
        HelpMenuView helpMenu = new HelpMenuView();
-       helpMenu.displayMenu();
+       helpMenu.display();
     }
     
 }

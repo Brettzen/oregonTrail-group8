@@ -24,7 +24,7 @@ import java.util.Scanner;
  *
  * @author Brett Starks, J.R. Basham, Jason Quibilan
  */
-public class StartProgramView {
+public class StartProgramView extends View {
     
     private static String introText = 
                               "\n********************************************************************************************"
@@ -58,14 +58,14 @@ public class StartProgramView {
                             + "\n*                                                                                          *"
                             + "\n********************************************************************************************";
     
-    private String promptMessage;
+    
 
     public static String getIntroText() {
         return introText;
     }
     
     public StartProgramView() {
-        this.promptMessage = "\nPlease enter your name: ";
+        super("\nPlease enter your name: ");
         this.displayBanner();
     }
 
@@ -73,40 +73,9 @@ public class StartProgramView {
         System.out.println(introText);
     }
     
-    public void displayStartProgramView() {
-        
-        boolean done = false;
-        
-        do {
-            String playersName = this.getPlayersName();
-            if(playersName.toUpperCase().equals("Q")) return;
-            
-            done = this.doAction(playersName);
-        } while(!done);
-        
-    }
-
-    private String getPlayersName() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while(!valid) {
-            System.out.println("\n" + this.promptMessage);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.length() <1) {
-                System.out.println("\nInvalid value: value cannot be blank.");
-                continue;
-            }
-            break;
-        }
-        return value;
-    }
-
-    private boolean doAction(String playersName) {
+   
+    @Override
+    public boolean doAction(String playersName) {
        if(playersName.length() < 2) {
            System.out.println("\nInvalid name: The name must be > 1 character.");
            return false;
@@ -133,7 +102,7 @@ public class StartProgramView {
         
         MainMenuView mainMenuView = new MainMenuView();
         
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
     }
     
 }

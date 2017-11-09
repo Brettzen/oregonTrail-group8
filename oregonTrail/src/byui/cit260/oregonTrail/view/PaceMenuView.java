@@ -22,58 +22,26 @@ import java.util.Scanner;
  *
  * @author Jason Quibialan
  */
-public class PaceMenuView {
+public class PaceMenuView extends View {
     
-    private String menu;
+    
     
     public PaceMenuView() {
         
-         this.menu =  "\n"
+               super("\n"
                     + "\n-------------------------------------------------"
                     + "\n| Pace Menu                                     |"
                     + "\n-------------------------------------------------"
                     + "\n|S - Slow                                       |"
                     + "\n|A - Average                                    |"
                     + "\n|F - Fast                                       |"
-                    + "\n|R - Return to previous menu                    |"
-                    + "\n-------------------------------------------------"; 
+                    + "\n|Q - Return to previous menu                    |"
+                    + "\n-------------------------------------------------"); 
     }
     
-    public void displayPaceMenu() {
-        boolean done = false;
-        
-        do {
-            String menuOption = this.getMenuOption();
-            if(menuOption.toUpperCase().equals("R")) return;
-            
-            done = this.doAction(menuOption);
-        }
-        
-        while(!done);
-    }
     
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while(!valid) {
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.length() <1) {
-                System.out.println("\nInvalid value: value cannot be blank.");
-                continue;
-            }
-            break;
-        }
-        
-        return value;
-    }
-    
-    private boolean doAction(String menuOption) {      
+    @Override
+    public boolean doAction(String menuOption) {      
         
         menuOption = menuOption.toUpperCase();
         

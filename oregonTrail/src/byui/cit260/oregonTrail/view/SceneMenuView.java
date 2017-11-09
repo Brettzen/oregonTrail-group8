@@ -22,12 +22,12 @@ import java.util.Scanner;
  *
  * @author Brett Starks
  */
-class SceneMenuView {
+class SceneMenuView extends View{
 
-    private String menu;
+    
     
     public SceneMenuView() {
-        this.menu =   "\n"
+        super("\n"
                     + "\n-----------------------------------------------------"
                     + "\n| Daily Trail Menu                                  |"
                     + "\n-----------------------------------------------------"
@@ -38,43 +38,12 @@ class SceneMenuView {
                     + "\n|H - Go Hunting                                     |"
                     + "\n|G - Gather Edible Plants                           |"
                     + "\n|Q - Go to Game Menu                                |"
-                    + "\n-----------------------------------------------------";
+                    + "\n-----------------------------------------------------");
     }
 
-    public void displayMenu() {
-        boolean done = false;
-        
-        do {
-            String menuOption = this.getMenuOption();
-            if(menuOption.toUpperCase().equals("Q")) return;
-            
-            done = this.doAction(menuOption);
-            
-            
-        } while(!done);
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while(!valid) {
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.length() <1) {
-                System.out.println("\n*** Value cannot be blank ***");
-                continue;
-            }
-            break;
-        }
-        return value;
-    }
-
-    private boolean doAction(String menuOption) {      
+    
+    @Override
+    public boolean doAction(String menuOption) {      
         
         menuOption = menuOption.toUpperCase();
         
@@ -114,7 +83,7 @@ class SceneMenuView {
 
     private void displayRiverCrossMenu() {
         RiverCrossMenuView riverCrossMenu = new RiverCrossMenuView();
-        riverCrossMenu.displayMenu();
+        riverCrossMenu.display();
     }
 
     private void restAction() {

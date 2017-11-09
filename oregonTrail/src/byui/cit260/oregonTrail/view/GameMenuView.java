@@ -22,12 +22,12 @@ import java.util.Scanner;
  *
  * @author Brett Starks
  */
-public class GameMenuView {
+public class GameMenuView extends View {
     
-    private String menu;
+    
     
     public GameMenuView() {
-        this.menu =   "\n"
+               super("\n"
                     + "\n-----------------------------------------------------"
                     + "\n| Game Menu                                         |"
                     + "\n-----------------------------------------------------"
@@ -46,43 +46,12 @@ public class GameMenuView {
                     + "\n|J - Store Menu                                     |"
                     + "\n|T - Hunt Menu                                      |"
                     + "\n|Q - Main Menu                                      |"
-                    + "\n-----------------------------------------------------";
+                    + "\n-----------------------------------------------------");
     }
 
-    public void displayMenu() {
-        boolean done = false;
-        
-        do {
-            String menuOption = this.getMenuOption();
-            if(menuOption.toUpperCase().equals("Q")) return;
-            
-            done = this.doAction(menuOption);
-            
-            
-        } while(!done);
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while(!valid) {
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.length() <1) {
-                System.out.println("\n*** Value cannot be blank ***");
-                continue;
-            }
-            break;
-        }
-        return value;
-    }
-
-    private boolean doAction(String menuOption) {      
+    
+    @Override
+    public boolean doAction(String menuOption) {      
         
         menuOption = menuOption.toUpperCase();
         
@@ -158,7 +127,7 @@ public class GameMenuView {
 
     private void displayPaceMenu() {
        PaceMenuView paceMenu = new PaceMenuView();
-       paceMenu.displayPaceMenu();
+       paceMenu.display();
     }
 
     private void displayItemMenu() {
@@ -175,7 +144,7 @@ public class GameMenuView {
 
     private void displaySceneMenu() {
         SceneMenuView sceneMenu = new SceneMenuView();
-        sceneMenu.displayMenu();
+        sceneMenu.display();
     }
     
     private void checkSurroundings() {
@@ -184,14 +153,14 @@ public class GameMenuView {
     
     private void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayMenu();
+        helpMenu.display();
     }
     private void displayStoreMenu() {
         StoreMenuView storeMenu = new StoreMenuView();
-        storeMenu.displayMenu();
+        storeMenu.display();
     }
     private void displayHuntMenu() {
         HuntView huntMenu = new HuntView();
-        huntMenu.displayMenu();
+        huntMenu.display();
     }
 }

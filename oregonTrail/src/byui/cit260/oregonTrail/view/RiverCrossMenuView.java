@@ -25,9 +25,9 @@ import oregontrail.OregonTrail;
  *
  * @author Brett Starks
  */
-class RiverCrossMenuView {
+class RiverCrossMenuView extends View{
 
-    private String menu;
+    
     private String riverDesc;
     Random random = new Random();
     private int riverDepth = random.nextInt(12 - 3 + 1) + 3;
@@ -39,55 +39,25 @@ class RiverCrossMenuView {
     RiverSceneControl riverSceneControl = new RiverSceneControl();
     
     public RiverCrossMenuView() {
-        this.probability = riverSceneControl.calculateRiverCrossingProbability(riverDepth, currentWeight, maxWeight);
-        this.riverDesc =  "\n"
-                        + "\n The river is currently " + riverDepth + " feet. The odds of crossing with your current load are "
-                        + this.probability + "%.";           
-        this.menu =   "\n"
+                   
+               super("\n"
                     + "\n-----------------------------------------------------"
                     + "\n| River Cross Menu                                  |"
                     + "\n-----------------------------------------------------"
                     + "\n|D - Drop Supplies                                  |"
                     + "\n|C - Cross the River                                |"
                     + "\n|Q - Go Back                                        |"
-                    + "\n-----------------------------------------------------";
+                    + "\n-----------------------------------------------------");
+               
+               this.probability = riverSceneControl.calculateRiverCrossingProbability(riverDepth, currentWeight, maxWeight);
+        this.riverDesc =  "\n"
+                        + "\n The river is currently " + riverDepth + " feet. The odds of crossing with your current load are "
+                        + this.probability + "%.";
     }
 
-    public void displayMenu() {
-        boolean done = false;
-        
-        do {
-            String menuOption = this.getMenuOption();
-            if(menuOption.toUpperCase().equals("Q")) return;
-            
-            done = this.doAction(menuOption, riverDepth, this.probability);
-            
-            
-        } while(!done);
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while(!valid) {
-            System.out.println("\n" + this.riverDesc);
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.length() <1) {
-                System.out.println("\n*** Value cannot be blank ***");
-                continue;
-            }
-            break;
-        }
-        return value;
-    }
-
-    private boolean doAction(String menuOption, int riverDepth, int probability) {      
+    
+    @Override
+    public boolean doAction(String menuOption) {      
         
         menuOption = menuOption.toUpperCase();
         

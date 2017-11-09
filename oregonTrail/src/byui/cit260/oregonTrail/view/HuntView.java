@@ -23,8 +23,8 @@ import oregontrail.OregonTrail;
  *
  * @author J.R. Basham
  */
-public class HuntView {
-    private String menu;
+public class HuntView extends View{
+    
     private int charHuntingSkill = 3; //Skill not set in Character Model so hard coding it for testing getSkill()
     Random rand = new Random();
     private int wildLifeAmount = rand.nextInt(50) + 1;
@@ -34,49 +34,21 @@ public class HuntView {
     
       
     public HuntView() {
-        this.animalCheck =  "\n"
-                            + "\n The animal life is currently " + wildLifeAmount + ". Animal life must be greater than 10 to hunt.";           
-        this.menu =   "\n"
+                   
+        super("\n"
                     + "\n-----------------------------------------------------"
                     + "\n| Hunt Menu                                         |"
                     + "\n-----------------------------------------------------"
                     + "\n|H - Hunt                                           |"
                     + "\n|Q - Go Back                                        |"
-                    + "\n-----------------------------------------------------";
-    }
-    public void displayMenu() {
-        boolean done = false;
+                    + "\n-----------------------------------------------------");
         
-        do {
-            String menuOption = this.getMenuOption();
-            if(menuOption.toUpperCase().equals("Q")) return;
-            
-            done = this.doAction(menuOption);
-              
-        } while(!done);
+        this.animalCheck =  "\n"
+                            + "\n The animal life is currently " + wildLifeAmount + ". Animal life must be greater than 10 to hunt.";
     }
-        private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while(!valid) {
-            System.out.println("\n" + this.animalCheck);
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if(value.length() <1) {
-                System.out.println("\n*** Value cannot be blank ***");
-                continue;
-            }
-            break;
-        }
-        return value;
-    }
-
-    private boolean doAction(String menuOption){      
+    
+    @Override
+    public boolean doAction(String menuOption){      
         
         menuOption = menuOption.toUpperCase();
         
@@ -97,12 +69,12 @@ public class HuntView {
             
             System.out.println("\n There is not enough food to Hunt try again?");
             HuntView huntMenu = new HuntView();
-            huntMenu.displayMenu();
+            huntMenu.display();
         } else {
             
             System.out.println("\n You have recovered " + amountFood +" lbs of food." );
             HuntView huntMenu = new HuntView();
-            huntMenu.displayMenu();
+            huntMenu.display();
         }
     }   
 
