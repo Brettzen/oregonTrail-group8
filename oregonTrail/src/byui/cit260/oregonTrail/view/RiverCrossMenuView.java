@@ -38,21 +38,20 @@ class RiverCrossMenuView extends View{
     // Adding this because I think I'm supposed to reference my riverCrossingProbability() function without making it static.
     RiverSceneControl riverSceneControl = new RiverSceneControl();
     
-    public RiverCrossMenuView() {
-                   
-               super("\n"
-                    + "\n-----------------------------------------------------"
-                    + "\n| River Cross Menu                                  |"
-                    + "\n-----------------------------------------------------"
-                    + "\n|D - Drop Supplies                                  |"
-                    + "\n|C - Cross the River                                |"
-                    + "\n|Q - Go Back                                        |"
-                    + "\n-----------------------------------------------------");
-               
-               this.probability = riverSceneControl.calculateRiverCrossingProbability(riverDepth, currentWeight, maxWeight);
+    public RiverCrossMenuView() {           
+        super("\n"
+            + "\n-----------------------------------------------------"
+            + "\n| River Cross Menu                                  |"
+            + "\n-----------------------------------------------------"
+            + "\n|D - Drop Supplies                                  |"
+            + "\n|C - Cross the River                                |"
+            + "\n|Q - Go Back                                        |"
+            + "\n-----------------------------------------------------");   
+        this.probability = riverSceneControl.calculateRiverCrossingProbability(riverDepth, currentWeight, maxWeight);
         this.riverDesc =  "\n"
                         + "\n The river is currently " + riverDepth + " feet. The odds of crossing with your current load are "
                         + this.probability + "%.";
+        System.out.println(riverDesc);
     }
 
     

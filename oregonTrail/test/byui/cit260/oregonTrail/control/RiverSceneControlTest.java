@@ -34,7 +34,7 @@ public class RiverSceneControlTest {
     @Test
     public void testCalculateRiverCrossingProbability() {
         
-//        TEST CASE #1
+        //        TEST CASE #1
         System.out.println("Test #1");
         int riverDepth = 6;
         double currentWeight = 800;

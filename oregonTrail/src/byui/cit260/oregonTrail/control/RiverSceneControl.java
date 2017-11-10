@@ -29,7 +29,7 @@ public class RiverSceneControl {
         if((riverDepth < 3) || (currentWeight < 0) || (currentWeight > maxWeight)) {
             return -1;
         }
-        //        Breaking up equation for readability and testing
+        //   Breaking up equation for readability and testing
         double riverCheck = riverDepth - minDepth;
         double weightCheck = maxWeight / currentWeight;
         weightCheck /= 25;

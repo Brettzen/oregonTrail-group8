@@ -18,6 +18,7 @@ package byui.cit260.oregonTrail.control;
 
 import byui.cit260.oregonTrail.model.Party;
 import byui.cit260.oregonTrail.model.Player;
+import byui.cit260.oregonTrail.model.Weather;
 import oregontrail.OregonTrail;
 
 /**
@@ -43,6 +44,9 @@ public class GameControl {
         
         return player;
     }
+    
+    //generate weather here temporarily until DailyTrailControl has been created.
+    public static Weather currentWeather = WeatherControl.generateWeather();
 
     public static void createNewGame(Player player) {
         System.out.println("\n*** createNewGame() called ***");

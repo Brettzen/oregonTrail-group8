@@ -139,7 +139,8 @@ public class GameMenuView extends View {
     }
 
     private void viewWeather() {
-        System.out.println("\n*** viewWeather() called.");
+        WeatherView weatherView = new WeatherView();
+        weatherView.display();
     }
 
     private void displaySceneMenu() {
