@@ -33,6 +33,7 @@ class SceneMenuView extends View{
                     + "\n-----------------------------------------------------"
                     + "\n|T - Visit Town (If Town is Present)                |"
                     + "\n|F - Visit Fort (If Fort is Present)                |"
+                    + "\n|S - Visit Store (If Store is Present)              |"
                     + "\n|C - Cross River (If River is Present)              |"
                     + "\n|R - Rest for a Day                                 |"
                     + "\n|H - Go Hunting                                     |"
@@ -54,6 +55,8 @@ class SceneMenuView extends View{
             case "F":
                 this.displayFortMenu();
                 break;
+            case "S":
+                this.displayStoreMenu();
             case "C":
                 this.displayRiverCrossMenu();
                 break;
@@ -91,12 +94,17 @@ class SceneMenuView extends View{
     }
 
     private void displayHuntMenu() {
-        System.out.println("\n*** displayHuntMenu() called. ***");
+        HuntView huntMenu = new HuntView();
+        huntMenu.display();
     }
 
     private void displayGatherMenu() {
-        System.out.println("\n*** displayGatherMenu() called. ***");
+        GatherView gatherMenu = new GatherView();
+        gatherMenu.display();
     }
-
+    private void displayStoreMenu() {
+        StoreMenuView storeMenu = new StoreMenuView();
+        storeMenu.display();
+    }
     
 }
