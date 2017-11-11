@@ -25,28 +25,35 @@ import oregontrail.OregonTrail;
  */
 public class HuntView extends View{
     
-    private int charHuntingSkill = 3; //Skill not set in Character Model so hard coding it for testing getSkill()
+    private int charHuntingRank = 3; //Skill not set in Character Model so hard coding it for testing getSkill()
     Random rand = new Random();
     private int wildLifeAmount = rand.nextInt(50) + 1;
-    private float charStamina = .5F; //Stamina not set in Character Model so hard coding it for testing getStamina()
+    private float charStamina = .7F; //Stamina not set in Character Model so hard coding it for testing getStamina()
     private int amountFood;
     private String animalCheck;
-    
       
     public HuntView() {
                    
-        super("\n"
-                    + "\n-----------------------------------------------------"
-                    + "\n| Hunt Menu                                         |"
-                    + "\n-----------------------------------------------------"
-                    + "\n|H - Hunt                                           |"
-                    + "\n|Q - Go Back                                        |"
-                    + "\n-----------------------------------------------------");
-        
-        this.animalCheck =  "\n"
-                            + "\n The animal life is currently " + wildLifeAmount + ". Animal life must be greater than 10 to hunt.";
-    }
-    
+                super("\n"
+                    + "\n-----------------------------------------------------------"
+                    + "\n| The success of your Hunt depends on your current        |"
+                    + "\n| stamnia and your characters hunting rank. The greater   |"
+                    + "\n| the stamnia and the higher the hunting rank             |"
+                    + "\n| (1 being the best) the more likely to recover more food.|"
+                    + "\n| Animal life must be greater than 10 to hunt.            |"
+                    + "\n| Each time you hunt it lowers your characters stamina.   |"
+                    + "\n-----------------------------------------------------------"
+                    + "\n| Hunt Menu                                               |"
+                    + "\n-----------------------------------------------------------"
+                    + "\n|H - Hunt                                                 |"
+                    + "\n|Q - Go Back                                              |"
+                    + "\n-----------------------------------------------------------"); 
+                animalCheck =  "The animal life is currently " + wildLifeAmount + ". "
+                            + "\n Current stamina is " + charStamina + "."
+                            + "\n Your hunting rank is " + charHuntingRank + "." 
+                            + "\n Would you like to hunt?";                   
+                System.out.println(animalCheck);
+    }           
     @Override
     public boolean doAction(String menuOption){      
         
@@ -64,17 +71,39 @@ public class HuntView extends View{
     }
     private void calcHSuccess() {
         HuntControl huntControl = new HuntControl();
-        amountFood = huntControl.calcHuntSuccess(charHuntingSkill, wildLifeAmount, charStamina);
-        if(amountFood <= -1) {
+        amountFood = huntControl.calcHuntSuccess(charHuntingRank, wildLifeAmount, charStamina);
+        if(amountFood == -1) {
             
-            System.out.println("\n There is not enough food to Hunt try again?");
-            HuntView huntMenu = new HuntView();
-            huntMenu.display();
+                System.out.println("\n Your characters hunting skill is not enough to hunt,"
+                                    + "\n Go Back and choose a different Character."
+                                    + "\n Your characters hunting rank is " + charHuntingRank + ".");                 
+        } else if(amountFood == -2) {
+            
+            System.out.println("\n There was not enough food to hunt. "
+                               + "\n Would you like to try again?"
+                               + "\n Below is the new amount present.");
+                wildLifeAmount = rand.nextInt(50) + 1;
+                charStamina = charStamina - .1F;
+                animalCheck =  "The animal life is currently " + wildLifeAmount + ". "
+                            + "\n Current stamina is " + charStamina + "."
+                            + "\n Your characters hunting rank is " + charHuntingRank + "." 
+                            + "\n Would you like to hunt?";                   
+                System.out.println(animalCheck);
+        
+        } else if(amountFood == -3) {
+                System.out.println("\n Your stamnia is to low Go Back to reset."
+                                    + "\n Current stamina is " + charStamina + ".");                 
         } else {
             
-            System.out.println("\n You have recovered " + amountFood +" lbs of food." );
-            HuntView huntMenu = new HuntView();
-            huntMenu.display();
+            System.out.println("\n You have recovered " + amountFood +" lbs of food. "
+                               + "\n Would you like to hunt again?" );
+                wildLifeAmount = rand.nextInt(50) + 1;
+                charStamina = charStamina - .1F;
+                animalCheck =  "The animal life is currently " + wildLifeAmount + ". "
+                            + "\n Current stamina is " + charStamina + "."
+                            + "\n Your hunting rank is " + charHuntingRank + "." 
+                            + "\n Would you like to hunt?";                   
+                System.out.println(animalCheck);
         }
     }   
 
