@@ -17,13 +17,36 @@
 package byui.cit260.oregonTrail.control;
 
 import byui.cit260.oregonTrail.model.Pace;
+import java.util.Random;
 
 /**
  *
- * @author Brett Starks
+ * @author JQ
  */
 public class PaceControl {
 
-    public static Pace currentPace;
+    public PaceControl() {
+        
+    }
     
+    public static Pace generatePace() {
+        
+        Pace currentPace;
+        Random rand = new Random();
+        int x = rand.nextInt(2);
+        
+        switch (x) {
+            case 2:
+                currentPace = Pace.Fast;
+                break;
+            case 1:
+                currentPace = Pace.Average;
+                break;
+            default:
+                currentPace = Pace.Slow;
+                break;
+        }
+        
+        return currentPace;
+    }
 }

@@ -25,7 +25,7 @@ import byui.cit260.oregonTrail.model.Pace;
  */
 public class PaceView extends View {
     
-    Pace currentPace = PaceControl.currentPace;
+    Pace currentPace = PaceControl.generatePace();
     
     public PaceView() {
         super("Press any key to return");
