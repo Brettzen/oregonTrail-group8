@@ -17,6 +17,7 @@
 package byui.cit260.oregonTrail.control;
 
 import byui.cit260.oregonTrail.model.Pace;
+import byui.cit260.oregonTrail.view.PaceMenuView;
 import java.util.Random;
 
 /**
@@ -32,9 +33,10 @@ public class PaceControl {
     public static Pace generatePace() {
         
         Pace currentPace;
-        Random rand = new Random();
-        int x = rand.nextInt(2);
+            int x = 0; // hardcoding for now will update later.
+            
         
+          
         switch (x) {
             case 2:
                 currentPace = Pace.Fast;

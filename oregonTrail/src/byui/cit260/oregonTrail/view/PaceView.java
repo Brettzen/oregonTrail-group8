@@ -28,7 +28,7 @@ public class PaceView extends View {
     Pace currentPace = PaceControl.generatePace();
     
     public PaceView() {
-        super("Press any key to return");
+        super("Press any key and hit return to go to previous menu");
         System.out.println("The pace you have choosen is: " + currentPace.getName());
         System.out.println(currentPace.getValue());
     }

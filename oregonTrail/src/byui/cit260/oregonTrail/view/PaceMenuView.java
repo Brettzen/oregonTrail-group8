@@ -62,10 +62,12 @@ public class PaceMenuView extends View {
         return false;          
     }
     
-    private boolean slowPaceView() {
-        
-        PaceSlowView slowPace= new PaceSlowView();
-        return slowPace.displayPaceSlow();
+    //private boolean slowPaceView() {
+       private void slowPaceView() { 
+        //PaceSlowView slowPace = new PaceSlowView();
+        PaceView slowPace = new PaceView();
+        //return slowPace.displayPaceSlow();
+        slowPace.display();
     }
     
     private void averagePaceView() {
