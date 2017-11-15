@@ -43,8 +43,6 @@ public class GameMenuView extends View {
                     + "\n|G - Go to Scene Menu                               |"
                     + "\n|M - View the Map                                   |"
                     + "\n|H - Help Menu                                      |"
-                    + "\n|J - Store Menu                                     |"
-                    + "\n|T - Hunt Menu                                      |"
                     + "\n|Q - Main Menu                                      |"
                     + "\n-----------------------------------------------------");
     }
@@ -91,12 +89,6 @@ public class GameMenuView extends View {
                 break;
             case "H":
                 this.displayHelpMenu();
-                break;
-            case "J":
-                this.displayStoreMenu();
-                break;
-            case "T":
-                this.displayHuntMenu();
                 break;
             default:
                 System.out.println("*** Invalid selection. Try again ***");
@@ -156,13 +148,5 @@ public class GameMenuView extends View {
     private void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.display();
-    }
-    private void displayStoreMenu() {
-        StoreMenuView storeMenu = new StoreMenuView();
-        storeMenu.display();
-    }
-    private void displayHuntMenu() {
-        HuntView huntMenu = new HuntView();
-        huntMenu.display();
     }
 }

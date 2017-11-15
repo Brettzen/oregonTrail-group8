@@ -16,6 +16,7 @@
  */
 package byui.cit260.oregonTrail.view;
 
+import byui.cit260.oregonTrail.control.PaceControl;
 import java.util.Scanner;
 
 /**
@@ -24,7 +25,7 @@ import java.util.Scanner;
  */
 public class PaceSlowView {
     
-    private String promptMessage;
+   // private String promptMessage;
     
     public PaceSlowView() {
                       
@@ -46,6 +47,7 @@ public class PaceSlowView {
                 System.out.println("\n*** Invalid value: value cannot be blank. ***");
                 continue;
             } else if(value.equals("N")) {
+                System.out.println("\n Either change your pace or get back on trail");
                 return false;
             } else if(value.equals("Y")) {
                 newPace();
@@ -59,12 +61,15 @@ public class PaceSlowView {
     
     // having trouble figuring out how to express my y/n output
     private void newPace() {
-       boolean value = displayPaceSlow();
-       if (value == true) {
+        PaceControl value =  new PaceControl();
+        boolean PaceControl = true;
+       
+       if (PaceControl == true) {
            System.out.println("\n Your pace is set to slow");
        } else {
            System.out.println("\n Have a nice day");
            System.exit(0);
        }
+        
     }
 }

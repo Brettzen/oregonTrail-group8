@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Brett Starks
+ * Copyright (C) 2017 jgqui
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,41 +14,27 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package byui.cit260.oregonTrail.control;
+package byui.cit260.oregonTrail.view;
 
+import byui.cit260.oregonTrail.control.PaceControl;
 import byui.cit260.oregonTrail.model.Pace;
-import byui.cit260.oregonTrail.view.PaceMenuView;
-import java.util.Random;
 
 /**
  *
- * @author JQ
+ * @author jgqui
  */
-public class PaceControl {
-
-    public PaceControl() {
-        
+public class PaceView extends View {
+    
+    Pace currentPace = PaceControl.generatePace();
+    
+    public PaceView() {
+        super("Press any key and hit return to go to previous menu");
+        System.out.println("The pace you have choosen is: " + currentPace.getName());
+        System.out.println(currentPace.getValue());
     }
     
-    public static Pace generatePace() {
-        
-        Pace currentPace;
-            int x = 0; // hardcoding for now will update later.
-            
-        
-          
-        switch (x) {
-            case 2:
-                currentPace = Pace.Fast;
-                break;
-            case 1:
-                currentPace = Pace.Average;
-                break;
-            default:
-                currentPace = Pace.Slow;
-                break;
-        }
-        
-        return currentPace;
+    @Override
+    public boolean doAction(String value) {
+        return true;
     }
 }

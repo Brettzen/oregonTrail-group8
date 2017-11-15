@@ -14,9 +14,9 @@ public class HuntControl {
         if ((charHuntingSkill <= 0) || (charHuntingSkill > 10)){ 
                return -1;
         } else if (wildLifeAmount < 10) {
-               return -1;
+               return -2;
         } else if ((charStamina <= 0) || (charStamina > 1)){
-               return -1;
+               return -3;
         } else {
             float newWildLifeAmount = wildLifeAmount * charStamina;  
             newWildLifeAmount = newWildLifeAmount / charHuntingSkill;

@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package byui.cit260.oregonTrail.view;
-import byui.cit260.oregonTrail.control.HuntControl;
+import byui.cit260.oregonTrail.control.GatherControl;
 import java.util.Random;
 import java.util.Scanner;
 import oregontrail.OregonTrail;
@@ -23,36 +23,35 @@ import oregontrail.OregonTrail;
  *
  * @author J.R. Basham
  */
-public class HuntView extends View{
-    
-    private int charHuntingRank = 3; //Skill not set in Character Model so hard coding it for testing getSkill()
+public class GatherView extends View {
+    private int charGatherRank = 2; //Skill not set in Character Model so hard coding it for testing getSkill()
     Random rand = new Random();
-    private int wildLifeAmount = rand.nextInt(50) + 1;
-    private float charStamina = .7F; //Stamina not set in Character Model so hard coding it for testing getStamina()
+    private int plantLifeAmount = rand.nextInt(200) + 1;
+    private float charStamina = .6F; //Stamina not set in Character Model so hard coding it for testing getStamina()
     private int amountFood;
-    private String animalCheck;
+    private String plantCheck;
       
-    public HuntView() {
+    public GatherView() {
                    
                 super("\n"
                     + "\n-----------------------------------------------------------"
-                    + "\n| The success of your Hunt depends on your current        |"
-                    + "\n| stamnia and your characters hunting rank. The greater   |"
-                    + "\n| the stamnia and the higher the hunting rank             |"
+                    + "\n| The success of your Gather depends on your current      |"
+                    + "\n| stamnia and your characters gather rank. The greater    |"
+                    + "\n| the stamnia and the higher the Gather rank              |"
                     + "\n| (1 being the best) the more likely to recover more food.|"
-                    + "\n| Animal life must be greater than 10 to hunt.            |"
-                    + "\n| Each time you hunt it lowers your characters stamina.   |"
+                    + "\n| Plant life must be greater than 10 to gather.           |"
+                    + "\n| Each time you gather it lowers your characters stamina. |"
                     + "\n-----------------------------------------------------------"
-                    + "\n| Hunt Menu                                               |"
+                    + "\n| Gather Menu                                             |"
                     + "\n-----------------------------------------------------------"
-                    + "\n|H - Hunt                                                 |"
+                    + "\n|G - Gather                                               |"
                     + "\n|Q - Go Back                                              |"
                     + "\n-----------------------------------------------------------"); 
-                animalCheck =  "The animal life is currently " + wildLifeAmount + ". "
+                plantCheck =  "The plant life is currently " + plantLifeAmount + ". "
                             + "\n Current stamina is " + charStamina + "."
-                            + "\n Your hunting rank is " + charHuntingRank + "." 
-                            + "\n Would you like to hunt?";                   
-                System.out.println(animalCheck);
+                            + "\n Your gather rank is " + charGatherRank + "." 
+                            + "\n Would you like to gather?";                   
+                System.out.println(plantCheck);
     }           
     @Override
     public boolean doAction(String menuOption){      
@@ -60,8 +59,8 @@ public class HuntView extends View{
         menuOption = menuOption.toUpperCase();
         
         switch(menuOption) {
-            case "H":
-                this.calcHSuccess();
+            case "G":
+                this.calcGSuccess();
                 break;
             default:
                 System.out.println("*** Invalid selection. Try again ***");
@@ -69,26 +68,26 @@ public class HuntView extends View{
         }
         return false;
     }
-    private void calcHSuccess() {
-        HuntControl huntControl = new HuntControl();
-        amountFood = huntControl.calcHuntSuccess(charHuntingRank, wildLifeAmount, charStamina);
+    private void calcGSuccess() {
+        GatherControl gathControl = new GatherControl();
+        amountFood = gathControl.calcGathSuccess(charGatherRank, plantLifeAmount, charStamina);
         if(amountFood == -1) {
             
-                System.out.println("\n Your characters hunting skill is not enough to hunt,"
+                System.out.println("\n Your characters gathering skill is not enough to gather,"
                                     + "\n Go Back and choose a different Character."
-                                    + "\n Your characters hunting rank is " + charHuntingRank + ".");                 
+                                    + "\n Your characters gathering rank is " + charGatherRank + ".");                 
         } else if(amountFood == -2) {
             
-            System.out.println("\n There was not enough food to hunt. "
+            System.out.println("\n There was not enough plant life to gather. "
                                + "\n Would you like to try again?"
                                + "\n Below is the new amount present.");
-                wildLifeAmount = rand.nextInt(50) + 1;
+                plantLifeAmount = rand.nextInt(50) + 1;
                 charStamina = charStamina - .1F;
-                animalCheck =  "The animal life is currently " + wildLifeAmount + ". "
+                plantCheck =  "The plant life is currently " + plantLifeAmount + ". "
                             + "\n Current stamina is " + charStamina + "."
-                            + "\n Your characters hunting rank is " + charHuntingRank + "." 
-                            + "\n Would you like to hunt?";                   
-                System.out.println(animalCheck);
+                            + "\n Your characters gathering rank is " + charGatherRank + "." 
+                            + "\n Would you like to gather?";                   
+                System.out.println(plantCheck);
         
         } else if(amountFood == -3) {
                 System.out.println("\n Your stamnia is to low Go Back to reset."
@@ -96,15 +95,14 @@ public class HuntView extends View{
         } else {
             
             System.out.println("\n You have recovered " + amountFood +" lbs of food. "
-                               + "\n Would you like to hunt again?" );
-                wildLifeAmount = rand.nextInt(50) + 1;
+                               + "\n Would you like to gather again?" );
+                plantLifeAmount = rand.nextInt(50) + 1;
                 charStamina = charStamina - .1F;
-                animalCheck =  "The animal life is currently " + wildLifeAmount + ". "
+                plantCheck =  "The plant life is currently " + plantLifeAmount + ". "
                             + "\n Current stamina is " + charStamina + "."
-                            + "\n Your hunting rank is " + charHuntingRank + "." 
-                            + "\n Would you like to hunt?";                   
-                System.out.println(animalCheck);
+                            + "\n Your gathering rank is " + charGatherRank + "." 
+                            + "\n Would you like to gather?";                   
+                System.out.println(plantCheck);
         }
-    }   
-
+    } 
 }

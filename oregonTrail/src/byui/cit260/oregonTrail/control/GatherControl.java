@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Brett Starks
+ * Copyright (C) 2017 J.R. Basham
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,8 +18,24 @@ package byui.cit260.oregonTrail.control;
 
 /**
  *
- * @author Brett Starks
+ * @author J.R. Basham
  */
 public class GatherControl {
-    
+        
+    public int calcGathSuccess(int charGatherSkill, int plantLifeAmount, float charStamina) {
+        float amountFood;
+        if ((charGatherSkill <= 0) || (charGatherSkill > 10)){ 
+               return -1;
+        } else if (plantLifeAmount < 10) {
+               return -2;
+        } else if ((charStamina <= 0) || (charStamina > 1)){
+               return -3;
+        } else {
+            float newPlantLifeAmount = plantLifeAmount * charStamina;  
+            newPlantLifeAmount = newPlantLifeAmount / charGatherSkill;
+            amountFood = newPlantLifeAmount * 2;
+            amountFood = Math.round(amountFood);
+        }
+        return (int) amountFood;
+    }
 }
