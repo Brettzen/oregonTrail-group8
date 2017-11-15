@@ -18,6 +18,7 @@ package byui.cit260.oregonTrail.view;
 
 import byui.cit260.oregonTrail.control.GameControl;
 import byui.cit260.oregonTrail.model.Weather;
+import java.util.Scanner;
 
 /**
  *
@@ -28,11 +29,26 @@ public class WeatherView extends View {
     Weather currentWeather = GameControl.currentWeather;
     
     public WeatherView(){
-        super("Press any key to return.");
+        super("\n");
         System.out.println("The weather looks like: " + currentWeather.getName());
         System.out.println(currentWeather.getDesc());
+   
+        this.displayMessage = "Press any key to return.";
+        
     }
     
+   @Override
+    public void display() {
+        System.out.println("\n" + this.displayMessage);
+        this.getInput();
+    }
+    
+    @Override
+    public String getInput() {
+        Scanner keyboard = new Scanner(System.in);
+        return keyboard.nextLine();
+    }
+
     @Override
     public boolean doAction(String value) {
         return true;
