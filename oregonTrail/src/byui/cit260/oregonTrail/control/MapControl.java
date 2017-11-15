@@ -16,13 +16,51 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.model.Location;
 import byui.cit260.oregonTrail.model.Pace;
+import byui.cit260.oregonTrail.model.Scene;
 
 /**
  *
  * @author Brett Starks
  */
 public class MapControl {
+    
+    
+    private static Location[] createLocations(int mileMarker, int distanceToOregon, String name, String type, String desc) {
+        
+        Location[] locations = new Location[21];
+        locations[0] = new Location(0, 2000, "Independence", "town", "Independence, MO");
+        locations[1] = new Location(80, 1920, "Kansas River Crossing", "river", "The Kansas River");
+        locations[2] = new Location(140, 1860, "Granada Station", "town", "Granada Station");
+        locations[3] = new Location(240, 1760, "Big Blue River Crossing", "river", "Big Blue River");
+        locations[4] = new Location(270, 1730, "Rock Creek Station", "town", "Rock Creek Station");
+        locations[5] = new Location(340, 1660, "Fort Kearney", "fort", "Fort Kearney");
+        locations[6] = new Location(490, 1510, "Platte River Crossing", "river", "Platte River");
+        locations[7] = new Location(580, 1420, "Chimney Rock", "landmark", "Chimney Rock");
+        locations[8] = new Location(600, 1400, "Scotts Bluff", "town", "Scotts Bluff");
+        locations[9] = new Location(650, 1350, "Fort Laramie", "fort", "Fort Laramie");
+        locations[10] = new Location(750, 1250, "Fort Caspar", "fort", "Fort Caspar");
+        locations[11] = new Location(810, 1190, "Independence Rock", "landmark", "Indpendence Rock");
+        locations[12] = new Location(910, 1090, "South Pass", "landmark", "South Pass");
+        locations[13] = new Location(1050, 950, "Bear River Crossing", "river", "Bear River");
+        locations[14] = new Location(1100, 900, "Soda Springs", "landmark", "Soda Springs");
+        locations[15] = new Location(1150, 850, "Fort Hall", "fort", "Fort Hall");
+        locations[16] = new Location(1250, 750, "Snake River Crossing", "river", "Snake River");
+        locations[17] = new Location(1600, 400, "Fort Boise", "fort", "Fort Boise");
+        locations[18] = new Location(1700, 300, "Blue Mountains", "landmark", "Blue Mountains");
+        locations[19] = new Location(1800, 200, "Whitman Mission", "city", "Whitman Mission");
+        locations[19] = new Location(1900, 100, "The Dalles", "landmark", "The Dalles");
+        locations[20] = new Location(2000, 0, "Oregon City", "city", "Oregon City, OR");
+        return locations;
+    }  
+    
+    private static Scene[] createScenes(){
+        Scene[] scenes = new Scene[10];
+        
+        return scenes;
+    }
+    
     
     public int calculateDailyMiles(int avgCharHealth, int avgOxHealth, int currentWeight, int maxWeight, Pace pace) {
         double miles = 20;
@@ -53,11 +91,5 @@ public class MapControl {
         return (int) miles;
     }
     
-//    PSEUDO FUNCTION
-//    currentPace = 1;  maxWeight = 1000;
-//calculateDailyMiles(int avgCharHealth, int avgOxHealth, int currentWeight, int maxWeight) return int miles
-//     if (avgCharHealth <= 0) || (avgOxHealth <= 0) || (currentWeight < 0) || (currentWeight > maxWeight): return -1 and exit
-//    else 
-// 	miles = (20 * currentPace) * (((((avgCharHealth + avgOxHealth) / 2)  * .01) +  ((maxWeight - currentWeight) / maxWeight)) / 2)
 
 }

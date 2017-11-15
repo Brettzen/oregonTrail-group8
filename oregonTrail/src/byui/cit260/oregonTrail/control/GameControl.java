@@ -16,9 +16,11 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.model.Item;
 import byui.cit260.oregonTrail.model.Party;
 import byui.cit260.oregonTrail.model.Player;
 import byui.cit260.oregonTrail.model.Weather;
+import java.util.ArrayList;
 import oregontrail.OregonTrail;
 
 /**
@@ -47,6 +49,11 @@ public class GameControl {
     
     //generate weather here temporarily until DailyTrailControl has been created.
     public static Weather currentWeather = WeatherControl.generateWeather();
+    
+    //Create Item List -- should be empty at New Game, but will add items here temporarily for testing.
+    public static ArrayList<Item> currentInventory = ItemControl.addInventoryItems();
+    
+    
 
     public static void createNewGame(Player player) {
         System.out.println("\n*** createNewGame() called ***");

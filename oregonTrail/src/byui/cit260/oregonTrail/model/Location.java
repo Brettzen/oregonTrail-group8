@@ -17,41 +17,44 @@
 package byui.cit260.oregonTrail.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
  * @author jgqui
  */
 public class Location implements Serializable {
-    private int row;
-    private int column;
-    private int distanceToOregon;                
+    private int mileMarker;
+    private int distanceToOregon;      
+    private String name;
+    private String sceneType;
+    private String desc;
+    
+    // Constructors
+    public Location() {
+    }
 
-    public Location(int row, int column, int distanceToOregon) {
-        this.row = row;
-        this.column = column;
+    public Location(int mileMarker, int distanceToOregon) {
+        this.mileMarker = mileMarker;
         this.distanceToOregon = distanceToOregon;
     }
 
-    public Location() {
-        //???
-//        Brett: Looks right!
+    public Location(int mileMarker, int distanceToOregon, String name, String sceneType, String desc) {
+        this.mileMarker = mileMarker;
+        this.distanceToOregon = distanceToOregon;
+        this.name = name;
+        this.sceneType = sceneType;
+        this.desc = desc;
+    }
+    
+
+    // Getters and Setters
+    public int getmileMarker() {
+        return mileMarker;
     }
 
-    public int getRow() {
-        return row;
-    }
-
-    public void setRow(int row) {
-        this.row = row;
-    }
-
-    public int getColumn() {
-        return column;
-    }
-
-    public void setColumn(int column) {
-        this.column = column;
+    public void setmileMarker(int mileMarker) {
+        this.mileMarker = mileMarker;
     }
 
     public int getDistanceToOregon() {
@@ -62,12 +65,38 @@ public class Location implements Serializable {
         this.distanceToOregon = distanceToOregon;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSceneType() {
+        return sceneType;
+    }
+
+    public void setsceneType(String sceneType) {
+        this.sceneType = sceneType;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 61 * hash + this.row;
-        hash = 61 * hash + this.column;
-        hash = 61 * hash + this.distanceToOregon;
+        int hash = 5;
+        hash = 71 * hash + this.mileMarker;
+        hash = 71 * hash + this.distanceToOregon;
+        hash = 71 * hash + Objects.hashCode(this.name);
+        hash = 71 * hash + Objects.hashCode(this.sceneType);
+        hash = 71 * hash + Objects.hashCode(this.desc);
         return hash;
     }
 
@@ -83,13 +112,19 @@ public class Location implements Serializable {
             return false;
         }
         final Location other = (Location) obj;
-        if (this.row != other.row) {
-            return false;
-        }
-        if (this.column != other.column) {
+        if (this.mileMarker != other.mileMarker) {
             return false;
         }
         if (this.distanceToOregon != other.distanceToOregon) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.sceneType, other.sceneType)) {
+            return false;
+        }
+        if (!Objects.equals(this.desc, other.desc)) {
             return false;
         }
         return true;
@@ -97,6 +132,8 @@ public class Location implements Serializable {
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", distanceToOregon=" + distanceToOregon + '}';
+        return "Location{" + "mileMarker=" + mileMarker + ", distanceToOregon=" + distanceToOregon + ", name=" + name + ", sceneType=" + sceneType + ", desc=" + desc + '}';
     }
+
+    
 }

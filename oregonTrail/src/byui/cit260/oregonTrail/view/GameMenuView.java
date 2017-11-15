@@ -131,7 +131,8 @@ public class GameMenuView extends View {
     }
 
     private void displayItemMenu() {
-        System.out.println("\n*** displayItemMenu() called.");
+        ItemMenuView itemMenu = new ItemMenuView();
+        itemMenu.display();
     }
 
     private void viewTeamStatus() {

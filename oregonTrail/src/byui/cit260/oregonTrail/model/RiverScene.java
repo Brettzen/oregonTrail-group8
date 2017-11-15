@@ -11,7 +11,6 @@ import java.util.Objects;
  */
 public class RiverScene implements Serializable{
     private Scene scene;
-    private int riverDepth;
 
     public RiverScene() {
         
@@ -25,19 +24,10 @@ public class RiverScene implements Serializable{
         this.scene = scene;
     }
 
-    public int getRiverDepth() {
-        return riverDepth;
-    }
-
-    public void setRiverDepth(int riverDepth) {
-        this.riverDepth = riverDepth;
-    }
-
     @Override
     public int hashCode() {
         int hash = 3;
         hash = 13 * hash + Objects.hashCode(this.scene);
-        hash = 13 * hash + this.riverDepth;
         return hash;
     }
 
@@ -52,19 +42,12 @@ public class RiverScene implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final RiverScene other = (RiverScene) obj;
-        if (this.riverDepth != other.riverDepth) {
-            return false;
-        }
-        if (!Objects.equals(this.scene, other.scene)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "RiverScene{" + "scene=" + scene + ", riverDepth=" + riverDepth + '}';
+        return "RiverScene{" + "scene=" + scene + '}';
     }
 
   
