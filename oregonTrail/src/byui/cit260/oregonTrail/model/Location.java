@@ -29,6 +29,7 @@ public class Location implements Serializable {
     private String name;
     private String sceneType;
     private String desc;
+    private Scene scene;
     
     // Constructors
     public Location() {
@@ -88,6 +89,16 @@ public class Location implements Serializable {
     public void setDesc(String desc) {
         this.desc = desc;
     }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+    
+    
 
     @Override
     public int hashCode() {

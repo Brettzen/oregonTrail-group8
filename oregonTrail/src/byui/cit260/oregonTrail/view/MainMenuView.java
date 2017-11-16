@@ -68,8 +68,10 @@ public class MainMenuView extends View {
     }
 
     private void startGame() {
-        GameControl.createNewGame(OregonTrail.getPlayer());
-        
+        int returnValue = GameControl.createNewGame(OregonTrail.getPlayer());
+        if(returnValue < 0) {
+            System.out.println("ERROR - Failed to create new game");
+        }
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }

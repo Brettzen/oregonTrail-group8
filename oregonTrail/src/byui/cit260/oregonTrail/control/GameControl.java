@@ -16,6 +16,8 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.model.Map;
+import byui.cit260.oregonTrail.model.Game;
 import byui.cit260.oregonTrail.model.Item;
 import byui.cit260.oregonTrail.model.Party;
 import byui.cit260.oregonTrail.model.Player;
@@ -55,8 +57,23 @@ public class GameControl {
     
     
 
-    public static void createNewGame(Player player) {
-        System.out.println("\n*** createNewGame() called ***");
+    public static int createNewGame(Player player) {
+        if(player == null) {
+            return -1;
+        }
+        
+        Game game = new Game();
+        game.setPlayer(player);
+        OregonTrail.setCurrentGame(game);
+        
+        // Having to statically enter the field so it doesn't try to convert it to Java.lang.Character[]
+        byui.cit260.oregonTrail.model.Character characters[] = CharacterControl.createCharacters();
+        game.setCharacters(characters);
+        
+        Map map = MapControl.createMap();
+        game.setMap(map);
+        
+        return 1;
     }
     
 }

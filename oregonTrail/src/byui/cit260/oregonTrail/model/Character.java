@@ -29,7 +29,7 @@ public class Character implements Serializable {
     
     private String name;
     private String description;
-    private String skill;
+    private int skill;
     private String status;
     private int currentHealth;
     private int maxHealth;
@@ -41,6 +41,17 @@ public class Character implements Serializable {
     
     
     public Character() {
+    }
+    
+    public Character(String name, String description, int skill, String status, int currentHealth, int maxHealth, int stamina, int startingCurrency) {
+        this.name = name;
+        this.description = description;
+        this.skill = skill;
+        this.status = status;
+        this.currentHealth = currentHealth;
+        this.maxHealth = maxHealth;
+        this.stamina = stamina;
+        this.startingCurrency = startingCurrency;
     }
 
     public String getName() {
@@ -59,11 +70,11 @@ public class Character implements Serializable {
         this.description = description;
     }
 
-    public String getSkill() {
+    public int getSkill() {
         return skill;
     }
 
-    public void setSkill(String skill) {
+    public void setSkill(int skill) {
         this.skill = skill;
     }
 

@@ -16,11 +16,24 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.model.Character;
+
 /**
  *
  * @author Brett Starks
  */
 public class CharacterControl {
+
+    static Character[] createCharacters() {
+        Character[] characters = new Character[5];
+        characters[0] = new Character("Bob", "He's Bob", 8, "Healthy", 100, 100, 8, 100);
+        characters[1] = new Character("Joe", "Joe is sickly", 4, "Healthy", 100, 100, 3, 50);
+        characters[2] = new Character("Cindy", "He's Bob", 10, "Healthy", 100, 100, 10, 0);
+        characters[3] = new Character("Ergon IV", "Distinguished Ergon the Banker", 0, "Healthy", 100, 100, 8, 1000);
+        characters[4] = new Character("Mitch", "He's Mitch", 8, "Healthy", 100, 100, 8, 100);
+        
+        return characters;
+    }
     
     public int calcHealthDraw(int currentHealth, int stamina, int amountOfFood, int weather, int pace) {
         

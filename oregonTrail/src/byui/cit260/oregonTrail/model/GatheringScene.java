@@ -8,7 +8,7 @@ import java.util.Objects;
  *
  * @author J.R. Basham
  */
-public class GatheringScene implements Serializable{
+public class GatheringScene extends Scene implements Serializable{
     private Scene scene;
     private int plantLifeAmount;
 

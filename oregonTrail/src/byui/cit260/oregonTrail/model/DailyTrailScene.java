@@ -9,7 +9,7 @@ import java.util.Objects;
  *
  * @author J.R. Basham
  */
-public class DailyTrailScene implements Serializable {
+public class DailyTrailScene extends Scene implements Serializable {
     
     private Boolean currentPlantPresence;
     private Boolean currentAnimalPresence;

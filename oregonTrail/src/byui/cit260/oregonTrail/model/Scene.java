@@ -11,19 +11,13 @@ import java.util.Objects;
  * @author J.R. Basham
  */
 public class Scene implements Serializable{
-    private Location location;
     private String description;
     
     public Scene () {
+    }
     
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
+    public Scene (String description) {
+        this.description = description;
     }
 
     public String getDescription() {
@@ -37,7 +31,6 @@ public class Scene implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.location);
         hash = 97 * hash + Objects.hashCode(this.description);
         return hash;
     }
@@ -57,15 +50,12 @@ public class Scene implements Serializable{
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
-        if (!Objects.equals(this.location, other.location)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Scene{" + "location=" + location + ", description=" + description + '}';
+        return "Scene{" + "description=" + description + '}';
     }
     
     

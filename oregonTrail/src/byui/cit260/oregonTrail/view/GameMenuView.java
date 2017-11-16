@@ -110,7 +110,8 @@ public class GameMenuView extends View {
     }
 
     private void displayMapMenu() {
-        System.out.println("\n*** displayMapMenu() called.");
+        MapView mapView = new MapView();
+        mapView.display();
     }
     
     private void viewEventLog() {

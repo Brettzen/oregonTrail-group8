@@ -29,12 +29,18 @@ public class Map implements Serializable {
     private String description;
     private int currentRow;
     private int currentColumn;
+    private int noOfLocations;
+    private Location[] locations;
 
    
     public Map(String description, int currentRow, int currentColumn) {
         this.description = description;
         this.currentRow = currentRow;
         this.currentColumn = currentColumn;
+    }
+    
+    public Map(int noOfLocations, Location[] locations) {
+        
     }
 
     public Map() {
@@ -67,6 +73,24 @@ public class Map implements Serializable {
     public void setCurrentColumn(int currentColumn) {
         this.currentColumn = currentColumn;
     }
+
+    public int getNoOfLocations() {
+        return noOfLocations;
+    }
+
+    public void setNoOfLocations(int noOfLocations) {
+        this.noOfLocations = noOfLocations;
+    }
+
+    public Location[] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[] locations) {
+        this.locations = locations;
+    }
+    
+    
 
     @Override
     public int hashCode() {

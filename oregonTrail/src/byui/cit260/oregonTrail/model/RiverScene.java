@@ -9,7 +9,7 @@ import java.util.Objects;
  *
  * @author J.R. Basham
  */
-public class RiverScene implements Serializable{
+public class RiverScene extends Scene implements Serializable{
     private Scene scene;
 
     public RiverScene() {

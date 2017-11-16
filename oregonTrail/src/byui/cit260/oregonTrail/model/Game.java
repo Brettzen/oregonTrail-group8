@@ -16,6 +16,9 @@ public class Game implements Serializable {
     
     // class instance variables
     private Player player;
+    private Character[] characters;
+    private Map map;
+    
     public Game(){
         
     }
@@ -26,6 +29,22 @@ public class Game implements Serializable {
 
     public void setPlayer(Player player) {
         this.player = player;
+    }
+
+    public Character[] getCharacters() {
+        return characters;
+    }
+
+    public void setCharacters(Character[] characters) {
+        this.characters = characters;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
     }
 
     @Override

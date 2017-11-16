@@ -9,7 +9,7 @@ import java.util.Objects;
  *
  * @author J.R. Basham
  */
-public class HotelScene implements Serializable{
+public class HotelScene extends Scene implements Serializable{
     private Scene scene;
     private ArrayList<Character> character;
     private TownScene townScene;

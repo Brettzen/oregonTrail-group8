@@ -17,6 +17,7 @@
 package byui.cit260.oregonTrail.control;
 
 import byui.cit260.oregonTrail.model.Location;
+import byui.cit260.oregonTrail.model.Map;
 import byui.cit260.oregonTrail.model.Pace;
 import byui.cit260.oregonTrail.model.Scene;
 
@@ -27,9 +28,9 @@ import byui.cit260.oregonTrail.model.Scene;
 public class MapControl {
     
     
-    private static Location[] createLocations(int mileMarker, int distanceToOregon, String name, String type, String desc) {
+    private static Location[] createLocations() {
         
-        Location[] locations = new Location[21];
+        Location[] locations = new Location[22];
         locations[0] = new Location(0, 2000, "Independence", "town", "Independence, MO");
         locations[1] = new Location(80, 1920, "Kansas River Crossing", "river", "The Kansas River");
         locations[2] = new Location(140, 1860, "Granada Station", "town", "Granada Station");
@@ -50,15 +51,58 @@ public class MapControl {
         locations[17] = new Location(1600, 400, "Fort Boise", "fort", "Fort Boise");
         locations[18] = new Location(1700, 300, "Blue Mountains", "landmark", "Blue Mountains");
         locations[19] = new Location(1800, 200, "Whitman Mission", "city", "Whitman Mission");
-        locations[19] = new Location(1900, 100, "The Dalles", "landmark", "The Dalles");
-        locations[20] = new Location(2000, 0, "Oregon City", "city", "Oregon City, OR");
+        locations[20] = new Location(1900, 100, "The Dalles", "landmark", "The Dalles");
+        locations[21] = new Location(2000, 0, "Oregon City", "city", "Oregon City, OR");
         return locations;
     }  
     
     private static Scene[] createScenes(){
-        Scene[] scenes = new Scene[10];
-        
+        Scene[] scenes = new Scene[5];
+        scenes[0] = new Scene("DailyTrailScene");
+        scenes[1] = new Scene("TownScene");
+        scenes[2] = new Scene("RiverScene");
+        scenes[3] = new Scene("FortScene");
         return scenes;
+    }
+    
+    private static void assignScenesToLocations(Map map, Scene[] scenes) {
+        Location[] locations = map.getLocations();
+        locations[0].setScene(scenes[1]);
+        locations[1].setScene(scenes[2]);
+        locations[2].setScene(scenes[1]);
+        locations[3].setScene(scenes[2]);
+        locations[4].setScene(scenes[1]);
+        locations[5].setScene(scenes[3]);
+        locations[6].setScene(scenes[2]);
+        locations[7].setScene(scenes[0]);
+        locations[8].setScene(scenes[1]);
+        locations[9].setScene(scenes[3]);
+        locations[10].setScene(scenes[3]);
+        locations[11].setScene(scenes[0]);
+        locations[12].setScene(scenes[0]);
+        locations[13].setScene(scenes[2]);
+        locations[14].setScene(scenes[0]);
+        locations[15].setScene(scenes[3]);
+        locations[16].setScene(scenes[2]);
+        locations[17].setScene(scenes[3]);
+        locations[18].setScene(scenes[0]);
+        locations[19].setScene(scenes[1]);
+        locations[20].setScene(scenes[0]);
+        locations[21].setScene(scenes[1]);
+    }
+    
+    public static Map createMap() {
+        
+        Map map = new Map();
+        
+        Location[] locations = createLocations();
+        map.setNoOfLocations(locations.length);
+        map.setLocations(locations);
+        
+        Scene[] scenes = createScenes();
+        assignScenesToLocations(map, scenes);
+        
+        return map;
     }
     
     

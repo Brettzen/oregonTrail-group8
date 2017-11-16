@@ -9,7 +9,7 @@ import java.util.Objects;
  *
  * @author J.R. Basham
  */
-public class FortScene implements Serializable{
+public class FortScene extends Scene implements Serializable{
     private Scene scene;
     private StoreScene storeScene;
     

@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author J.R. Basham
  */
-public class HuntingScene implements Serializable{
+public class HuntingScene extends Scene implements Serializable{
     private Scene scene;
     private int wildLifeAmount;
     private ArrayList<Item> item;

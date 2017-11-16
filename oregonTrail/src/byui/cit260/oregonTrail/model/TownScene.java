@@ -9,7 +9,7 @@ import java.util.Objects;
  *
  * @author J.R. Basham
  */
-public class TownScene implements Serializable{
+public class TownScene extends Scene implements Serializable{
     private Scene scene;
     private HotelScene hotelScene;
     private StoreScene storeScene;
