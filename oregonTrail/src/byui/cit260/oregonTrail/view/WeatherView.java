@@ -29,16 +29,15 @@ public class WeatherView extends View {
     Weather currentWeather = GameControl.currentWeather;
     
     public WeatherView(){
-        super("\n");
-        System.out.println("The weather looks like: " + currentWeather.getName());
-        System.out.println(currentWeather.getDesc());
-   
-        this.displayMessage = "Press any key to return.";
-        
+        super(); 
     }
     
    @Override
     public void display() {
+        this.displayMessage = "The weather looks like: " + currentWeather.getName()
+                            +  "\n" + currentWeather.getDesc()
+                            + "\n\n\nPress any key to return.";
+        
         System.out.println("\n" + this.displayMessage);
         this.getInput();
     }

@@ -29,25 +29,25 @@ class ItemMenuView extends View{
     
     ArrayList<Item> currentInventory = GameControl.currentInventory;
     
+    
     public ItemMenuView(){
-        super("\n");
-        System.out.println("\n\nCurrent Inventory:");
-        System.out.println("--------------------------------------------------");
-        if(currentInventory.size() > 0) {
-            for(Item item : currentInventory) {
-                System.out.println(item.getName() + ": \t" + item.getWeight() + " lbs.");
-                System.out.println("--------------------------------------------------");
-            }
-        } else {
-            System.out.println("\n\t No items are currently being held.");
-        }
-        
-        this.displayMessage = "Press any key to return.";
-        
+        super();
     }
     
    @Override
     public void display() {
+        this.displayMessage = "\n\nCurrent Inventory:"
+                             +"\n--------------------------------------------------";
+        if(currentInventory.size() > 0) {
+            for(Item item : currentInventory) {
+                this.displayMessage += "\n" + item.getName() + ": \t" + item.getWeight() + " lbs."
+                                    +  "\n--------------------------------------------------";
+            }
+        } else {
+            this.displayMessage += "\n\n\t No items are currently being held.";
+        }
+        this.displayMessage += "\n\n\nPress any key to return.";
+        
         System.out.println("\n" + this.displayMessage);
         this.getInput();
     }
