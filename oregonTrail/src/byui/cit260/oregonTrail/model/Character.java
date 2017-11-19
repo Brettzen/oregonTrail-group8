@@ -28,12 +28,13 @@ public class Character implements Serializable {
     
     
     private String name;
+    private String menuSelectionOption;
     private String description;
     private int skill;
     private String status;
     private int currentHealth;
     private int maxHealth;
-    private int stamina;
+    private float stamina;
     private int startingCurrency = 0;
     private Party party;
     private ArrayList<Player> players = new ArrayList<>();
@@ -43,8 +44,9 @@ public class Character implements Serializable {
     public Character() {
     }
     
-    public Character(String name, String description, int skill, String status, int currentHealth, int maxHealth, int stamina, int startingCurrency) {
+    public Character(String name, String menuSelectionOption, String description, int skill, String status, int currentHealth, int maxHealth, float stamina, int startingCurrency) {
         this.name = name;
+        this.menuSelectionOption = menuSelectionOption;
         this.description = description;
         this.skill = skill;
         this.status = status;
@@ -52,6 +54,14 @@ public class Character implements Serializable {
         this.maxHealth = maxHealth;
         this.stamina = stamina;
         this.startingCurrency = startingCurrency;
+    }
+
+    public void setMenuSelectionOption(String menuSelectionOption) {
+        this.menuSelectionOption = menuSelectionOption;
+    }
+
+    public String getMenuSelectionOption() {
+        return menuSelectionOption;
     }
 
     public String getName() {
@@ -102,11 +112,11 @@ public class Character implements Serializable {
         this.maxHealth = maxHealth;
     }
 
-    public int getStamina() {
+    public float getStamina() {
         return stamina;
     }
 
-    public void setStamina(int stamina) {
+    public void setStamina(float stamina) {
         this.stamina = stamina;
     }
 
@@ -120,15 +130,18 @@ public class Character implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.name);
-        hash = 89 * hash + Objects.hashCode(this.description);
-        hash = 89 * hash + Objects.hashCode(this.skill);
-        hash = 89 * hash + Objects.hashCode(this.status);
-        hash = 89 * hash + this.currentHealth;
-        hash = 89 * hash + this.maxHealth;
-        hash = 89 * hash + this.stamina;
-        hash = 89 * hash + this.startingCurrency;
+        int hash = 5;
+        hash = 17 * hash + Objects.hashCode(this.name);
+        hash = 17 * hash + Objects.hashCode(this.menuSelectionOption);
+        hash = 17 * hash + Objects.hashCode(this.description);
+        hash = 17 * hash + this.skill;
+        hash = 17 * hash + Objects.hashCode(this.status);
+        hash = 17 * hash + this.currentHealth;
+        hash = 17 * hash + this.maxHealth;
+        hash = 17 * hash + Float.floatToIntBits(this.stamina);
+        hash = 17 * hash + this.startingCurrency;
+        hash = 17 * hash + Objects.hashCode(this.party);
+        hash = 17 * hash + Objects.hashCode(this.players);
         return hash;
     }
 
@@ -144,13 +157,16 @@ public class Character implements Serializable {
             return false;
         }
         final Character other = (Character) obj;
+        if (this.skill != other.skill) {
+            return false;
+        }
         if (this.currentHealth != other.currentHealth) {
             return false;
         }
         if (this.maxHealth != other.maxHealth) {
             return false;
         }
-        if (this.stamina != other.stamina) {
+        if (Float.floatToIntBits(this.stamina) != Float.floatToIntBits(other.stamina)) {
             return false;
         }
         if (this.startingCurrency != other.startingCurrency) {
@@ -159,17 +175,25 @@ public class Character implements Serializable {
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (!Objects.equals(this.description, other.description)) {
+        if (!Objects.equals(this.menuSelectionOption, other.menuSelectionOption)) {
             return false;
         }
-        if (!Objects.equals(this.skill, other.skill)) {
+        if (!Objects.equals(this.description, other.description)) {
             return false;
         }
         if (!Objects.equals(this.status, other.status)) {
             return false;
         }
+        if (!Objects.equals(this.party, other.party)) {
+            return false;
+        }
+        if (!Objects.equals(this.players, other.players)) {
+            return false;
+        }
         return true;
     }
+
+
 
     @Override
     public String toString() {

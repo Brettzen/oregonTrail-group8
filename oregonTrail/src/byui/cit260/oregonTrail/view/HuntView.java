@@ -15,7 +15,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package byui.cit260.oregonTrail.view;
+import byui.cit260.oregonTrail.control.CharacterControl;
+import byui.cit260.oregonTrail.model.Character;
+import byui.cit260.oregonTrail.model.Player;
 import byui.cit260.oregonTrail.control.HuntControl;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 import oregontrail.OregonTrail;
@@ -24,11 +28,12 @@ import oregontrail.OregonTrail;
  * @author J.R. Basham
  */
 public class HuntView extends View{
-    
-    private int charHuntingRank = 3; //Skill not set in Character Model so hard coding it for testing getSkill()
+    ArrayList<Character> characters = CharacterControl.createCharacters();
+    Character bob = characters.get(0);
+    private int charHuntingRank = bob.getSkill(); 
     Random rand = new Random();
     private int wildLifeAmount = rand.nextInt(50) + 1;
-    private float charStamina = .7F; //Stamina not set in Character Model so hard coding it for testing getStamina()
+    private float charStamina = bob.getStamina(); //Stamina not set in Character Model so hard coding it for testing getStamina()
     private int amountFood;
     private String animalCheck;
       

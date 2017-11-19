@@ -113,7 +113,7 @@ public class GameMenuView extends View {
         MapView mapView = new MapView();
         mapView.display();
     }
-    
+  
     private void viewEventLog() {
         System.out.println("\n*** viewEventLog() called.");
     }

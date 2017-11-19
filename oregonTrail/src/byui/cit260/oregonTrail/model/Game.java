@@ -6,6 +6,7 @@
 package byui.cit260.oregonTrail.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -16,7 +17,7 @@ public class Game implements Serializable {
     
     // class instance variables
     private Player player;
-    private Character[] characters;
+    private ArrayList<Character> characters;
     private Map map;
     
     public Game(){
@@ -31,14 +32,13 @@ public class Game implements Serializable {
         this.player = player;
     }
 
-    public Character[] getCharacters() {
+    public ArrayList<Character> getCharacters() {
         return characters;
     }
 
-    public void setCharacters(Character[] characters) {
+    public void setCharacters(ArrayList<Character> characters) {
         this.characters = characters;
     }
-
     public Map getMap() {
         return map;
     }
@@ -76,6 +76,7 @@ public class Game implements Serializable {
     public String toString() {
         return "Game{" + "player=" + player + '}';
     }
+
     
     
 }

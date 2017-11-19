@@ -88,7 +88,6 @@ public class StartProgramView extends View {
            return false;
        }
        this.displayNextView(player);
-       
        return true;
     }
 
@@ -99,7 +98,6 @@ public class StartProgramView extends View {
                 + "\n Have fun!"
                 + "\n=================================================="
         );
-        
         MainMenuView mainMenuView = new MainMenuView();
         
         mainMenuView.display();

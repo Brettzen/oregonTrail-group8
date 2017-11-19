@@ -16,12 +16,14 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.model.Character;
 import byui.cit260.oregonTrail.model.Map;
 import byui.cit260.oregonTrail.model.Game;
 import byui.cit260.oregonTrail.model.Item;
 import byui.cit260.oregonTrail.model.Party;
 import byui.cit260.oregonTrail.model.Player;
 import byui.cit260.oregonTrail.model.Weather;
+import byui.cit260.oregonTrail.view.CharacterView;
 import java.util.ArrayList;
 import oregontrail.OregonTrail;
 
@@ -65,13 +67,14 @@ public class GameControl {
         Game game = new Game();
         game.setPlayer(player);
         OregonTrail.setCurrentGame(game);
-        
-        // Having to statically enter the field so it doesn't try to convert it to Java.lang.Character[]
-        byui.cit260.oregonTrail.model.Character characters[] = CharacterControl.createCharacters();
-        game.setCharacters(characters);
-        
         Map map = MapControl.createMap();
         game.setMap(map);
+
+        ArrayList<Character> characters = CharacterControl.createCharacters();
+        game.setCharacters(characters);
+        CharacterView characterView = new CharacterView();
+        characterView.display();
+       
         
         return 1;
     }

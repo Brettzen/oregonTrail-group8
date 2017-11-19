@@ -51,6 +51,10 @@ public class Party implements Serializable{
     public void addCharacter(Character newCharacter) {
         charactersInParty.add(newCharacter);
     }
+
+    public void setCharactersInParty(ArrayList<Character> charactersInParty) {
+        this.charactersInParty = charactersInParty;
+    }
     
     public void removeCharacter(Character deadCharacter) {
         charactersInParty.remove(deadCharacter);
@@ -187,6 +191,8 @@ public class Party implements Serializable{
 //            System.out.println("Character Health: " + charactersInParty.get(i).getCurrentHealth() + " / " + charactersInParty.get(i).getMaxHealth());
 //        }
 //    }
+
+
 
     
     

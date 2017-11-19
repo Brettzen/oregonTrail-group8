@@ -17,6 +17,7 @@
 package byui.cit260.oregonTrail.control;
 
 import byui.cit260.oregonTrail.model.Character;
+import java.util.ArrayList;
 
 /**
  *
@@ -24,17 +25,21 @@ import byui.cit260.oregonTrail.model.Character;
  */
 public class CharacterControl {
 
-    static Character[] createCharacters() {
-        Character[] characters = new Character[5];
-        characters[0] = new Character("Bob", "He's Bob", 8, "Healthy", 100, 100, 8, 100);
-        characters[1] = new Character("Joe", "Joe is sickly", 4, "Healthy", 100, 100, 3, 50);
-        characters[2] = new Character("Cindy", "He's Bob", 10, "Healthy", 100, 100, 10, 0);
-        characters[3] = new Character("Ergon IV", "Distinguished Ergon the Banker", 0, "Healthy", 100, 100, 8, 1000);
-        characters[4] = new Character("Mitch", "He's Mitch", 8, "Healthy", 100, 100, 8, 100);
-        
+    public static ArrayList<Character> createCharacters() {
+        ArrayList<Character> characters = new ArrayList<Character>();
+        Character bob = new Character("Bob", "B", "He's Bob", 8, "Healthy", 100, 100, 1F, 100);
+        characters.add(bob);
+        Character joe = new Character("Joe", "J","Joe is sickly", 4, "Healthy", 100, 100, 1F, 50);
+        characters.add(joe);
+        Character cindy = new Character("Cindy", "C", "Hi my name is Cindy!", 10, "Healthy", 100, 100, 1F, 0);
+        characters.add(cindy);
+        Character ergon = new Character("Ergon IV", "E", "Distinguished Ergon the Banker", 0, "Healthy", 100, 100, 1F, 1000);
+        characters.add(ergon);
+        Character mitch = new Character("Mitch", "M", "He's Mitch", 8, "Healthy", 100, 100, 1F, 100);
+        characters.add(mitch);
         return characters;
     }
-    
+
     public int calcHealthDraw(int currentHealth, int stamina, int amountOfFood, int weather, int pace) {
         
         int dailyHealthDraw = 0;

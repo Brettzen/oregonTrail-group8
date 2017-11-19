@@ -72,8 +72,7 @@ public class MainMenuView extends View {
         if(returnValue < 0) {
             System.out.println("ERROR - Failed to create new game");
         }
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();
+
     }
 
     private void saveGame() {

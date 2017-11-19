@@ -19,12 +19,23 @@ public class Player implements Serializable{
     private String skill;
     private int startingCurrency = 0;
     private ArrayList<Game> games = new ArrayList<Game>();
+    private ArrayList<Character> character = new ArrayList<Character>();
     private Party party;
 
     public Player() {
     }
-    
-    
+
+    public ArrayList<Character> getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(ArrayList<Character> character) {
+        this.character = character;
+    }
+
+     public void addCharacter(Character newCharacter) {
+        character.add(newCharacter);
+    }
     
     
     public String getName() {
@@ -104,7 +115,9 @@ public class Player implements Serializable{
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", skill=" + skill + ", startingCurrency=" + startingCurrency + '}';
+        return "Player{" + "name=" + name + ", skill=" + skill + ", startingCurrency=" + startingCurrency + ", games=" + games + ", character=" + character + ", party=" + party + '}';
     }
+
+
     
 }
