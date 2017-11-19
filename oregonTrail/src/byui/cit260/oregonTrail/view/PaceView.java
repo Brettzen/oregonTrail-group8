@@ -18,19 +18,49 @@ package byui.cit260.oregonTrail.view;
 
 import byui.cit260.oregonTrail.control.PaceControl;
 import byui.cit260.oregonTrail.model.Pace;
+import oregontrail.OregonTrail;
+import java.util.Scanner;
 
 /**
  *
  * @author jgqui
  */
 public class PaceView extends View {
+
+    //private Iterable<Pace> paces;
     
-    Pace currentPace = PaceControl.generatePace();
+    //Pace currentPace = PaceControl.generatePace();
+    Pace[] paces = PaceControl.createPace();
     
     public PaceView() {
-        super("Press any key and hit return to go to previous menu");
-        System.out.println("The pace you have choosen is: " + currentPace.getName());
-        System.out.println(currentPace.getValue());
+     //   super("Press any key and hit return to go to previous menu");
+     //   System.out.println("The pace you have choosen is: " + currentPace.getName());
+     //   System.out.println(currentPace.getValue());
+      
+        super();
+    }
+    
+    @Override
+    public void display() {
+        this.displayMessage = "\n\tThe Pace\n";
+        
+        
+        for (Pace pace : paces) {
+            this.displayMessage += "\n---------------------------------------------------------------"
+                                 + "\n| " + pace.getSpeed() + " (" + pace.getValue() + ")";              
+        }
+        
+        this.displayMessage += "\n---------------------------------------------------------------";
+        this.displayMessage += "\n\n\nPress any key to return.";
+        
+        System.out.println("\n" + this.displayMessage);
+        this.getInput();
+    }
+    
+    @Override
+    public String getInput() {
+        Scanner keyboard = new Scanner(System.in);
+        return keyboard.nextLine();
     }
     
     @Override
