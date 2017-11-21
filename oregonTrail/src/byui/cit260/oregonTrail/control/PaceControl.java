@@ -25,47 +25,10 @@ import java.util.Random;
  * @author JQ
  */
 public class PaceControl {
-
-    //public PaceControl() {
-        
-    //}
     
-    //public static Pace generatePace() {
-    //    
-    //    Pace currentPace;
-    //        int x = 0; // hardcoding for now will update later.
-            
-        
-          
-    //    switch (x) {
-    //        case 2:
-    //            currentPace = Pace.Fast;
-    //            break;
-    //        case 1:
-    //            currentPace = Pace.Average;
-    //            break;
-    //       default:
-    //            currentPace = Pace.Slow;
-    //            break;
-    //   }
-        
-    //    return currentPace;
-    //}
-
-    /**
-     *
-     * @return
-     */
-    
-    public static Pace[] createPace() {
-        
-        Pace[] paces = new Pace[2];
-        paces[0] = new Pace("Slow", (int) 0.5);
-        paces[1] = new Pace("Average", (int) 1.0);
-        paces[2] = new Pace("Fast", (int) 1.5);
-        return paces;
+    public static Pace setPace(Pace pace) {
+        Pace currentPace = pace;
+        return currentPace;
     }
-    
-    
     
 }

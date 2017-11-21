@@ -16,6 +16,9 @@
  */
 package byui.cit260.oregonTrail.view;
 
+import byui.cit260.oregonTrail.control.GameControl;
+import byui.cit260.oregonTrail.control.PaceControl;
+import byui.cit260.oregonTrail.model.Pace;
 import java.util.Scanner;
 
 /**
@@ -47,13 +50,13 @@ public class PaceMenuView extends View {
         
         switch(menuOption) {
             case "S":
-                this.slowPaceView();
+                this.slowPace();
                 break;
             case "A":
-                this.averagePaceView();
+                this.averagePace();
                 break;
             case "F":
-                this.fastPaceView();
+                this.fastPace();
                 break;
             default:
                 System.out.println("*** Invalid selection. Try again ***");
@@ -63,20 +66,18 @@ public class PaceMenuView extends View {
     }
     
     //private boolean slowPaceView() {
-       private void slowPaceView() { 
-        //PaceSlowView slowPace = new PaceSlowView();
-        PaceView slowPace = new PaceView();
-        //return slowPace.displayPaceSlow();
-        slowPace.display();
+    private void slowPace() { 
+       GameControl.currentPace = PaceControl.setPace(Pace.Slow);
+       System.out.println("Pace is now set to " + GameControl.currentPace.getName() + ".");
     }
     
-    private void averagePaceView() {
-        
-        System.out.println("\n*** averagePace() called. ***");
+    private void averagePace() {
+        GameControl.currentPace = PaceControl.setPace(Pace.Average);
+        System.out.println("Pace is now set to " + GameControl.currentPace.getName() + ".");
     }
     
-    private void fastPaceView() {
-        
-        System.out.println("\n*** fastPace() called. ***");
+    private void fastPace() {
+        GameControl.currentPace = PaceControl.setPace(Pace.Fast);
+        System.out.println("Pace is now set to " + GameControl.currentPace.getName() + ".");
     }
 }

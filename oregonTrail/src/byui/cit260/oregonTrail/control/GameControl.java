@@ -20,6 +20,7 @@ import byui.cit260.oregonTrail.model.Character;
 import byui.cit260.oregonTrail.model.Map;
 import byui.cit260.oregonTrail.model.Game;
 import byui.cit260.oregonTrail.model.Item;
+import byui.cit260.oregonTrail.model.Pace;
 import byui.cit260.oregonTrail.model.Party;
 import byui.cit260.oregonTrail.model.Player;
 import byui.cit260.oregonTrail.model.Weather;
@@ -57,7 +58,8 @@ public class GameControl {
     //Create Item List -- should be empty at New Game, but will add items here temporarily for testing.
     public static ArrayList<Item> currentInventory = ItemControl.addInventoryItems();
     
-    
+    //Setting Pace to Average by default. Player can change it in the Pace Menu.
+    public static Pace currentPace = PaceControl.setPace(Pace.Average);
 
     public static int createNewGame(Player player) {
         if(player == null) {
