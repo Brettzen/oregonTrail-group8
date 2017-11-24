@@ -16,6 +16,7 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.exceptions.CharacterControlException;
 import byui.cit260.oregonTrail.model.Character;
 import java.util.ArrayList;
 
@@ -40,7 +41,7 @@ public class CharacterControl {
         return characters;
     }
 
-    public int calcHealthDraw(int currentHealth, int stamina, int amountOfFood, int weather, int pace) {
+    public int calcHealthDraw(int currentHealth, int stamina, int amountOfFood, int weather, int pace) throws CharacterControlException {
         
         int dailyHealthDraw = 0;
         int x = 0;
@@ -49,7 +50,7 @@ public class CharacterControl {
         int extraHealthDraw = 0;
         
         if ((currentHealth < 0) || (stamina < 0) || (amountOfFood < 0) || (weather < 0 || weather > 2) || (pace < 0 || pace > 2)) {
-            return -1;
+            throw new CharacterControlException("Your Dead.");
         }
         
          x = (currentHealth + stamina + amountOfFood);
@@ -81,7 +82,24 @@ public class CharacterControl {
         
            dailyHealthDraw = (healthDraw + extraHealthDraw);        
             return dailyHealthDraw;
-    }    
+    } 
+    
+    public static void restCalc(int numDays) throws CharacterControlException {
+        int amountFood = 100; // Making static inputs for testing
+        int charHealth = 20; // Making static inputs for testing
+        int maxHealth = 100; // Making static inputs for testing
+        
+        if (amountFood < 0 || charHealth < 0 || charHealth > maxHealth ) {
+           throw new CharacterControlException("There was an error.");
+        }
+        if ((amountFood - 10 * numDays) < 0){
+           throw new CharacterControlException("Your out of Food");
+        }
+        amountFood -= 10 * numDays;
+        if (charHealth < maxHealth) {
+            charHealth += 10 * numDays;
+        }
+    }
 }        
             
             

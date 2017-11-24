@@ -68,6 +68,10 @@ public class GatherView extends View {
         }
         return false;
     }
+//    private void timesToGather(){
+//        
+//    
+//    }
     private void calcGSuccess() {
         GatherControl gathControl = new GatherControl();
         amountFood = gathControl.calcGathSuccess(charGatherRank, plantLifeAmount, charStamina);

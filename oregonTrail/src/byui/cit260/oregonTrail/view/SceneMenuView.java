@@ -90,7 +90,8 @@ class SceneMenuView extends View{
     }
 
     private void restAction() {
-        System.out.println("\n*** restAction() called. ***");
+        RestView restMenu = new RestView();
+        restMenu.display();
     }
 
     private void displayHuntMenu() {
