@@ -16,6 +16,7 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.exceptions.CharacterControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -32,7 +33,7 @@ public class CharacterControlTest {
      * Test of calcHealthDraw method, of class CharacterControl.
      */
     @Test
-    public void testCalcHealthDraw() {
+    public void testCalcHealthDraw() throws CharacterControlException {
         
         // TEST CASE #1
         
