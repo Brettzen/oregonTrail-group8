@@ -23,28 +23,25 @@ import java.util.Scanner;
  * @author Brett Starks, Jason Quibilan, JR Basham
  */
 public class HelpMenuView extends View {
-    
-    
-    
+
     public HelpMenuView() {
-              super("\n"
-                    + "\n-------------------------------------------------"
-                    + "\n| Help Menu                                     |"
-                    + "\n-------------------------------------------------"
-                    + "\n|G - Game objective                             |"
-                    + "\n|H - How to move                                |"
-                    + "\n|T - Tips                                       |"
-                    + "\n|Q - Return to previous menu                    |"
-                    + "\n-------------------------------------------------");
+        super("\n"
+                + "\n-------------------------------------------------"
+                + "\n| Help Menu                                     |"
+                + "\n-------------------------------------------------"
+                + "\n|G - Game objective                             |"
+                + "\n|H - How to move                                |"
+                + "\n|T - Tips                                       |"
+                + "\n|Q - Return to previous menu                    |"
+                + "\n-------------------------------------------------");
     }
 
-    
     @Override
-    public boolean doAction(String menuOption) {      
-        
+    public boolean doAction(String menuOption) {
+
         menuOption = menuOption.toUpperCase();
-        
-        switch(menuOption) {
+
+        switch (menuOption) {
             case "G":
                 System.out.println(StartProgramView.getIntroText());
                 break;
@@ -60,5 +57,5 @@ public class HelpMenuView extends View {
         }
         return false;
     }
-    
+
 }

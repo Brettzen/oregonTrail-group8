@@ -16,6 +16,7 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.exceptions.ItemControlException;
 import byui.cit260.oregonTrail.model.Item;
 import java.util.ArrayList;
 
@@ -25,7 +26,7 @@ import java.util.ArrayList;
  */
 public class ItemControl {
     
-    static ArrayList<Item> addInventoryItems() {
+    static ArrayList<Item> addInventoryItems() throws ItemControlException {
         ArrayList<Item> inventory = new ArrayList<>();
         inventory.add(Item.Oxen);
         inventory.add(Item.Food);
@@ -44,11 +45,13 @@ public class ItemControl {
         return inventory;
     }
 
-    private static ArrayList<Item> sortInventory(ArrayList<Item> inventory) {
+    private static ArrayList<Item> sortInventory(ArrayList<Item> inventory) throws ItemControlException {
+        
+        if(inventory.size() < 0) {
+            throw new ItemControlException("There was an error with your inventory!");
+        }
         
         if(inventory.size() < 1) {
-            // Will be moving this to ItemMenuView after submitting assignment.
-            System.out.println("\n\n\t No items are currently being held.");
             return inventory;
         } else if(inventory.size() < 2) {
             return inventory;

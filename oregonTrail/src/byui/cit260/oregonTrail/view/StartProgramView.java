@@ -17,8 +17,8 @@
 package byui.cit260.oregonTrail.view;
 
 import byui.cit260.oregonTrail.control.GameControl;
+import byui.cit260.oregonTrail.exceptions.ItemControlException;
 import byui.cit260.oregonTrail.model.Player;
-import java.util.Scanner;
 
 /**
  *
@@ -81,10 +81,11 @@ public class StartProgramView extends View {
            return false;
        }
        
-       Player player = GameControl.createPlayer(playersName);
+       Player player;
+       player = GameControl.createPlayer(playersName);
        
        if(player == null) {
-           System.out.println("\nError creating the player.");
+           System.out.println("error creating player.");
            return false;
        }
        this.displayNextView(player);

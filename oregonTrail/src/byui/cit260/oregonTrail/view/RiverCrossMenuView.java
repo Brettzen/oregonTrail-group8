@@ -17,8 +17,8 @@
 package byui.cit260.oregonTrail.view;
 
 import byui.cit260.oregonTrail.control.RiverSceneControl;
+import byui.cit260.oregonTrail.exceptions.RiverSceneControlException;
 import java.util.Random;
-import java.util.Scanner;
 import oregontrail.OregonTrail;
 
 /**
@@ -34,24 +34,48 @@ class RiverCrossMenuView extends View{
     private double currentWeight = OregonTrail.getPlayer().getParty().getCurrentWeight();
     private double maxWeight = OregonTrail.getPlayer().getParty().getMaxWeight();
     private int probability;
+    private String menu;
+    
     
     // Adding this because I think I'm supposed to reference my riverCrossingProbability() function without making it static.
     RiverSceneControl riverSceneControl = new RiverSceneControl();
     
-    public RiverCrossMenuView() {           
-        super("\n"
-            + "\n-----------------------------------------------------"
-            + "\n| River Cross Menu                                  |"
-            + "\n-----------------------------------------------------"
-            + "\n|D - Drop Supplies                                  |"
-            + "\n|C - Cross the River                                |"
-            + "\n|Q - Go Back                                        |"
-            + "\n-----------------------------------------------------");   
-        this.probability = riverSceneControl.calculateRiverCrossingProbability(riverDepth, currentWeight, maxWeight);
+    public RiverCrossMenuView(){
+    }
+    
+    @Override
+    public void display() {
+        boolean done = false;
+        
+        try {
+            this.probability = riverSceneControl.calculateRiverCrossingProbability(riverDepth, currentWeight, maxWeight);
+        } catch(RiverSceneControlException rsce) {
+                    System.out.println(rsce.getMessage());
+        }
+        
         this.riverDesc =  "\n"
                         + "\n The river is currently " + riverDepth + " feet. The odds of crossing with your current load are "
                         + this.probability + "%.";
-        System.out.println(riverDesc);
+        
+        this.menu =   "\n"
+                    + "\n-----------------------------------------------------"
+                    + "\n| River Cross Menu                                  |"
+                    + "\n-----------------------------------------------------"
+                    + "\n|D - Drop Supplies                                  |"
+                    + "\n|C - Cross the River                                |"
+                    + "\n|Q - Go Back                                        |"
+                    + "\n-----------------------------------------------------";
+        
+        this.displayMessage = this.riverDesc + this.menu;
+
+        do {
+            String value = this.getInput();
+            if(value.toUpperCase().equals("Q")) return;
+            
+            done = this.doAction(value);
+            
+            
+        } while(!done);
     }
 
     

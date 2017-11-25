@@ -16,18 +16,23 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.exceptions.RiverSceneControlException;
+
 /**
  *
  * @author Brett Starks, Jason Quibilan, J.R. Basham
  */
 public class RiverSceneControl {
   
-    public int calculateRiverCrossingProbability(int riverDepth, double currentWeight, double maxWeight) {
+    public int calculateRiverCrossingProbability(int riverDepth, double currentWeight, double maxWeight) throws RiverSceneControlException {
         double probability;
         int minDepth = 3;
         
-        if((riverDepth < 3) || (currentWeight < 0) || (currentWeight > maxWeight)) {
-            return -1;
+        if((riverDepth < 3) || (currentWeight < 0)) {
+            throw new RiverSceneControlException("There was an error.");
+        }
+        if(currentWeight > maxWeight) {
+            throw new RiverSceneControlException("You're holding more weight than you're capable of carrying! Get rid of some items and try again.");
         }
         //   Breaking up equation for readability and testing
         double riverCheck = riverDepth - minDepth;

@@ -22,56 +22,57 @@ import byui.cit260.oregonTrail.model.Player;
 import byui.cit260.oregonTrail.model.Character;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 /**
  *
  * @author J.R. Basham
  */
-public class CharacterView {
-     
-    private String displayMessage;
+public class CharacterView extends View {
+
     ArrayList<Character> characters = CharacterControl.createCharacters();
- 
- 
-     public CharacterView() {
-           
+
+    public CharacterView() {
+
     }
 
-    public void display(){
-  
+    @Override
+    public void display() {
+
         boolean done = false;
-        
+
         do {
-              this.displayMessage = "\n\tChoose your Character\n";
-        
-        for (Character characters : characters) {
-              this.displayMessage += "\n---------------------------------------------------------------"
-                                 + "\n|"                  
-                                 + "\n|" + characters.getMenuSelectionOption() + " - "  + "Name: " + characters.getName() 
-                                 + "\n|    Description: " + characters.getDescription() 
-                                 + "\n|    Your Hunting and Gathering Skill: " + characters.getSkill()
-                                 + "\n|    Starting Salary: $" + characters.getStartingCurrency()
-                                 + "\n---------------------------------------------------------------";
-        }
-           
-            String value = this.getInput(); 
+            this.displayMessage = "\n\tChoose your Character\n";
+
+            for (Character characters : characters) {
+                this.displayMessage += "\n---------------------------------------------------------------"
+                        + "\n|"
+                        + "\n|" + characters.getMenuSelectionOption() + " - " + "Name: " + characters.getName()
+                        + "\n|    Description: " + characters.getDescription()
+                        + "\n|    Your Hunting and Gathering Skill: " + characters.getSkill()
+                        + "\n|    Starting Salary: $" + characters.getStartingCurrency()
+                        + "\n---------------------------------------------------------------";
+            }
+
+            String value = this.getInput();
+            if(value.toUpperCase().equals("Q")) return;
             done = this.doAction(value);
-            
-            
-        } while(!done);
+
+        } while (!done);
     }
 
+    @Override
     public String getInput() {
         Scanner keyboard = new Scanner(System.in);
         String value = "";
         boolean valid = false;
-        
-        while(!valid) {
+
+        while (!valid) {
             System.out.println("\n" + this.displayMessage);
-            
+
             value = keyboard.nextLine();
             value = value.trim();
-            
-            if(value.length() <1) {
+
+            if (value.length() < 1) {
                 System.out.println("\nInvalid value: value cannot be blank.");
                 continue;
             }
@@ -80,11 +81,11 @@ public class CharacterView {
         return value;
     }
 
-
+    @Override
     public boolean doAction(String menuOption) {
-               menuOption = menuOption.toUpperCase();
-     
-        switch(menuOption) {
+        menuOption = menuOption.toUpperCase();
+
+        switch (menuOption) {
             case "B":
                 this.pickB();
                 break;
@@ -99,68 +100,71 @@ public class CharacterView {
                 break;
             case "M":
                 this.pickM();
-                break;    
+                break;
             default:
                 System.out.println("*** Invalid selection. Try again ***");
                 break;
         }
         return false;
     }
-    
-    
-    private void pickB(){
-       Character bob = characters.get(0);
-       Player player = new Player();
-       player.addCharacter(bob);
-       Party party = new Party();
-       party.addCharacter(bob);
-       characters.remove(0);
-       System.out.println("*** You pick Bob ***");
-       GameMenuView gameMenu = new GameMenuView();
-       gameMenu.display();
-      }
-    private void pickJ(){
-       Character joe = characters.get(1);
-       Player player = new Player();
-       player.addCharacter(joe);
-       Party party = new Party();
-       party.addCharacter(joe);
-       characters.remove(1);
-       System.out.println("*** You pick Joe ***");
-       GameMenuView gameMenu = new GameMenuView();
-       gameMenu.display();
+
+    private void pickB() {
+        Character bob = characters.get(0);
+        Player player = new Player();
+        player.addCharacter(bob);
+        Party party = new Party();
+        party.addCharacter(bob);
+        characters.remove(0);
+        System.out.println("*** You pick Bob ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
-    private void pickC(){
-       Character cindy = characters.get(2);
-       Player player = new Player();
-       player.addCharacter(cindy);
-       Party party = new Party();
-       party.addCharacter(cindy);
-       characters.remove(2);
-       System.out.println("*** You pick Joe ***");
-       GameMenuView gameMenu = new GameMenuView();
-       gameMenu.display();
+
+    private void pickJ() {
+        Character joe = characters.get(1);
+        Player player = new Player();
+        player.addCharacter(joe);
+        Party party = new Party();
+        party.addCharacter(joe);
+        characters.remove(1);
+        System.out.println("*** You pick Joe ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
-    private void pickE(){
-       Character ergon = characters.get(3);
-       Player player = new Player();
-       player.addCharacter(ergon);
-       Party party = new Party();
-       party.addCharacter(ergon);
-       characters.remove(3);
-       System.out.println("*** You pick Ergon ***");
-       GameMenuView gameMenu = new GameMenuView();
-       gameMenu.display();
+
+    private void pickC() {
+        Character cindy = characters.get(2);
+        Player player = new Player();
+        player.addCharacter(cindy);
+        Party party = new Party();
+        party.addCharacter(cindy);
+        characters.remove(2);
+        System.out.println("*** You pick Joe ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
-    private void pickM(){
-       Character mitch = characters.get(4);
-       Player player = new Player();
-       player.addCharacter(mitch);
-       Party party = new Party();
-       party.addCharacter(mitch);
-       characters.remove(4);
-       System.out.println("*** You pick Mitch ***");
-       GameMenuView gameMenu = new GameMenuView();
-       gameMenu.display();
+
+    private void pickE() {
+        Character ergon = characters.get(3);
+        Player player = new Player();
+        player.addCharacter(ergon);
+        Party party = new Party();
+        party.addCharacter(ergon);
+        characters.remove(3);
+        System.out.println("*** You pick Ergon ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+    }
+
+    private void pickM() {
+        Character mitch = characters.get(4);
+        Player player = new Player();
+        player.addCharacter(mitch);
+        Party party = new Party();
+        party.addCharacter(mitch);
+        characters.remove(4);
+        System.out.println("*** You pick Mitch ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 }

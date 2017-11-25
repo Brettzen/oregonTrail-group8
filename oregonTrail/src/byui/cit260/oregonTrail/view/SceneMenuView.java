@@ -16,7 +16,10 @@
  */
 package byui.cit260.oregonTrail.view;
 
+import byui.cit260.oregonTrail.exceptions.RiverSceneControlException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -58,7 +61,13 @@ class SceneMenuView extends View{
             case "S":
                 this.displayStoreMenu();
             case "C":
+        {
+            try {
                 this.displayRiverCrossMenu();
+            } catch (RiverSceneControlException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
                 break;
             case "R":
                 this.restAction();
@@ -84,7 +93,7 @@ class SceneMenuView extends View{
         System.out.println("\n*** displayFortMenu() called. ***");
     }
 
-    private void displayRiverCrossMenu() {
+    private void displayRiverCrossMenu() throws RiverSceneControlException {
         RiverCrossMenuView riverCrossMenu = new RiverCrossMenuView();
         riverCrossMenu.display();
     }
