@@ -39,7 +39,7 @@ public class GameMenuView extends View {
                     + "\n|D - View Date & Day of the Week                    |"
                     + "\n|N - Check Distance Traveled from Missouri          |"
                     + "\n|O - Check Distance Remaining to Oregon             |"
-                    + "\n|A - Check Surrounding Area                         |"
+                    + "\n|A - Check the Surrounding Area                         |"
                     + "\n|E - Check for any Events that Occured last Night   |"
                     + "\n|W - View Current Weather                           |"
                     + "\n|S - View Team Status                               |"
