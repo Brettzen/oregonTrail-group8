@@ -16,6 +16,7 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.exceptions.GameControlException;
 import byui.cit260.oregonTrail.exceptions.ItemControlException;
 import byui.cit260.oregonTrail.model.Character;
 import byui.cit260.oregonTrail.model.Map;
@@ -66,9 +67,9 @@ public class GameControl {
     //Setting Pace to Average by default. Player can change it in the Pace Menu.
     public static Pace currentPace = PaceControl.setPace(Pace.Average);
 
-    public static int createNewGame(Player player) {
+    public static int createNewGame(Player player) throws GameControlException {
         if(player == null) {
-            return -1;
+            throw new GameControlException("Error - Cannot create new game");
         }
         
         Game game = new Game();

@@ -16,7 +16,12 @@
  */
 package byui.cit260.oregonTrail.view;
 
+import byui.cit260.oregonTrail.control.MapControl;
+import byui.cit260.oregonTrail.exceptions.MapControlException;
+import byui.cit260.oregonTrail.model.Map;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -84,8 +89,14 @@ public class GameMenuView extends View {
             case "G":
                 this.displaySceneMenu();
                 break;
-            case "M":
+            case "M":        
+        {             
+            try {
                 this.displayMapMenu();
+            } catch (MapControlException ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case "H":
                 this.displayHelpMenu();
@@ -109,9 +120,10 @@ public class GameMenuView extends View {
         System.out.println("\n*** checkDistanceToOregon() called.");
     }
 
-    private void displayMapMenu() {
+    private void displayMapMenu() throws MapControlException {
         MapView mapView = new MapView();
         mapView.display();
+        
     }
   
     private void viewEventLog() {
