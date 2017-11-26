@@ -17,7 +17,10 @@
 package byui.cit260.oregonTrail.view;
 
 import byui.cit260.oregonTrail.control.GameControl;
+import byui.cit260.oregonTrail.exceptions.GameControlException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import oregontrail.OregonTrail;
 
 /**
@@ -49,7 +52,13 @@ public class MainMenuView extends View {
         
         switch(value) {
             case "N":
+        {
+            try {
                 this.startGame();
+            } catch (GameControlException ex) {
+                Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case "S":
                 this.saveGame();
@@ -67,11 +76,9 @@ public class MainMenuView extends View {
         return false;
     }
 
-    private void startGame() {
+    private void startGame() throws GameControlException {
         int returnValue = GameControl.createNewGame(OregonTrail.getPlayer());
-        if(returnValue < 0) {
-            System.out.println("ERROR - Failed to create new game");
-        }
+        
 
     }
 

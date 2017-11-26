@@ -16,6 +16,7 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.exceptions.MapControlException;
 import byui.cit260.oregonTrail.model.Location;
 import byui.cit260.oregonTrail.model.Map;
 import byui.cit260.oregonTrail.model.Pace;
@@ -106,7 +107,7 @@ public class MapControl {
     }
     
     
-    public int calculateDailyMiles(int avgCharHealth, int avgOxHealth, int currentWeight, int maxWeight, Pace pace) {
+    public int calculateDailyMiles(int avgCharHealth, int avgOxHealth, int currentWeight, int maxWeight, Pace pace) throws MapControlException {
         double miles = 20;
         double currentPace;
             
@@ -117,7 +118,10 @@ public class MapControl {
         }
         
         if((avgCharHealth <= 0) || (avgCharHealth > 100) || (avgOxHealth <= 0) || (avgOxHealth > 100) || (currentWeight < 0) || (currentWeight > maxWeight) || ((currentPace != 0.5) && (currentPace != 1.0) && (currentPace != 1.5))) {
-            return -1;
+            throw new MapControlException("You cannot move.... "
+                                        + "Your wagon is too heavy for Oxen to pull, "
+                                        + "Your Ox might be dead, "
+                                        + "or unfortunately You are dead... ");
         } else {
             miles *= currentPace;
 //            Separating the equation a bit to make it more readable.
