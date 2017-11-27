@@ -16,20 +16,22 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.exceptions.GatherControlException;
+
 /**
  *
  * @author J.R. Basham
  */
 public class GatherControl {
         
-    public int calcGathSuccess(int charGatherSkill, int plantLifeAmount, float charStamina) {
+    public int calcGathSuccess(int charGatherSkill, int plantLifeAmount, float charStamina) throws GatherControlException {
         float amountFood;
         if ((charGatherSkill <= 0) || (charGatherSkill > 10)){ 
-               return -1;
+               throw new GatherControlException("Your Gathering skill is less than 0 or greater than 10. Press Q to go back.");
         } else if (plantLifeAmount < 10) {
-               return -2;
+               throw new GatherControlException("Plantlife is less than 10 Plants. Press Q to go back.");
         } else if ((charStamina <= 0) || (charStamina > 1)){
-               return -3;
+               throw new GatherControlException("Characters stamina is less than 0. Press Q to go back.");
         } else {
             float newPlantLifeAmount = plantLifeAmount * charStamina;  
             newPlantLifeAmount = newPlantLifeAmount / charGatherSkill;
