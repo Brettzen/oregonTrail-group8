@@ -16,6 +16,8 @@
  */
 package byui.cit260.oregonTrail.model;
 
+import java.util.Objects;
+
 /**
  *
  * @author Brett Starks
@@ -25,6 +27,7 @@ public class Ox {
     private int currentHealth;
     private int maxHealth;
     private int pullStrength;
+    private Party party;
 
     public int getCurrentHealth() {
         return currentHealth;
@@ -50,12 +53,21 @@ public class Ox {
         this.pullStrength = pullStrength;
     }
 
+    public Party getParty() {
+        return party;
+    }
+
+    public void setParty(Party party) {
+        this.party = party;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + this.currentHealth;
-        hash = 97 * hash + this.maxHealth;
-        hash = 97 * hash + this.pullStrength;
+        int hash = 7;
+        hash = 37 * hash + this.currentHealth;
+        hash = 37 * hash + this.maxHealth;
+        hash = 37 * hash + this.pullStrength;
+        hash = 37 * hash + Objects.hashCode(this.party);
         return hash;
     }
 
@@ -80,14 +92,18 @@ public class Ox {
         if (this.pullStrength != other.pullStrength) {
             return false;
         }
+        if (!Objects.equals(this.party, other.party)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Ox{" + "currentHealth=" + currentHealth + ", maxHealth=" + maxHealth + ", pullStrength=" + pullStrength + '}';
+        return "Ox{" + "currentHealth=" + currentHealth + ", maxHealth=" + maxHealth + ", pullStrength=" + pullStrength + ", party=" + party + '}';
     }
     
     
+
     
 }

@@ -65,7 +65,7 @@ public class MainMenuView extends View {
                 this.saveGame();
                 break;
             case "L":
-                this.loadSavedGame();
+                this.loadGame();
                 break;
             case "H":
                 this.displayHelpMenu();
@@ -84,11 +84,33 @@ public class MainMenuView extends View {
     }
 
     private void saveGame() {
-        this.console.println("\n*** saveGame() called. ***");
+        this.console.println("\n\nCreate a name to save the file:");
+        
+        String filePath = this.getInput();
+        
+        try {
+            GameControl.saveGame(OregonTrail.getCurrentGame(), filePath);
+            this.console.println("Game successfully saved.");
+        } catch(Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
     }
 
-    private void loadSavedGame() {
-        this.console.println("\n*** loadGame() called. ***");
+    private void loadGame() {
+        this.console.println("\n\nEnter the name of the file you want to load:");
+        
+        String filePath = this.getInput();
+        
+        try {
+            GameControl.loadGame(filePath);
+            this.console.println("Game successfully loaded.");
+        } catch(Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+        
     }
 
     private void displayHelpMenu() {

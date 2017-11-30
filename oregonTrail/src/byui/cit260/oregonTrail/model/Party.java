@@ -36,8 +36,6 @@ public class Party implements Serializable{
     private boolean brokenWagon = false;
     private int holdableAmount;
     private Player player;
-    private Array currentLocation[][];
-    private Location location;
     private int currentWeight;
     private int maxWeight;
 
@@ -131,18 +129,28 @@ public class Party implements Serializable{
     public void setMaxWeight(int maxWeight) {
         this.maxWeight = maxWeight;
     }
-    
-    
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.charactersInParty);
-        hash = 79 * hash + Objects.hashCode(this.partyInventory);
-        hash = 79 * hash + Objects.hashCode(this.currentPace);
-        hash = 79 * hash + this.currentMoney;
-        hash = 79 * hash + (this.brokenWagon ? 1 : 0);
-        hash = 79 * hash + this.holdableAmount;
+        hash = 41 * hash + Objects.hashCode(this.charactersInParty);
+        hash = 41 * hash + Objects.hashCode(this.partyInventory);
+        hash = 41 * hash + Objects.hashCode(this.oxInParty);
+        hash = 41 * hash + Objects.hashCode(this.currentPace);
+        hash = 41 * hash + this.currentMoney;
+        hash = 41 * hash + (this.brokenWagon ? 1 : 0);
+        hash = 41 * hash + this.holdableAmount;
+        hash = 41 * hash + Objects.hashCode(this.player);
+        hash = 41 * hash + this.currentWeight;
+        hash = 41 * hash + this.maxWeight;
         return hash;
     }
 
@@ -167,6 +175,12 @@ public class Party implements Serializable{
         if (this.holdableAmount != other.holdableAmount) {
             return false;
         }
+        if (this.currentWeight != other.currentWeight) {
+            return false;
+        }
+        if (this.maxWeight != other.maxWeight) {
+            return false;
+        }
         if (!Objects.equals(this.currentPace, other.currentPace)) {
             return false;
         }
@@ -176,23 +190,23 @@ public class Party implements Serializable{
         if (!Objects.equals(this.partyInventory, other.partyInventory)) {
             return false;
         }
+        if (!Objects.equals(this.oxInParty, other.oxInParty)) {
+            return false;
+        }
+        if (!Objects.equals(this.player, other.player)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Party{" + "charactersInParty=" + charactersInParty + ", partyInventory=" + partyInventory + ", currentPace=" + currentPace + ", currentMoney=" + currentMoney + ", brokenWagon=" + brokenWagon + ", holdableAmount=" + holdableAmount + '}';
+        return "Party{" + "charactersInParty=" + charactersInParty + ", partyInventory=" + partyInventory + ", oxInParty=" + oxInParty + ", currentPace=" + currentPace + ", currentMoney=" + currentMoney + ", brokenWagon=" + brokenWagon + ", holdableAmount=" + holdableAmount + ", player=" + player + ", currentWeight=" + currentWeight + ", maxWeight=" + maxWeight + '}';
     }
     
-//    Testing the getting of info from charactersInParty
-//    public void checkCharacters() {
-//        for(int i=0; i < charactersInParty.size(); i++) {
-//            System.out.print("Character Name: " + charactersInParty.get(i).getName());
-//            System.out.println("Character Health: " + charactersInParty.get(i).getCurrentHealth() + " / " + charactersInParty.get(i).getMaxHealth());
-//        }
-//    }
+    
 
-
+   
 
     
     

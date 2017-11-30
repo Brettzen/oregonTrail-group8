@@ -19,8 +19,7 @@ package byui.cit260.oregonTrail.view;
 import byui.cit260.oregonTrail.control.GameControl;
 import byui.cit260.oregonTrail.control.PaceControl;
 import byui.cit260.oregonTrail.model.Pace;
-import java.util.Scanner;
-
+import oregontrail.OregonTrail;
 /**
  *
  * @author Jason Quibialan
@@ -32,6 +31,7 @@ public class PaceMenuView extends View {
     public PaceMenuView() {
         
                super("\n"
+                    + OregonTrail.getCurrentGame().getPlayer().getName() + ", Set your current pace. \n"
                     + "\n-------------------------------------------------"
                     + "\n| Pace Menu                                     |"
                     + "\n-------------------------------------------------"
