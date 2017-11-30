@@ -36,14 +36,15 @@ public class RestView extends View {
             numDays = Integer.parseInt(numOfDays);
             try {
                 CharacterControl.restCalc(numDays);
-                System.out.println("You rested " + numDays + " days.");
+                this.console.println("You rested " + numDays + " days.");
                 return true;
             } catch (CharacterControlException ce) {
-                System.out.println(ce.getMessage());
+                 ErrorView.display(this.getClass().getName(),
+                  "Error reading input: " + ce.getMessage());
             }
         } catch (NumberFormatException nf) {
-            System.out.println("You must enter a valid number. Press Q to go back.");
-
+             ErrorView.display(this.getClass().getName(),
+                  "You must enter a invalid number. Press Q to go back." + nf.getMessage());
         }
         return false;
     }

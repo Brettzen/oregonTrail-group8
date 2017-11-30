@@ -56,7 +56,8 @@ public class MainMenuView extends View {
             try {
                 this.startGame();
             } catch (GameControlException ex) {
-                Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                 ErrorView.display(this.getClass().getName(),
+                  "Error reading input: " + ex.getMessage());
             }
         }
                 break;
@@ -70,7 +71,7 @@ public class MainMenuView extends View {
                 this.displayHelpMenu();
                 break;
             default:
-                System.out.println("*** Invalid selection. Try again ***");
+                this.console.println("*** Invalid selection. Try again ***");
                 break;
         }
         return false;
@@ -83,11 +84,11 @@ public class MainMenuView extends View {
     }
 
     private void saveGame() {
-        System.out.println("\n*** saveGame() called. ***");
+        this.console.println("\n*** saveGame() called. ***");
     }
 
     private void loadSavedGame() {
-        System.out.println("\n*** loadGame() called. ***");
+        this.console.println("\n*** loadGame() called. ***");
     }
 
     private void displayHelpMenu() {

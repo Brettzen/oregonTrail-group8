@@ -24,6 +24,7 @@ import java.util.Scanner;
  * @author Brett Starks
  */
 class RiverCrossCheckView {
+
     
     public RiverCrossCheckView() {
         
@@ -36,8 +37,9 @@ class RiverCrossCheckView {
         Scanner reader = new Scanner(System.in);
         String value = "";
         boolean valid = false;
-
+//        try {
         while(!valid) {
+//            value = this.keyboard.readLine();
             value = reader.nextLine();
             value = value.trim(); 
             value = value.toUpperCase();
@@ -53,7 +55,10 @@ class RiverCrossCheckView {
             } else {
                 System.out.println("\n*** Invalid value: please enter y or n. ***");;
             }
-        }
+        } 
+//        } catch (Exception e) {
+//	System.out.println("Error reading input: " + e.getMessage());
+//        }
         return false;
     }
 

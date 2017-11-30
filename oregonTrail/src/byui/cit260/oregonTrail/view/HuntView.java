@@ -60,7 +60,7 @@ public class HuntView extends View{
                             + "\n Current stamina is " + charStamina + "."
                             + "\n Your hunting rank is " + charHuntingRank + "." 
                             + "\n Would you like to hunt?";                   
-                System.out.println(animalCheck);
+                this.console.println(animalCheck);
     }           
     @Override
     public boolean doAction(String menuOption){      
@@ -73,12 +73,13 @@ public class HuntView extends View{
             try {
                 this.calcHSuccess();
             } catch (HuntControlException rsce) {
-                 System.out.println(rsce.getMessage());
+                 ErrorView.display(this.getClass().getName(),
+                  "Error reading input: " + rsce.getMessage());
             }
         }
                 break;
             default:
-                System.out.println("*** Invalid selection. Try again ***");
+                this.console.println("*** Invalid selection. Try again ***");
                 break;
         }
         return false;
@@ -109,7 +110,7 @@ public class HuntView extends View{
 //                                    + "\n Current stamina is " + charStamina + ".");                 
 //        } else {
             
-            System.out.println("\n You have recovered " + amountFood +" lbs of food. "
+            this.console.println("\n You have recovered " + amountFood +" lbs of food. "
                                + "\n Would you like to hunt again?" );
                 wildLifeAmount = rand.nextInt(50) + 1;
                 charStamina = charStamina - .1F;
@@ -117,7 +118,7 @@ public class HuntView extends View{
                             + "\n Current stamina is " + charStamina + "."
                             + "\n Your hunting rank is " + charHuntingRank + "." 
                             + "\n Would you like to hunt?";                   
-                System.out.println(animalCheck);
+                this.console.println(animalCheck);
 //        }
     }   
 

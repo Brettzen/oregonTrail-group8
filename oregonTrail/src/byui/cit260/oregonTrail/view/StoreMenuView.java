@@ -54,20 +54,20 @@ public class StoreMenuView extends View {
                 this.sellItems();
                 break;
             default:
-                System.out.println("*** Invalid selection. Try again ***");
+                this.console.println("*** Invalid selection. Try again ***");
                 break;
         }
         return false;
     }
         private void viewItems() {
-        System.out.println("\n*** viewItems() called.");
+        this.console.println("\n*** viewItems() called.");
     }
 
     private void buyItems() {
-        System.out.println("\n*** buyItems() called.");
+        this.console.println("\n*** buyItems() called.");
     }
 
     private void sellItems() {
-        System.out.println("\n*** sellItems() called.");
+        this.console.println("\n*** sellItems() called.");
     }
 }

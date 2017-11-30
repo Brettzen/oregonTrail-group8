@@ -59,7 +59,7 @@ public class PaceMenuView extends View {
                 this.fastPace();
                 break;
             default:
-                System.out.println("*** Invalid selection. Try again ***");
+                this.console.println("*** Invalid selection. Try again ***");
                 break;
         }
         return false;          
@@ -68,16 +68,16 @@ public class PaceMenuView extends View {
     //private boolean slowPaceView() {
     private void slowPace() { 
        GameControl.currentPace = PaceControl.setPace(Pace.Slow);
-       System.out.println("Pace is now set to " + GameControl.currentPace.getName() + ".");
+       this.console.println("Pace is now set to " + GameControl.currentPace.getName() + ".");
     }
     
     private void averagePace() {
         GameControl.currentPace = PaceControl.setPace(Pace.Average);
-        System.out.println("Pace is now set to " + GameControl.currentPace.getName() + ".");
+        this.console.println("Pace is now set to " + GameControl.currentPace.getName() + ".");
     }
     
     private void fastPace() {
         GameControl.currentPace = PaceControl.setPace(Pace.Fast);
-        System.out.println("Pace is now set to " + GameControl.currentPace.getName() + ".");
+        this.console.println("Pace is now set to " + GameControl.currentPace.getName() + ".");
     }
 }

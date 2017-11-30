@@ -54,7 +54,7 @@ public class GatherView extends View {
                             + "\n Current stamina is " + charStamina + "."
                             + "\n Your gather rank is " + charGatherRank + "." 
                             + "\n Would you like to gather?";                   
-                System.out.println(plantCheck);
+                this.console.println(plantCheck);
     }           
     @Override
     public boolean doAction(String menuOption){      
@@ -67,12 +67,13 @@ public class GatherView extends View {
             try {
                 this.calcGSuccess();
             } catch (GatherControlException rsce) {
-                System.out.println(rsce.getMessage());
+                ErrorView.display(this.getClass().getName(),
+                  "Error reading input: " + rsce.getMessage());
             }
         }
                 break;
             default:
-                System.out.println("*** Invalid selection. Try again ***");
+                this.console.println("*** Invalid selection. Try again ***");
                 break;
         }
         return false;
@@ -107,7 +108,7 @@ public class GatherView extends View {
 //                                    + "\n Current stamina is " + charStamina + ".");                 
 //        } else {
             
-            System.out.println("\n You have recovered " + amountFood +" lbs of food. "
+            this.console.println("\n You have recovered " + amountFood +" lbs of food. "
                                + "\n Would you like to gather again?" );
                 plantLifeAmount = rand.nextInt(50) + 1;
                 charStamina = charStamina - .1F;
@@ -115,7 +116,7 @@ public class GatherView extends View {
                             + "\n Current stamina is " + charStamina + "."
                             + "\n Your gathering rank is " + charGatherRank + "." 
                             + "\n Would you like to gather?";                   
-                System.out.println(plantCheck);
+                this.console.println(plantCheck);
 //        }
     } 
 }
