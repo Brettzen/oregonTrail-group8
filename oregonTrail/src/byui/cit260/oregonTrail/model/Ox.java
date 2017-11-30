@@ -63,11 +63,11 @@ public class Ox {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + this.currentHealth;
-        hash = 37 * hash + this.maxHealth;
-        hash = 37 * hash + this.pullStrength;
-        hash = 37 * hash + Objects.hashCode(this.party);
+        int hash = 3;
+        hash = 29 * hash + this.currentHealth;
+        hash = 29 * hash + this.maxHealth;
+        hash = 29 * hash + this.pullStrength;
+        hash = 29 * hash + Objects.hashCode(this.party);
         return hash;
     }
 
@@ -102,6 +102,7 @@ public class Ox {
     public String toString() {
         return "Ox{" + "currentHealth=" + currentHealth + ", maxHealth=" + maxHealth + ", pullStrength=" + pullStrength + ", party=" + party + '}';
     }
+
     
     
 

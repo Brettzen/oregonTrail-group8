@@ -1,0 +1,13 @@
+byui.cit260.oregonTrail.view.StartProgramView - 
+Invalid value: value cannot be blank.
+byui.cit260.oregonTrail.view.StartProgramView - 
+Invalid value: value cannot be blank.
+byui.cit260.oregonTrail.view.StartProgramView - 
+Invalid value: value cannot be blank.
+byui.cit260.oregonTrail.view.StartProgramView - 
+Invalid value: value cannot be blank.
+byui.cit260.oregonTrail.view.CharacterView - 
+Invalid value: value cannot be blank.
+byui.cit260.oregonTrail.view.CharacterView - 
+Invalid value: value cannot be blank.
+MainMenuView - ghjfgkgkfk (The system cannot find the file specified)

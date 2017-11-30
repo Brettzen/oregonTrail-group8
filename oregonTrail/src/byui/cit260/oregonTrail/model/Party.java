@@ -129,14 +129,8 @@ public class Party implements Serializable{
     public void setMaxWeight(int maxWeight) {
         this.maxWeight = maxWeight;
     }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
+    
+    
 
     @Override
     public int hashCode() {
@@ -175,12 +169,6 @@ public class Party implements Serializable{
         if (this.holdableAmount != other.holdableAmount) {
             return false;
         }
-        if (this.currentWeight != other.currentWeight) {
-            return false;
-        }
-        if (this.maxWeight != other.maxWeight) {
-            return false;
-        }
         if (!Objects.equals(this.currentPace, other.currentPace)) {
             return false;
         }
@@ -190,18 +178,12 @@ public class Party implements Serializable{
         if (!Objects.equals(this.partyInventory, other.partyInventory)) {
             return false;
         }
-        if (!Objects.equals(this.oxInParty, other.oxInParty)) {
-            return false;
-        }
-        if (!Objects.equals(this.player, other.player)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Party{" + "charactersInParty=" + charactersInParty + ", partyInventory=" + partyInventory + ", oxInParty=" + oxInParty + ", currentPace=" + currentPace + ", currentMoney=" + currentMoney + ", brokenWagon=" + brokenWagon + ", holdableAmount=" + holdableAmount + ", player=" + player + ", currentWeight=" + currentWeight + ", maxWeight=" + maxWeight + '}';
+        return "Party{" + "charactersInParty=" + charactersInParty + ", partyInventory=" + partyInventory + ", currentPace=" + currentPace + ", currentMoney=" + currentMoney + ", brokenWagon=" + brokenWagon + ", holdableAmount=" + holdableAmount + '}';
     }
     
     
