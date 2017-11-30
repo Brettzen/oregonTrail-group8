@@ -16,8 +16,11 @@
  */
 package byui.cit260.oregonTrail.view;
 import byui.cit260.oregonTrail.control.GatherControl;
+import byui.cit260.oregonTrail.exceptions.GatherControlException;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import oregontrail.OregonTrail;
 /**
  *
@@ -60,7 +63,13 @@ public class GatherView extends View {
         
         switch(menuOption) {
             case "G":
+        {
+            try {
                 this.calcGSuccess();
+            } catch (GatherControlException rsce) {
+                System.out.println(rsce.getMessage());
+            }
+        }
                 break;
             default:
                 System.out.println("*** Invalid selection. Try again ***");
@@ -72,31 +81,31 @@ public class GatherView extends View {
 //        
 //    
 //    }
-    private void calcGSuccess() {
+    private void calcGSuccess() throws GatherControlException {
         GatherControl gathControl = new GatherControl();
         amountFood = gathControl.calcGathSuccess(charGatherRank, plantLifeAmount, charStamina);
-        if(amountFood == -1) {
-            
-                System.out.println("\n Your characters gathering skill is not enough to gather,"
-                                    + "\n Go Back and choose a different Character."
-                                    + "\n Your characters gathering rank is " + charGatherRank + ".");                 
-        } else if(amountFood == -2) {
-            
-            System.out.println("\n There was not enough plant life to gather. "
-                               + "\n Would you like to try again?"
-                               + "\n Below is the new amount present.");
-                plantLifeAmount = rand.nextInt(50) + 1;
-                charStamina = charStamina - .1F;
-                plantCheck =  "The plant life is currently " + plantLifeAmount + ". "
-                            + "\n Current stamina is " + charStamina + "."
-                            + "\n Your characters gathering rank is " + charGatherRank + "." 
-                            + "\n Would you like to gather?";                   
-                System.out.println(plantCheck);
-        
-        } else if(amountFood == -3) {
-                System.out.println("\n Your stamnia is to low Go Back to reset."
-                                    + "\n Current stamina is " + charStamina + ".");                 
-        } else {
+//        if(amountFood == -1) {
+//            
+//                System.out.println("\n Your characters gathering skill is not enough to gather,"
+//                                    + "\n Go Back and choose a different Character."
+//                                    + "\n Your characters gathering rank is " + charGatherRank + ".");                 
+//        } else if(amountFood == -2) {
+//            
+//            System.out.println("\n There was not enough plant life to gather. "
+//                               + "\n Would you like to try again?"
+//                               + "\n Below is the new amount present.");
+//                plantLifeAmount = rand.nextInt(50) + 1;
+//                charStamina = charStamina - .1F;
+//                plantCheck =  "The plant life is currently " + plantLifeAmount + ". "
+//                            + "\n Current stamina is " + charStamina + "."
+//                            + "\n Your characters gathering rank is " + charGatherRank + "." 
+//                            + "\n Would you like to gather?";                   
+//                System.out.println(plantCheck);
+//        
+//        } else if(amountFood == -3) {
+//                System.out.println("\n Your stamnia is to low Go Back to reset."
+//                                    + "\n Current stamina is " + charStamina + ".");                 
+//        } else {
             
             System.out.println("\n You have recovered " + amountFood +" lbs of food. "
                                + "\n Would you like to gather again?" );
@@ -107,6 +116,6 @@ public class GatherView extends View {
                             + "\n Your gathering rank is " + charGatherRank + "." 
                             + "\n Would you like to gather?";                   
                 System.out.println(plantCheck);
-        }
+//        }
     } 
 }
