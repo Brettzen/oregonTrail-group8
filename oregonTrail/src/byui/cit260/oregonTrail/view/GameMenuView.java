@@ -94,7 +94,8 @@ public class GameMenuView extends View {
             try {
                 this.displayMapMenu();
             } catch (MapControlException ex) {
-                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                ErrorView.display(this.getClass().getName(),
+                  "Error reading input: " + ex.getMessage());
             }
         }
                 break;
@@ -102,22 +103,22 @@ public class GameMenuView extends View {
                 this.displayHelpMenu();
                 break;
             default:
-                System.out.println("*** Invalid selection. Try again ***");
+                this.console.println("*** Invalid selection. Try again ***");
                 break;
         }
         return false;
     }
 
     private void viewDate() {
-        System.out.println("\n*** viewDate() called.");
+        this.console.println("\n*** viewDate() called.");
     }
 
     private void checkDistanceFromMissouri() {
-        System.out.println("\n*** checkDistanceFromMissouri() called.");
+        this.console.println("\n*** checkDistanceFromMissouri() called.");
     }
 
     private void checkDistanceToOregon() {
-        System.out.println("\n*** checkDistanceToOregon() called.");
+        this.console.println("\n*** checkDistanceToOregon() called.");
     }
 
     private void displayMapMenu() throws MapControlException {
@@ -127,7 +128,7 @@ public class GameMenuView extends View {
     }
   
     private void viewEventLog() {
-        System.out.println("\n*** viewEventLog() called.");
+        this.console.println("\n*** viewEventLog() called.");
     }
 
     private void displayPaceMenu() {
@@ -141,7 +142,7 @@ public class GameMenuView extends View {
     }
 
     private void viewTeamStatus() {
-        System.out.println("\n*** viewTeamStatus() called.");
+        this.console.println("\n*** viewTeamStatus() called.");
     }
 
     private void viewWeather() {
@@ -155,7 +156,7 @@ public class GameMenuView extends View {
     }
     
     private void checkSurroundings() {
-        System.out.println("\n*** checkSurroundings() called.");
+        this.console.println("\n*** checkSurroundings() called.");
     }
     
     private void displayHelpMenu() {

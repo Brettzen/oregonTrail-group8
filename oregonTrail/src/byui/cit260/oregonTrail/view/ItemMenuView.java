@@ -18,8 +18,11 @@ package byui.cit260.oregonTrail.view;
 
 import byui.cit260.oregonTrail.control.GameControl;
 import byui.cit260.oregonTrail.model.Item;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -48,14 +51,22 @@ class ItemMenuView extends View{
         }
         this.displayMessage += "\n\n\nPress any key to return.";
         
-        System.out.println("\n" + this.displayMessage);
+        this.console.println("\n" + this.displayMessage);
         this.getInput();
     }
     
     @Override
     public String getInput() {
-        Scanner keyboard = new Scanner(System.in);
-        return keyboard.nextLine();
+        String value = "";
+        try {
+            //        Scanner keyboard = new Scanner(System.in);
+            value = this.keyboard.readLine();
+        } catch (Exception e) {
+	    ErrorView.display(this.getClass().getName(),
+                  "Error reading input: " + e.getMessage());
+            return null;
+        }
+        return value;
     }
 
     @Override

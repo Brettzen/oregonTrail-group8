@@ -16,7 +16,10 @@
  */
 package byui.cit260.oregonTrail.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import oregontrail.OregonTrail;
 
 /**
  *
@@ -25,6 +28,8 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
     
     protected String displayMessage;
+    protected final BufferedReader keyboard = OregonTrail.getInFile();
+    protected final PrintWriter console = OregonTrail.getOutFile();
     
     public View() {
         
@@ -49,21 +54,27 @@ public abstract class View implements ViewInterface {
     
     @Override
     public String getInput() {
-        Scanner keyboard = new Scanner(System.in);
+//        Scanner keyboard = new Scanner(System.in);
         String value = "";
         boolean valid = false;
-        
+        try {
         while(!valid) {
-            System.out.println("\n" + this.displayMessage);
+            this.console.println("\n" + this.displayMessage);
             
-            value = keyboard.nextLine();
+            value = this.keyboard.readLine();
             value = value.trim();
             
             if(value.length() <1) {
-                System.out.println("\nInvalid value: value cannot be blank.");
+                ErrorView.display(this.getClass().getName(),
+	          "\nInvalid value: value cannot be blank.");
                 continue;
             }
             break;
+        }
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),
+                  "Error reading input: " + e.getMessage());
+            return null;
         }
         return value;
     }

@@ -62,21 +62,27 @@ public class CharacterView extends View {
 
     @Override
     public String getInput() {
-        Scanner keyboard = new Scanner(System.in);
+//        Scanner keyboard = new Scanner(System.in);
         String value = "";
         boolean valid = false;
-
+        try {
         while (!valid) {
-            System.out.println("\n" + this.displayMessage);
+            this.console.println("\n" + this.displayMessage);
 
-            value = keyboard.nextLine();
+            value = this.keyboard.readLine();
             value = value.trim();
 
             if (value.length() < 1) {
-                System.out.println("\nInvalid value: value cannot be blank.");
+                ErrorView.display(this.getClass().getName(),
+	          "\nInvalid value: value cannot be blank.");
                 continue;
             }
             break;
+        }
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),
+                  "Error reading input: " + e.getMessage());
+            return null;
         }
         return value;
     }
@@ -102,7 +108,7 @@ public class CharacterView extends View {
                 this.pickM();
                 break;
             default:
-                System.out.println("*** Invalid selection. Try again ***");
+                this.console.println("*** Invalid selection. Try again ***");
                 break;
         }
         return false;
@@ -115,7 +121,7 @@ public class CharacterView extends View {
         Party party = new Party();
         party.addCharacter(bob);
         characters.remove(0);
-        System.out.println("*** You pick Bob ***");
+        this.console.println("*** You pick Bob ***");
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
@@ -127,7 +133,7 @@ public class CharacterView extends View {
         Party party = new Party();
         party.addCharacter(joe);
         characters.remove(1);
-        System.out.println("*** You pick Joe ***");
+        this.console.println("*** You pick Joe ***");
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
@@ -139,7 +145,7 @@ public class CharacterView extends View {
         Party party = new Party();
         party.addCharacter(cindy);
         characters.remove(2);
-        System.out.println("*** You pick Joe ***");
+        this.console.println("*** You pick Joe ***");
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
@@ -151,7 +157,7 @@ public class CharacterView extends View {
         Party party = new Party();
         party.addCharacter(ergon);
         characters.remove(3);
-        System.out.println("*** You pick Ergon ***");
+        this.console.println("*** You pick Ergon ***");
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
@@ -163,7 +169,7 @@ public class CharacterView extends View {
         Party party = new Party();
         party.addCharacter(mitch);
         characters.remove(4);
-        System.out.println("*** You pick Mitch ***");
+        this.console.println("*** You pick Mitch ***");
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }

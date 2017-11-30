@@ -65,7 +65,8 @@ class SceneMenuView extends View{
             try {
                 this.displayRiverCrossMenu();
             } catch (RiverSceneControlException ex) {
-                System.out.println(ex.getMessage());
+                ErrorView.display(this.getClass().getName(),
+                  "Error reading input: " + ex.getMessage());
             }
         }
                 break;
@@ -79,18 +80,18 @@ class SceneMenuView extends View{
                 this.displayGatherMenu();
                 break;
             default:
-                System.out.println("*** Invalid selection. Try again ***");
+                this.console.println("*** Invalid selection. Try again ***");
                 break;
         }
         return false;
     }
 
     private void displayTownMenu() {
-        System.out.println("\n*** displayTownMenu() called. ***");
+        this.console.println("\n*** displayTownMenu() called. ***");
     }
 
     private void displayFortMenu() {
-        System.out.println("\n*** displayFortMenu() called. ***");
+        this.console.println("\n*** displayFortMenu() called. ***");
     }
 
     private void displayRiverCrossMenu() throws RiverSceneControlException {

@@ -38,14 +38,22 @@ public class WeatherView extends View {
                             +  "\n" + currentWeather.getDesc()
                             + "\n\n\nPress any key to return.";
         
-        System.out.println("\n" + this.displayMessage);
+        this.console.println("\n" + this.displayMessage);
         this.getInput();
     }
     
     @Override
     public String getInput() {
-        Scanner keyboard = new Scanner(System.in);
-        return keyboard.nextLine();
+        String value = "";
+        try {
+            //        Scanner keyboard = new Scanner(System.in);
+            value = this.keyboard.readLine();
+        } catch (Exception e) {
+		 ErrorView.display(this.getClass().getName(),
+                  "Error reading input: " + e.getMessage());
+            return null;
+        }
+        return value;
     }
 
     @Override

@@ -43,16 +43,16 @@ public class HelpMenuView extends View {
 
         switch (menuOption) {
             case "G":
-                System.out.println(StartProgramView.getIntroText());
+                this.console.println(StartProgramView.getIntroText());
                 break;
             case "H":
-                System.out.println("Use the options in the Game Menu and Daily Trail Menu to move forward, visit towns, hunt, or gather.");
+                this.console.println("Use the options in the Game Menu and Daily Trail Menu to move forward, visit towns, hunt, or gather.");
                 break;
             case "T":
-                System.out.println("If you want an easier time, choose a banker! If you want a challenge, choose a freeloader!");
+                this.console.println("If you want an easier time, choose a banker! If you want a challenge, choose a freeloader!");
                 break;
             default:
-                System.out.println("*** Invalid selection. Try again ***");
+                this.console.println("*** Invalid selection. Try again ***");
                 break;
         }
         return false;
