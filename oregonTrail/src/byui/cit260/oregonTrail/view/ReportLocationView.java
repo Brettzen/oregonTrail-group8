@@ -20,9 +20,9 @@ package byui.cit260.oregonTrail.view;
  *
  * @author Brett Starks
  */
-class ReportMenuView extends View{
+class ReportLocationView extends View{
 
-    public ReportMenuView() {
+    public ReportLocationView() {
         super("\n"
                 + "\n-------------------------------------------------"
                 + "\n| Help Menu                                     |"
@@ -39,8 +39,11 @@ class ReportMenuView extends View{
         menuOption = menuOption.toUpperCase();
 
         switch (menuOption) {
-            case "L":
-                this.displayLocationReport();
+            case "V":
+                this.viewReport();
+                break;
+            case "S":
+                this.saveReport();
                 break;
             default:
                 ErrorView.display(this.getClass().getName(), 
@@ -50,9 +53,13 @@ class ReportMenuView extends View{
         return false;
     }
 
-    private void displayLocationReport() {
-        ReportLocationView locationReport = new ReportLocationView();
-        locationReport.display();
+    private void viewReport() {
+        this.console.println("viewReport called.");
+        
+    }
+
+    private void saveReport() {
+       this.console.println("saveReport called.");
     }
     
 }
