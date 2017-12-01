@@ -16,6 +16,10 @@
  */
 package byui.cit260.oregonTrail.view;
 
+import byui.cit260.oregonTrail.control.GameControl;
+import byui.cit260.oregonTrail.control.ReportControl;
+import oregontrail.OregonTrail;
+
 /**
  *
  * @author Brett Starks
@@ -23,11 +27,12 @@ package byui.cit260.oregonTrail.view;
 class ReportLocationView extends View{
 
     public ReportLocationView() {
-        super("\n"
+        super(    "\n-------------------------------------------------"
+                + "\n| Locations Report                              |"
                 + "\n-------------------------------------------------"
-                + "\n| Help Menu                                     |"
-                + "\n-------------------------------------------------"
-                + "\n|L - View all Locations                         |"
+                + "\n|V - View Report Only                           |"
+                + "\n|S - View & Save Locations Report to a File     |"
+                + "\n|Q - Return to Previous Menu                    |"
                 + "\n-------------------------------------------------");
     }
     
@@ -54,12 +59,35 @@ class ReportLocationView extends View{
     }
 
     private void viewReport() {
-        this.console.println("viewReport called.");
-        
+        ReportLocationFormat formatReport = new ReportLocationFormat();
+        formatReport.display();
     }
 
     private void saveReport() {
-       this.console.println("saveReport called.");
+       this.console.println("\n\nCreate a name to save the file:");
+       
+        this.displayMessage = "";
+        
+        String filePath = this.getInput();
+        
+        try {
+            ReportControl.saveLocationReport(OregonTrail.getCurrentGame().getMap().getLocations(), filePath + ".txt");
+            this.console.println("\n\nReport successfully saved.");
+        } catch(Exception ex) {
+            ErrorView.display("ReportLocationView", ex.getMessage());
+        }
+        
+        this.displayMessage = "\n-------------------------------------------------"
+                            + "\n| Locations Report                              |"
+                            + "\n-------------------------------------------------"
+                            + "\n|V - View Report Only                           |"
+                            + "\n|S - View & Save Locations Report to a File     |"
+                            + "\n|Q - Return to Previous Menu                    |"
+                            + "\n-------------------------------------------------";
+        
+        ReportLocationFormat formatReport = new ReportLocationFormat();
+        formatReport.display();
+        
     }
     
 }

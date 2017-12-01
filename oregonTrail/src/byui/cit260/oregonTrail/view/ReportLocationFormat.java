@@ -16,31 +16,34 @@
  */
 package byui.cit260.oregonTrail.view;
 
-import byui.cit260.oregonTrail.control.GameControl;
-import byui.cit260.oregonTrail.model.Weather;
+import byui.cit260.oregonTrail.model.Location;
+import oregontrail.OregonTrail;
 
 /**
  *
  * @author Brett Starks
  */
-public class WeatherView extends View {
-    
-    Weather currentWeather = GameControl.currentWeather;
-    
-    public WeatherView(){
-        super(); 
+class ReportLocationFormat extends View {
+
+    private Location[] locations = OregonTrail.getCurrentGame().getMap().getLocations();
+
+    public ReportLocationFormat() {
+        super();
     }
-    
-   @Override
+
+    @Override
     public void display() {
-        this.displayMessage = "The weather looks like: " + currentWeather.getName()
-                            +  "\n" + currentWeather.getDesc()
-                            + "\n\n\nPress any key to return.";
-        
-        this.console.println("\n" + this.displayMessage);
+
+        this.console.println("\n\n                 Location Report                 ");
+        this.console.printf("%n%-25s%-20s%15s", "Name", "Location Type", "Dist. to Oregon");
+        this.console.printf("%n%-25s%-20s%-15s", "---------------", "---------------", "---------------");
+        for (Location location : locations) {
+            this.console.printf("%n%-30s%-15s%-15s", location.getDesc(), location.getSceneType(), location.getDistanceToOregon() + " miles");
+        }
+        this.console.println("\n\n\nPress any key to return to the previous menu.\n");
         this.getInput();
     }
-    
+
     @Override
     public String getInput() {
         String value = "";
@@ -48,8 +51,8 @@ public class WeatherView extends View {
             //        Scanner keyboard = new Scanner(System.in);
             value = this.keyboard.readLine();
         } catch (Exception e) {
-		 ErrorView.display(this.getClass().getName(),
-                  "Error reading input: " + e.getMessage());
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
             return null;
         }
         return value;
@@ -59,5 +62,5 @@ public class WeatherView extends View {
     public boolean doAction(String value) {
         return true;
     }
-    
+
 }

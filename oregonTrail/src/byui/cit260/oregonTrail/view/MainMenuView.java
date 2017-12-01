@@ -86,6 +86,8 @@ public class MainMenuView extends View {
     private void saveGame() {
         this.console.println("\n\nCreate a name to save the file:");
         
+        this.displayMessage = "";
+        
         String filePath = this.getInput();
         
         try {
@@ -94,6 +96,18 @@ public class MainMenuView extends View {
         } catch(Exception ex) {
             ErrorView.display("MainMenuView", ex.getMessage());
         }
+        
+        this.displayMessage = "\n"
+                            + "\n-------------------------------------------------"
+                            + "\n| Main Menu                                     |"
+                            + "\n-------------------------------------------------"
+                            + "\n|N - New Game                                   |"
+                            + "\n|S - Save Game                                  |"
+                            + "\n|L - Load Game                                  |"
+                            + "\n|H - Help Menu                                  |"
+                            + "\n|Q - Quit Game                                  |"
+                            + "\n-------------------------------------------------";
+        
     }
 
     private void loadGame() {

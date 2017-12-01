@@ -25,9 +25,10 @@ class ReportMenuView extends View{
     public ReportMenuView() {
         super("\n"
                 + "\n-------------------------------------------------"
-                + "\n| Help Menu                                     |"
+                + "\n| Report Menu                                   |"
                 + "\n-------------------------------------------------"
                 + "\n|L - View all Locations                         |"
+                + "\n|Q - Return to Previous Menu                    |"
                 + "\n-------------------------------------------------");
     }
     
