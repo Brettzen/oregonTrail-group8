@@ -28,6 +28,7 @@ class ReportMenuView extends View{
                 + "\n| Report Menu                                   |"
                 + "\n-------------------------------------------------"
                 + "\n|L - View all Locations                         |"
+                + "\n|C - View all Characters                        |"
                 + "\n|Q - Return to Previous Menu                    |"
                 + "\n-------------------------------------------------");
     }
@@ -43,6 +44,9 @@ class ReportMenuView extends View{
             case "L":
                 this.displayLocationReport();
                 break;
+            case "C":
+                this.displayCharacterReport();
+                break;
             default:
                 ErrorView.display(this.getClass().getName(), 
                         "Error reading input: Invalid response.");
@@ -54,6 +58,11 @@ class ReportMenuView extends View{
     private void displayLocationReport() {
         ReportLocationView locationReport = new ReportLocationView();
         locationReport.display();
+    }
+    
+    private void displayCharacterReport() {
+        ReportCharacterView characterReport = new ReportCharacterView();
+        characterReport.display();
     }
     
 }

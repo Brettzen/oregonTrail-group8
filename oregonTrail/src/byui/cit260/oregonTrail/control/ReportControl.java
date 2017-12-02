@@ -21,6 +21,8 @@ import byui.cit260.oregonTrail.model.Location;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.PrintWriter;
+import byui.cit260.oregonTrail.model.Character;
+import java.util.ArrayList;
 
 /**
  *
@@ -42,7 +44,29 @@ public class ReportControl {
         }
     }
     
-    
+     public static void  saveCharacterReport(ArrayList<Character> characters, String outputLocation) throws ReportControlException {
+        //Create Buffered Reader object for input file
+        try (PrintWriter out = new PrintWriter(outputLocation)) {
+
+        //print title and column headings
+        out.println("\n\n                          Character Report                                    ");
+        out.printf("%n%-20s%-30s%20s","Name"      , "Description",                  "Starting Currency ");
+        out.printf("%n%-20s%-30s%20s","----------", "----------------------------", "------------------");
+
+        //print the description, quanity and price of each item
+        for (Character character : characters) {
+         out.printf("%n%-20s%-30s%7s", character.getName()
+				, character.getDescription()
+				, "$" + character.getStartingCurrency());
+        }
+        out.println("\n\n");
+        } catch(Exception e) {
+            throw new ReportControlException(e.getMessage());
+        }
+    }
+     
+     
+     
     // Not sure how to get this to work.
 //    public static void readLocationReport(String filePath) throws ReportControlException {
 //
