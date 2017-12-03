@@ -47,6 +47,7 @@ public class GameMenuView extends View {
                     + "\n|P - Set Team Pace                                  |"
                     + "\n|G - Go to Scene Menu                               |"
                     + "\n|M - View the Map                                   |"
+                    + "\n|R - View and Print Reports                         |"
                     + "\n|H - Help Menu                                      |"
                     + "\n|Q - Main Menu                                      |"
                     + "\n-----------------------------------------------------");
@@ -88,6 +89,9 @@ public class GameMenuView extends View {
                 break;
             case "G":
                 this.displaySceneMenu();
+                break;       
+            case "R":
+                this.displayReportMenu();
                 break;
             case "M":        
         {             
@@ -162,5 +166,10 @@ public class GameMenuView extends View {
     private void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.display();
+    }
+
+    private void displayReportMenu() {
+        ReportMenuView reportMenu = new ReportMenuView();
+        reportMenu.display();
     }
 }

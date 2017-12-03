@@ -1,0 +1,28 @@
+
+
+           Location Report           
+
+Name                     Location Type       Dist. to Oregon
+---------------          ---------------     ---------------
+Independence, MO         town                2000 miles     
+The Kansas River         river               1920 miles     
+Granada Station          town                1860 miles     
+Big Blue River           river               1760 miles     
+Rock Creek Station       town                1730 miles     
+Fort Kearney             fort                1660 miles     
+Platte River             river               1510 miles     
+Chimney Rock             landmark            1420 miles     
+Scotts Bluff             town                1400 miles     
+Fort Laramie             fort                1350 miles     
+Fort Caspar              fort                1250 miles     
+Indpendence Rock         landmark            1190 miles     
+South Pass               landmark            1090 miles     
+Bear River               river               950 miles      
+Soda Springs             landmark            900 miles      
+Fort Hall                fort                850 miles      
+Snake River              river               750 miles      
+Fort Boise               fort                400 miles      
+Blue Mountains           landmark            300 miles      
+Whitman Mission          city                200 miles      
+The Dalles               landmark            100 miles      
+Oregon City, OR          city                0 miles        

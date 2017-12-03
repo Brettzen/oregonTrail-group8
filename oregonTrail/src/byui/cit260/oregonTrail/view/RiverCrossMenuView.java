@@ -50,7 +50,8 @@ class RiverCrossMenuView extends View{
         try {
             this.probability = riverSceneControl.calculateRiverCrossingProbability(riverDepth, currentWeight, maxWeight);
         } catch(RiverSceneControlException rsce) {
-                    System.out.println(rsce.getMessage());
+                    ErrorView.display(this.getClass().getName(),
+                  "Error reading input: " + rsce.getMessage());
         }
         
         this.riverDesc =  "\n"
@@ -91,14 +92,14 @@ class RiverCrossMenuView extends View{
             case "C":
                 return this.riverCrossCheckView(riverDepth, probability);
             default:
-                System.out.println("*** Invalid selection. Try again ***");
+                this.console.println("*** Invalid selection. Try again ***");
                 break;
         }
         return false;
     }
 
     private void dropSupplies() {
-        System.out.println("\n*** dropSupplies() called. ***");
+        this.console.println("\n*** dropSupplies() called. ***");
     }
 
     // Making this a boolean so that we can return whether a successful crossing occurred (true), or if the player canceled (false)

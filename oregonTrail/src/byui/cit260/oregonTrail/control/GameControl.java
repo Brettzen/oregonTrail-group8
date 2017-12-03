@@ -27,6 +27,10 @@ import byui.cit260.oregonTrail.model.Party;
 import byui.cit260.oregonTrail.model.Player;
 import byui.cit260.oregonTrail.model.Weather;
 import byui.cit260.oregonTrail.view.CharacterView;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import oregontrail.OregonTrail;
 
@@ -64,7 +68,6 @@ public class GameControl {
         this.currentInventory = ItemControl.addInventoryItems();
     }
     
-    //Setting Pace to Average by default. Player can change it in the Pace Menu.
     public static Pace currentPace = PaceControl.setPace(Pace.Average);
 
     public static int createNewGame(Player player) throws GameControlException {
@@ -84,6 +87,33 @@ public class GameControl {
         characterView.display();
         
         return 1;
+    }
+    
+    public static void saveGame(Game currentGame, String filePath) throws GameControlException {
+        
+        try(FileOutputStream fops = new FileOutputStream(filePath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(currentGame);
+        } catch(Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+        
+    }
+    
+    public static void loadGame(String filePath) throws GameControlException{
+        Game game = null;
+        
+        try(FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+            
+            game = (Game) input.readObject();
+        } catch(Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+        
+        OregonTrail.setCurrentGame(game);
+        
     }
     
 }
