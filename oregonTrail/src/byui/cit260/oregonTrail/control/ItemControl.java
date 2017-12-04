@@ -26,17 +26,17 @@ import java.util.ArrayList;
  */
 public class ItemControl {
     
-    static ArrayList<Item> addInventoryItems() throws ItemControlException {
+    public static ArrayList<Item> addInventoryItems() throws ItemControlException {
         ArrayList<Item> inventory = new ArrayList<>();
         inventory.add(Item.Oxen);
         inventory.add(Item.Food);
-        inventory.add(Item.Food);
-        inventory.add(Item.Food);
+        //inventory.add(Item.Food);
+        //inventory.add(Item.Food);
         inventory.add(Item.Ammo);
         inventory.add(Item.Wheel);
         inventory.add(Item.WagonLarge);
-        inventory.add(Item.Ammo);
-        inventory.add(Item.Ammo);
+        inventory.add(Item.WagonMedium);
+        inventory.add(Item.WagonSmall);
         
 
         

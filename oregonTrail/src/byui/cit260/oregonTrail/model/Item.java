@@ -15,7 +15,7 @@ public enum Item {
     WagonSmall("WagonSmall", "Small wagon that can carry minimal amount of supplies.", 200, 200),
     WagonMedium("WagonMedium", "Medium wagon that can carry an average amount of supplies.", 400, 400),
     WagonLarge("WagonLarge", "Large wagon that can carry a maximum amount of supplies.", 600, 600),
-    Food("Food", "Delicious consumables for nourishment. I recommend 200 lbs of food per person in your party. Comes in 5 lb increments", 5, 1),
+    Food("Food", "Delicious consumables for nourishment. Comes in 5 lb increments", 5, 1),
     Ammo("Ammo", "Bullets for hunting or protection. Comes in boxes of 20 bullets.", 5, 2),
     Wheel("Wheel", "Spare wheels, just in case.", 40, 10);
    
