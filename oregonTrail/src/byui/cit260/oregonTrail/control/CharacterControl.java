@@ -32,7 +32,7 @@ public class CharacterControl {
         characters.add(bob);
         Character joe = new Character("Joe", "J","Joe is sickly", 4, "Healthy", 100, 100, 1F, 50);
         characters.add(joe);
-        Character cindy = new Character("Cindy", "C", "Hi my name is Cindy!", 10, "Healthy", 100, 100, 1F, 0);
+        Character cindy = new Character("Cindy", "C", "Hi my name is Cindy!", 10, "Healthy", 100, 100, 1F, 4000);
         characters.add(cindy);
         Character ergon = new Character("Ergon IV", "E", "Distinguished Ergon the Banker", 0, "Healthy", 100, 100, 1F, 1000);
         characters.add(ergon);

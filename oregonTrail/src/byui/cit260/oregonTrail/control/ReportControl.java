@@ -21,6 +21,10 @@ import byui.cit260.oregonTrail.model.Location;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.PrintWriter;
+import byui.cit260.oregonTrail.model.Character;
+import byui.cit260.oregonTrail.model.Item;
+import java.io.Writer;
+import java.util.ArrayList;
 
 /**
  *
@@ -42,7 +46,52 @@ public class ReportControl {
         }
     }
     
-    
+     public static void  saveCharacterReport(ArrayList<Character> characters, String outputLocation) throws ReportControlException {
+        //Create Buffered Reader object for input file
+        try (PrintWriter out = new PrintWriter(outputLocation)) {
+
+        //print title and column headings
+        out.println("\n\n                          Character Report                                    ");
+        out.printf("%n%-20s%-30s%20s","Name"      , "Description",                  "Starting Currency ");
+        out.printf("%n%-20s%-30s%20s","----------", "----------------------------", "------------------");
+
+        //print the description, quanity and price of each item
+        for (Character character : characters) {
+         out.printf("%n%-20s%-30s%7s", character.getName()
+				, character.getDescription()
+				, "$" + character.getStartingCurrency());
+        }
+        out.println("\n\n");
+        } catch(Exception e) {
+            throw new ReportControlException(e.getMessage());
+        }
+           
+    }
+     
+    public static void saveItemReport(ArrayList<Item> items, String filePath) throws ReportControlException {
+        
+        try (PrintWriter out = new PrintWriter(filePath)) {
+        
+        out.println("\n\n                          Item Report                                          ");
+        out.printf("%n%-20s%-52s%20s","Name"      , "Description",                                 "Cost");
+        out.printf("%n%-20s%-66s%20s","-----------", "----------------------------", "------------------");    
+        
+        for (Item item : items) {
+         out.printf("%n%-20s%-68s%-7s", item.getName()
+				, item.getDescription()
+				, "$" + item.getCost());
+        }
+        out.println("\n\n");
+        } catch(Exception e) {
+            throw new ReportControlException(e.getMessage());
+        }
+           
+    }
+        
+ }
+     
+     
+     
     // Not sure how to get this to work.
 //    public static void readLocationReport(String filePath) throws ReportControlException {
 //
@@ -55,7 +104,9 @@ public class ReportControl {
 //            throw new ReportControlException(e.getMessage());
 //        }
 //    }
+
     
     
     
-}
+    
+
