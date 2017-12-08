@@ -16,40 +16,38 @@
  */
 package byui.cit260.oregonTrail.view;
 
-import byui.cit260.oregonTrail.model.Location;
+import byui.cit260.oregonTrail.model.Party;
+import java.util.ArrayList;
 import oregontrail.OregonTrail;
 
 /**
  *
  * @author Brett Starks
  */
-class ReportLocationFormat extends View {
-
-    private Location[] locations = OregonTrail.getCurrentGame().getMap().getLocations();
-
-    public ReportLocationFormat() {
+class PartyView extends View {
+    
+    Party party = OregonTrail.getCurrentGame().getPlayer().getParty();
+    ArrayList<byui.cit260.oregonTrail.model.Character> characters = party.getCharactersInParty();
+    
+    public PartyView() {
         super();
     }
-
+    
     @Override
     public void display() {
-
-        this.console.println("\n\n                 Location Report                 ");
-        this.console.printf("%n%-25s%-20s%15s", "Name", "Location Type", "Dist. to Oregon");
-        this.console.printf("%n%-25s%-20s%-15s", "---------------", "---------------", "---------------");
-        
-        for (Location location : locations) {
-            this.console.printf("%n%-30s%-15s%-15s", 
-                                        location.getDesc(), 
-                                        location.getSceneType(), 
-                                        location.getDistanceToOregon() + " miles");
+        this.displayMessage = "\n\nYou have the following characters in your party: \n";
+        for(byui.cit260.oregonTrail.model.Character character : characters) {
+            this.displayMessage += character.getName() 
+                                + "\t Health: " + character.getCurrentHealth() + " / " + character.getMaxHealth()
+                                + "\t Status: " + character.getStatus()
+                                + "\n------------------------------------------------------------------\n";
         }
+        this.displayMessage += "\n\n\nPress any key to return.";
         
-        this.console.println("\n\n\nPress any key to return to the previous menu.\n");
+        this.console.println("\n" + this.displayMessage);
         this.getInput();
-        
     }
-
+    
     @Override
     public String getInput() {
         String value = "";
@@ -57,16 +55,17 @@ class ReportLocationFormat extends View {
             //        Scanner keyboard = new Scanner(System.in);
             value = this.keyboard.readLine();
         } catch (Exception e) {
-            ErrorView.display(this.getClass().getName(),
-                    "Error reading input: " + e.getMessage());
+		 ErrorView.display(this.getClass().getName(),
+                  "Error reading input: " + e.getMessage());
             return null;
         }
         return value;
     }
-
+    
+    
     @Override
     public boolean doAction(String value) {
         return true;
     }
-
+    
 }

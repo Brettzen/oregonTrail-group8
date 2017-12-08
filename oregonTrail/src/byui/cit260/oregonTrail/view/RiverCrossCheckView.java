@@ -63,8 +63,10 @@ class RiverCrossCheckView extends View {
         if(rand.nextInt(100) <= probability) {
             this.console.println("\n*** You have successfully crossed the river. ***");
         } else {
-            this.console.println("\n*** The river has proved too much for you! The currents carry you away to a watery grave. ***");
-            System.exit(0);
+            this.console.println("\n\n\n*** The river has proved too much for you! The currents carry you away to a watery grave. ***");
+            this.console.println("\n\n\n GAME OVER \n\n\n");
+            MainMenuView mainMenu = new MainMenuView();
+            mainMenu.display();
         }
     }
     

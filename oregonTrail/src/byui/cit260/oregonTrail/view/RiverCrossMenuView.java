@@ -30,7 +30,7 @@ class RiverCrossMenuView extends View{
     
     private String riverDesc;
     Random random = new Random();
-    private int riverDepth = random.nextInt(12 - 3 + 1) + 3;
+    private int riverDepth = 12;
     private double currentWeight = OregonTrail.getPlayer().getParty().getCurrentWeight();
     private double maxWeight = OregonTrail.getPlayer().getParty().getMaxWeight();
     private int probability;

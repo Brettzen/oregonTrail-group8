@@ -17,7 +17,6 @@
 package byui.cit260.oregonTrail.view;
 
 import byui.cit260.oregonTrail.control.GameControl;
-import byui.cit260.oregonTrail.exceptions.ItemControlException;
 import byui.cit260.oregonTrail.model.Player;
 
 /**

@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class CharacterControl {
 
     public static ArrayList<Character> createCharacters() {
-        ArrayList<Character> characters = new ArrayList<Character>();
+        ArrayList<Character> characters = new ArrayList<>();
         Character bob = new Character("Bob", "B", "He's Bob", 8, "Healthy", 100, 100, 1F, 100);
         characters.add(bob);
         Character joe = new Character("Joe", "J","Joe is sickly", 4, "Healthy", 100, 100, 1F, 50);
@@ -41,7 +41,7 @@ public class CharacterControl {
         return characters;
     }
 
-    public int calcHealthDraw(int currentHealth, int stamina, int amountOfFood, int weather, int pace) throws CharacterControlException {
+    public static int calcHealthDraw(int currentHealth, int stamina, int amountOfFood, int weather, int pace) throws CharacterControlException {
         
         int dailyHealthDraw = 0;
         int x = 0;

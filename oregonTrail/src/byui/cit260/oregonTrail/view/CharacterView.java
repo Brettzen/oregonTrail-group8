@@ -22,6 +22,7 @@ import byui.cit260.oregonTrail.model.Player;
 import byui.cit260.oregonTrail.model.Character;
 import java.util.ArrayList;
 import java.util.Scanner;
+import oregontrail.OregonTrail;
 
 /**
  *
@@ -41,7 +42,31 @@ public class CharacterView extends View {
         boolean done = false;
 
         do {
-            this.displayMessage = "\n\tChoose your Character\n";
+            this.displayMessage = "\n\tChoose the starting character of your party.\n";
+
+            for (Character characters : characters) {
+                this.displayMessage += "\n---------------------------------------------------------------"
+                        + "\n|"
+                        + "\n|" + characters.getMenuSelectionOption() + " - " + "Name: " + characters.getName()
+                        + "\n|    Description: " + characters.getDescription()
+                        + "\n|    Your Hunting and Gathering Skill: " + characters.getSkill()
+                        + "\n|    Starting Salary: $" + characters.getStartingCurrency()
+                        + "\n---------------------------------------------------------------";
+            }
+
+            String value = this.getInput();
+            if(value.toUpperCase().equals("Q")) return;
+            done = this.doAction(value);
+
+        } while (!done);
+    }
+    
+    public void displayHotel() {
+
+        boolean done = false;
+
+        do {
+            this.displayMessage = "\n\tAdd a character to your party. You can have a maximum of 3 characters.\n";
 
             for (Character characters : characters) {
                 this.displayMessage += "\n---------------------------------------------------------------"
@@ -116,60 +141,45 @@ public class CharacterView extends View {
 
     private void pickB() {
         Character bob = characters.get(0);
-        Player player = new Player();
-        player.addCharacter(bob);
-        Party party = new Party();
-        party.addCharacter(bob);
+        OregonTrail.getCurrentGame().getPlayer().getParty().addCharacter(bob);
         characters.remove(0);
-        this.console.println("*** You pick Bob ***");
+        this.console.println("\n\nYou have chosen Bob as your starting character.\n");
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
 
     private void pickJ() {
         Character joe = characters.get(1);
-        Player player = new Player();
-        player.addCharacter(joe);
-        Party party = new Party();
-        party.addCharacter(joe);
+        OregonTrail.getCurrentGame().getPlayer().getParty().addCharacter(joe);
         characters.remove(1);
-        this.console.println("*** You pick Joe ***");
+        this.console.println("\n\nYou have chosen Joe as your starting character.\n");
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
 
     private void pickC() {
         Character cindy = characters.get(2);
-        Player player = new Player();
-        player.addCharacter(cindy);
-        Party party = new Party();
-        party.addCharacter(cindy);
+        OregonTrail.getCurrentGame().getPlayer().getParty().addCharacter(cindy);
         characters.remove(2);
-        this.console.println("*** You pick Joe ***");
+        this.console.println("\n\nYou have chosen Cindy as your starting character.\n");
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
 
     private void pickE() {
         Character ergon = characters.get(3);
-        Player player = new Player();
-        player.addCharacter(ergon);
-        Party party = new Party();
-        party.addCharacter(ergon);
+        OregonTrail.getCurrentGame().getPlayer().getParty().addCharacter(ergon);
         characters.remove(3);
-        this.console.println("*** You pick Ergon ***");
+        this.console.println("\n\nYou have chosen Ergon IV as your starting character.\n");
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
 
     private void pickM() {
         Character mitch = characters.get(4);
-        Player player = new Player();
-        player.addCharacter(mitch);
-        Party party = new Party();
-        party.addCharacter(mitch);
+        OregonTrail.getCurrentGame().getPlayer().getParty().addCharacter(mitch);
         characters.remove(4);
-        this.console.println("*** You pick Mitch ***");
+        this.console.println("\n\nYou have chosen Mitch as your starting character.\n");
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }

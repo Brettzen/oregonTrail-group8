@@ -43,7 +43,35 @@ public class MainMenuView extends View {
                     + "\n|Q - Quit Game                                  |"
                     + "\n-------------------------------------------------");
     }
-
+    
+    
+    @Override
+    public void display() {
+        boolean done = false;
+        
+        do {
+            String value = this.getInput();
+            if(value.toUpperCase().equals("Q")) System.exit(0);
+            
+            done = this.doAction(value);
+            
+            
+        } while(!done);
+    }
+    
+    public void displayWReturn() {
+        boolean done = false;
+        
+        do {
+            String value = this.getInputWReturn();
+            if(value.toUpperCase().equals("Q")) System.exit(0);
+            if(value.toUpperCase().equals("R")) return;
+            
+            done = this.doAction(value);
+            
+            
+        } while(!done);
+    }
     
     @Override
     public boolean doAction(String value) {      
@@ -83,6 +111,8 @@ public class MainMenuView extends View {
 
     }
 
+    
+    
     private void saveGame() {
         this.console.println("\n\nCreate a name to save the file:");
         
@@ -93,6 +123,37 @@ public class MainMenuView extends View {
         try {
             GameControl.saveGame(OregonTrail.getCurrentGame(), filePath);
             this.console.println("Game successfully saved.");
+        } catch(Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        
+        
+        
+        this.displayMessage = "\n"
+                            + "\n-------------------------------------------------"
+                            + "\n| Main Menu                                     |"
+                            + "\n-------------------------------------------------"
+                            + "\n|N - New Game                                   |"
+                            + "\n|S - Save Game                                  |"
+                            + "\n|L - Load Game                                  |"
+                            + "\n|H - Help Menu                                  |"
+                            + "\n|Q - Quit Game                                  |"
+                            + "\n-------------------------------------------------";
+        
+    }
+    
+    
+
+    private void loadGame() {
+        this.console.println("\n\nEnter the name of the file you want to load:");
+        
+        this.displayMessage = "";
+        
+        String filePath = this.getInput();
+        
+        try {
+            GameControl.loadGame(filePath);
+            this.console.println("Game successfully loaded.");
         } catch(Exception ex) {
             ErrorView.display("MainMenuView", ex.getMessage());
         }
@@ -108,20 +169,6 @@ public class MainMenuView extends View {
                             + "\n|Q - Quit Game                                  |"
                             + "\n-------------------------------------------------";
         
-    }
-
-    private void loadGame() {
-        this.console.println("\n\nEnter the name of the file you want to load:");
-        
-        String filePath = this.getInput();
-        
-        try {
-            GameControl.loadGame(filePath);
-            this.console.println("Game successfully loaded.");
-        } catch(Exception ex) {
-            ErrorView.display("MainMenuView", ex.getMessage());
-        }
-        
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
         
@@ -130,6 +177,42 @@ public class MainMenuView extends View {
     private void displayHelpMenu() {
        HelpMenuView helpMenu = new HelpMenuView();
        helpMenu.display();
+    }
+
+    private String getInputWReturn() {
+        String value = "";
+        boolean valid = false;
+        try {
+        while(!valid) {
+            this.displayMessage = "\n"
+                                + "\n-------------------------------------------------"
+                                + "\n| Main Menu                                     |"
+                                + "\n-------------------------------------------------"
+                                + "\n|N - New Game                                   |"
+                                + "\n|S - Save Game                                  |"
+                                + "\n|L - Load Game                                  |"
+                                + "\n|H - Help Menu                                  |"
+                                + "\n|R - Return to Previous Menu                    |"
+                                + "\n|Q - Quit Game                                  |"
+                                + "\n-------------------------------------------------";
+            this.console.println("\n" + this.displayMessage);
+            
+            value = this.keyboard.readLine();
+            value = value.trim();
+            
+            if(value.length() <1) {
+                ErrorView.display(this.getClass().getName(),
+	          "\nInvalid value: value cannot be blank.");
+                continue;
+            }
+            break;
+        }
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),
+                  "Error reading input: " + e.getMessage());
+            return null;
+        }
+        return value;
     }
     
 }

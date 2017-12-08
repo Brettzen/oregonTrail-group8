@@ -33,18 +33,29 @@ import java.util.ArrayList;
 public class ReportControl {
 
     public static void saveLocationReport(Location[] locations, String filePath) throws ReportControlException {
+        
         try(PrintWriter output = new PrintWriter(filePath)) {
+            
             output.println("\n\n                   Location Report                  ");
             output.printf("%n%-25s%-20s%-15s", "Name", "Location Type", "Dist. to Oregon");
             output.printf("%n%-25s%-20s%-15s", "---------------", "---------------", "---------------");
+            
             for(Location location : locations) {
-                output.printf("%n%-25s%-20s%-15s", location.getDesc(), location.getSceneType(), location.getDistanceToOregon() + " miles");
+                output.printf("%n%-25s%-20s%-15s", 
+                                    location.getDesc(), 
+                                    location.getSceneType(), 
+                                    location.getDistanceToOregon() + " miles");
             }
+            
             output.println("\n\n");
+            
         } catch(Exception e) {
             throw new ReportControlException(e.getMessage());
         }
+        
     }
+    
+    
     
      public static void  saveCharacterReport(ArrayList<Character> characters, String outputLocation) throws ReportControlException {
         //Create Buffered Reader object for input file

@@ -51,13 +51,14 @@ public class PaceMenuView extends View {
         switch(menuOption) {
             case "S":
                 this.slowPace();
-                break;
+                return true;
             case "A":
                 this.averagePace();
-                break;
+                return true;
             case "F":
                 this.fastPace();
-                break;
+                return true;
+                
             default:
                 this.console.println("*** Invalid selection. Try again ***");
                 break;

@@ -39,12 +39,12 @@ public class GameMenuView extends View {
                     + "\n|D - View Date & Day of the Week                    |"
                     + "\n|N - Check Distance Traveled from Missouri          |"
                     + "\n|O - Check Distance Remaining to Oregon             |"
-                    + "\n|A - Check the Surrounding Area                         |"
+                    + "\n|A - Check the Surrounding Area                     |"
                     + "\n|E - Check for any Events that Occured last Night   |"
                     + "\n|W - View Current Weather                           |"
-                    + "\n|S - View Team Status                               |"
+                    + "\n|S - View Party Status                              |"
                     + "\n|I - View Current Inventory                         |"
-                    + "\n|P - Set Team Pace                                  |"
+                    + "\n|P - Set Walking Pace                               |"
                     + "\n|G - Go to Scene Menu                               |"
                     + "\n|M - View the Map                                   |"
                     + "\n|R - View and Print Reports                         |"
@@ -52,7 +52,19 @@ public class GameMenuView extends View {
                     + "\n|Q - Main Menu                                      |"
                     + "\n-----------------------------------------------------");
     }
-
+    
+    @Override
+    public void display() {
+        boolean done = false;
+        
+        do {
+            String value = this.getInput();
+            
+            done = this.doAction(value);
+            
+            
+        } while(!done);
+    }
     
     @Override
     public boolean doAction(String menuOption) {      
@@ -79,7 +91,7 @@ public class GameMenuView extends View {
                 this.viewWeather();
                 break;
             case "S":
-                this.viewTeamStatus();
+                this.viewPartyStatus();
                 break;
             case "I":
                 this.displayItemMenu();
@@ -106,6 +118,9 @@ public class GameMenuView extends View {
             case "H":
                 this.displayHelpMenu();
                 break;
+            case "Q":
+                this.displayMainMenu();
+            break;
             default:
                 this.console.println("*** Invalid selection. Try again ***");
                 break;
@@ -145,8 +160,9 @@ public class GameMenuView extends View {
         itemMenu.display();
     }
 
-    private void viewTeamStatus() {
-        this.console.println("\n*** viewTeamStatus() called.");
+    private void viewPartyStatus() {
+        PartyView partyView = new PartyView();
+        partyView.display();
     }
 
     private void viewWeather() {
@@ -171,5 +187,10 @@ public class GameMenuView extends View {
     private void displayReportMenu() {
         ReportMenuView reportMenu = new ReportMenuView();
         reportMenu.display();
+    }
+
+    private void displayMainMenu() {
+        MainMenuView mainMenu = new MainMenuView();
+        mainMenu.displayWReturn();
     }
 }

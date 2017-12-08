@@ -34,10 +34,8 @@ class SceneMenuView extends View{
                     + "\n-----------------------------------------------------"
                     + "\n| Daily Trail Menu                                  |"
                     + "\n-----------------------------------------------------"
-                    + "\n|T - Visit Town (If Town is Present)                |"
-                    + "\n|F - Visit Fort (If Fort is Present)                |"
-                    + "\n|S - Visit Store (If Store is Present)              |"
-                    + "\n|C - Cross River (If River is Present)              |"
+                    + "\n|M - Move Forward on the Trail                      |"
+                    + "\n|C - Cross River                                    |"
                     + "\n|R - Rest for a Day                                 |"
                     + "\n|H - Go Hunting                                     |"
                     + "\n|G - Gather Edible Plants                           |"
@@ -79,6 +77,9 @@ class SceneMenuView extends View{
             case "G":
                 this.displayGatherMenu();
                 break;
+            case "M":
+                this.move();
+                break;
             default:
                 this.console.println("*** Invalid selection. Try again ***");
                 break;
@@ -116,6 +117,10 @@ class SceneMenuView extends View{
     private void displayStoreMenu() {
         StoreMenuView storeMenu = new StoreMenuView();
         storeMenu.display();
+    }
+
+    private void move() {
+        this.console.println("\n\n *** There is a river blocking your way. You need to cross the river before you can continue on the trail. ***");
     }
     
 }

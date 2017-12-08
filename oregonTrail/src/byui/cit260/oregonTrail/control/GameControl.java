@@ -83,9 +83,11 @@ public class GameControl {
 
         ArrayList<Character> characters = CharacterControl.createCharacters();
         game.setCharacters(characters);
-        CharacterView characterView = new CharacterView();
-        characterView.display();
         
+        if(game.getPlayer().getCharacter() != null) {
+            CharacterView characterView = new CharacterView();
+            characterView.display();
+        }
         return 1;
     }
     

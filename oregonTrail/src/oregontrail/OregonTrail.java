@@ -74,15 +74,6 @@ public class OregonTrail {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-//        StartProgramView startProgramView = new StartProgramView();
-//        try {
-//            startProgramView.display();
-//        } catch(Throwable te){
-//            System.out.println(te.getMessage());
-//            te.printStackTrace();
-//            startProgramView.display();
-//        }
     
     try {
 	// open character stream files for the end user input and output
@@ -97,13 +88,12 @@ public class OregonTrail {
 	// create StartProgramView and start the program
 	StartProgramView startProgramView = new StartProgramView();
 	startProgramView.display();
-	return;
 	
         } catch (Throwable e) {
 	System.out.println("Exception: " + e.toString() +
 			   "\nCause: " + e.getCause() +
 			   "\nMessage: " + e.getMessage());
-	e.printStackTrace();;
+	e.printStackTrace();
         } finally {
         try {
             if (OregonTrail.inFile !=null)
