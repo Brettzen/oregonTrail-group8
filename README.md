@@ -1,4 +1,4 @@
 # jquibs.cit360.github.io
 Object Oriented Programming 2
 
-link to website https://github.com/Quibilan-Jason/jquibs.cit360.github.io/
+link to website https://quibilan-jason.github.io/jquibsCit360.github.io/
