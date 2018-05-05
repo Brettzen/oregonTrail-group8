@@ -10,7 +10,7 @@ import java.util.*;
  *
  * @author jquibs
  */
-public class example1 {
+public class ArrayListDemo {
     public static void main(String[] args) {
         String[] animals = {"bear", "snake", "eagle", "moose", "cardinal", "dear", "squirrel"};
         List<String> list1 = new ArrayList<>();
