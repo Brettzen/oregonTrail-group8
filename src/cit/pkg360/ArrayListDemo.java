@@ -27,27 +27,34 @@ public class ArrayListDemo {
             list2.add(y);
         
         //print out list1
-        for(int i =0;i<list2.size();i++) {
+        for(int i =0;i<list1.size();i++) {
             System.out.printf("%s ", list1.get(i));
         }
         
-        //editlist(list1,list2);
-       // System.out.println();
+        //print out list2
+        //for(int j =0;j<list2.size();j++) {
+        //    System.out.printf("%s ", list2.get(j));
+        //}
+        
+        
+        
+        editlist(list1,list2);
+        System.out.println();
         
         //print out list1 again
-       // for(int i =0;i<list1.size();i++) {
-       //     System.out.printf("%s ", list1.get(i));
-       // }    
+        for(int i =0;i<list1.size();i++) {
+            System.out.printf("%s ", list1.get(i));
+        }    
     }
     
     //create method
-    //public static void editlist(Collection<String> l1, Collection<String> l2) {
-     //   Iterator<String> it = l1.iterator();
+    public static void editlist(Collection<String> l1, Collection<String> l2) {
+        Iterator<String> it = l1.iterator();
         
         //create loop to stop at end of list
-      //  while(it.hasNext()) {
-      //      if(l2.contains(it.next()))
-     //           it.remove();
-     //   }
-   // }
+        while(it.hasNext()) {
+            if(l2.contains(it.next()))
+                it.remove();
+        }
+    }
 }
