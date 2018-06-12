@@ -16,6 +16,7 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.exceptions.MapControlException;
 import byui.cit260.oregonTrail.model.Pace;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -31,9 +32,10 @@ public class MapControlTest {
 
     /**
      * Test of calculateDailyMiles method, of class MapControl.
+     * @throws byui.cit260.oregonTrail.exceptions.MapControlException
      */
     @Test
-    public void testCalculateDailyMiles() {
+    public void testCalculateDailyMiles() throws MapControlException {
         System.out.println("calculateDailyMiles");
         
 //        TEST CASE #1

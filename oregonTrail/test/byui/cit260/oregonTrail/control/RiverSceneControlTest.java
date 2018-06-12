@@ -16,6 +16,7 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.exceptions.RiverSceneControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -30,9 +31,10 @@ public class RiverSceneControlTest {
 
     /**
      * Test of calculateRiverCrossingProbability method, of class RiverSceneControl.
+     * @throws byui.cit260.oregonTrail.exceptions.RiverSceneControlException
      */
     @Test
-    public void testCalculateRiverCrossingProbability() {
+    public void testCalculateRiverCrossingProbability() throws RiverSceneControlException {
         
         //        TEST CASE #1
         System.out.println("Test #1");

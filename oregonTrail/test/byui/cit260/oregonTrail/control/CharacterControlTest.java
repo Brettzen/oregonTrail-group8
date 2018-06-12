@@ -35,7 +35,7 @@ public class CharacterControlTest {
     @Test
     public void testCalcHealthDraw() throws CharacterControlException {
         
-        // TEST CASE #1
+        //TEST CASE #1
         
         System.out.println("Test #1");
         int currentHealth = 80;
@@ -48,19 +48,19 @@ public class CharacterControlTest {
         int result = instance.calcHealthDraw(currentHealth, stamina, amountOfFood, weather, pace);
         assertEquals(expResult, result);
         
-        // TEST CASE #2
+        //TEST CASE #2
         
         System.out.println("Test #2");
-        currentHealth = -1;
+        currentHealth = 10;
         stamina = 75;
         amountOfFood = 50;
         weather = 1;
         pace = 1;
-        expResult = -1;
+        expResult = 25;
         result = instance.calcHealthDraw(currentHealth, stamina, amountOfFood, weather, pace);
         assertEquals(expResult, result);
         
-        // TEST CASE #3
+        //TEST CASE #3
         
         System.out.println("Test #3");
         currentHealth = 80;
@@ -72,7 +72,7 @@ public class CharacterControlTest {
         result = instance.calcHealthDraw(currentHealth, stamina, amountOfFood, weather, pace);
         assertEquals(expResult, result);
         
-        // TEST CASE #4
+        //TEST CASE #4
         
         System.out.println("Test #4");
         currentHealth = 80;
@@ -84,7 +84,7 @@ public class CharacterControlTest {
         result = instance.calcHealthDraw(currentHealth, stamina, amountOfFood, weather, pace);
         assertEquals(expResult, result);
         
-        // TEST CASE #5
+        //TEST CASE #5
         
         System.out.println("Test #5");
         currentHealth = 0;
@@ -96,7 +96,7 @@ public class CharacterControlTest {
         result = instance.calcHealthDraw(currentHealth, stamina, amountOfFood, weather, pace);
         assertEquals(expResult, result);
         
-        // TEST CASE #6
+        //TEST CASE #6
         
         System.out.println("Test #6");
         currentHealth = 75;
@@ -121,7 +121,7 @@ public class CharacterControlTest {
         assertEquals(expResult, result);
         
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");*/
     }
     
 }

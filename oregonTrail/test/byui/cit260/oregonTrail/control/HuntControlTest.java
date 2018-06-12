@@ -16,6 +16,7 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.exceptions.HuntControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -30,9 +31,10 @@ public class HuntControlTest {
 
     /**
      * Test of calcHuntSuccess method, of class HuntControl.
+     * @throws byui.cit260.oregonTrail.exceptions.HuntControlException
      */
     @Test
-    public void testCalcHuntSuccess() {
+    public void testCalcHuntSuccess() throws HuntControlException {
         // Test 1
         System.out.println("Test 1");
         int charHuntingSkill = 1;
